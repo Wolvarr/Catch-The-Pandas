@@ -1,4 +1,4 @@
-# Pandas-Geci
+# Catch the Pandas - 2D Singleplayer Game - Schoolproject
 Everything in connection with Projlab Homework
 
 Doksi a main hubhoz:
