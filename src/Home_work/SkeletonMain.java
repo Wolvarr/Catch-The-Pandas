@@ -29,27 +29,20 @@ public class SkeletonMain {
 
 
         // Set up som test object to demonstrate the functions
-        Floor floor = new Floor();
-        Tile t1 = new Tile(floor);
-        Tile t2 = new Tile(floor);
-        Orangutan o = new Orangutan();
-        floor.addTile(t1);
-        floor.addTile(t2);
 
-        t1.receive(o);
-
-        t1.addNeighbour(t2);
 
         //reading user input
         Scanner reader = new Scanner(System.in);  // Reading from System.in
-        int input = reader.nextInt(); // Scans the next token of the input as an int.
+        int input =0;
 
     while (input != 17)
     {
         input = reader.nextInt(); // Scans the next token of the input as an int.
         switch (input)
         {
-            case 1: OrangutanStepsEmpty(o,t1,t2);
+            case 1: OrangutanStepsEmpty();
+
+            case 17: break;
 
             default: System.out.println("Press between 1-17 you dumb fuck");
         }
@@ -60,7 +53,19 @@ public class SkeletonMain {
 
 
     //function for user choice 1
-    private static void OrangutanStepsEmpty(Orangutan o, Tile t1, Tile t2) {
+    private static void OrangutanStepsEmpty() {
+        //set up test environment
+        Floor floor = new Floor();
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Orangutan o = new Orangutan();
+        floor.addTile(t1);
+        floor.addTile(t2);
+        t1.receive(o);
+        t1.addNeighbour(t2);
+
+        //te tested function
+        System.out.println("The orangutan moves to a tile next to it :");
         o.move(t2);
     }
 }

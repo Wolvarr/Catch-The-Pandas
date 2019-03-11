@@ -12,7 +12,7 @@ public class Orangutan extends Animal{
        {
            if(tileTo.getOnObject() == null)
            {
-               System.out.println(this.toString() + " moved to " + tileTo.toString() + " from " + location.toString());
+               System.out.println(this.toString() + " moved to " + tileTo.toString() + " from " + location.toString() + "\n");
                location.movedFrom();
                tileTo.receive(this);
                return true;
