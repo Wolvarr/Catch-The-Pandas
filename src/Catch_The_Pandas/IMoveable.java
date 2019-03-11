@@ -1,4 +1,4 @@
-package Home_work;
+package Catch_The_Pandas;
 
 public interface IMoveable {
 

@@ -1,11 +1,12 @@
-package Home_work;
+package Catch_The_Pandas;
 
 public class Animal extends OnTileObject implements IMoveable {
 
 
     public void fall()
     {
-
+        System.out.println(this.toString() + " falls down");
+        location.movedFrom();
     }
 
     @Override

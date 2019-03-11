@@ -1,15 +1,14 @@
-package Home_work;
+package Catch_The_Pandas;
 
 import java.util.Scanner;
-import java.util.*;
 
 public class SkeletonMain {
 
     public static void main(String[] args) {
         System.out.println("\n               Catch the Pandas Skeleton");
         System.out.println("\n\nYou can press the following numbers to test the functions listed next to them");
-        System.out.println(("1 - Panda lép egyet üresre\n" +
-                "2 - Orangután lép üresre\n" +
+        System.out.println(("1 - Orángután lép egyet üresre\n" +
+                "2 - Panda lép üresre\n" +
                 "3 - Orángután nekimegy pandának ami már vezet másik pandát\n" +
                 "4 - Orángután vezet két pandát, lépnek egyet\n" +
                 "5 - Vándorló panda leesik egy lyukba\n" +
@@ -40,7 +39,13 @@ public class SkeletonMain {
         input = reader.nextInt(); // Scans the next token of the input as an int.
         switch (input)
         {
-            case 1: OrangutanStepsEmpty();
+            case 1: orangutanStepsEmpty(); break;
+
+            case 2: pandaStepsEmpty(); break;
+
+
+
+            case 5: pandaFallsDown(); break;
 
             case 17: break;
 
@@ -53,7 +58,7 @@ public class SkeletonMain {
 
 
     //function for user choice 1
-    private static void OrangutanStepsEmpty() {
+    private static void orangutanStepsEmpty() {
         //set up test environment
         Floor floor = new Floor();
         Tile t1 = new Tile(floor);
@@ -67,5 +72,39 @@ public class SkeletonMain {
         //te tested function
         System.out.println("The orangutan moves to a tile next to it :");
         o.move(t2);
+    }
+
+    //function for user choice 2
+    private static void pandaStepsEmpty()
+    {
+        //set up test environment
+        Floor floor = new Floor();
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Panda p = new Panda();
+        floor.addTile(t1);
+        floor.addTile(t2);
+        t1.receive(p);
+        t1.addNeighbour(t2);
+
+        System.out.println("The panda moves to a tile next to it :");
+        p.move(t2);
+    }
+
+    //function for user choice 5
+    public static void pandaFallsDown()
+    {
+        //set up test environment
+        Floor floor = new Floor();
+        Tile t1 = new Tile(floor);
+        Tile t2 = new FragileTile(floor,0);
+        Panda p = new Panda();
+        floor.addTile(t1);
+        floor.addTile(t2);
+        t1.receive(p);
+        t1.addNeighbour(t2);
+
+        System.out.println("The panda moves to a fragile tile next to it :");
+        p.move(t2);
     }
 }
