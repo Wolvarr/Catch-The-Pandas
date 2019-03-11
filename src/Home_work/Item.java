@@ -1,18 +1,6 @@
 package Home_work;
 
-public class Animal extends OnTileObject implements IMoveable {
-
-
-    public void fall()
-    {
-
-    }
-
-    @Override
-    public boolean Move(Tile tileTo) {
-        return false;
-    }
-
+public class Item extends OnTileObject {
     @Override
     public void eachTurn() {
 
