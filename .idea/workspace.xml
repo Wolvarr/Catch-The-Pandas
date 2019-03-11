@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d8e7763-6970-4817-ad1b-7535f94f0d82" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Home_work/Arcade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/Armchair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/CandyVending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/CowardPanda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/Entrance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/Exit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/Floor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/FragileTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/JumpyPanda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/LazyPanda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/OnTileObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/SkeletonMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home_work/Wardrobe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home_work/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home_work/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home_work/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home_work/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home_work/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home_work/Tile.java" afterDir="false" />
-    </list>
+    <list default="true" id="2d8e7763-6970-4817-ad1b-7535f94f0d82" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -266,12 +247,12 @@
       <updated>1552306443852</updated>
       <workItem from="1552306448977" duration="214000" />
       <workItem from="1552306702816" duration="638000" />
-      <workItem from="1552307487703" duration="1067000" />
+      <workItem from="1552307487703" duration="1310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1919000" />
+    <option name="totallyTimeSpent" value="2162000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
