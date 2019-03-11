@@ -1,7 +1,7 @@
 package Home_work;
 
 
-public class Panda extends Animal implements IMoveable{
+public class Panda extends Animal{
 
 
     protected Panda nextPanda;

@@ -1,11 +1,28 @@
 package Home_work;
 
 
-public class Orangutan extends Animal implements IMoveable{
+public class Orangutan extends Animal{
 
 
     private Panda grabbedPanda;
 
+    @Override
+    public boolean move(Tile tileTo) {
+       if(location.getNeighbours().contains(tileTo))
+       {
+           if(tileTo.getOnObject() == null)
+           {
+               System.out.println(this.toString() + " moved to " + tileTo.toString() + " from " + location.toString());
+               location.movedFrom();
+               tileTo.receive(this);
+               return true;
+           }
+
+           else return tileTo.getOnObject().steppedOn(this);
+       }
+
+       return false;
+    }
 
     public void grab(Panda p)
     {

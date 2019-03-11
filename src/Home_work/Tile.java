@@ -10,6 +10,30 @@ public class Tile {
     private Floor floor;
 
 
+    public Tile(Floor f)
+    {
+        neighbours = new ArrayList<>();
+        floor = f;
+    }
+
+    public OnTileObject getOnObject()
+    {
+        return on;
+    }
+
+    public ArrayList getNeighbours()
+    {
+        return  neighbours;
+    }
+
+    public void addNeighbour(Tile t)
+    {
+        neighbours.add(t);
+        if(!t.neighbours.contains(this))
+            t.addNeighbour(this);
+    }
+
+
     public void jumpedOn(Animal a)
     {
 
@@ -19,7 +43,13 @@ public class Tile {
 
     public boolean receive(Animal a)
     {
-        return false;
+       if(on == null) {
+           on = a;
+           on.setLocation(this);
+            return true;
+       }
+
+       return on.steppedOn(a);
     }
 
     public  void movedFrom()

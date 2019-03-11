@@ -9,7 +9,7 @@ public class Animal extends OnTileObject implements IMoveable {
     }
 
     @Override
-    public boolean Move(Tile tileTo) {
+    public boolean move(Tile tileTo) {
         return false;
     }
 
