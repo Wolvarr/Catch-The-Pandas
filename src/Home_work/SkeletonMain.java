@@ -6,8 +6,8 @@ import java.util.*;
 public class SkeletonMain {
 
     public static void main(String[] args) {
-
-        System.out.println("You can press the following numbers to test the functions listed next to them");
+        System.out.println("\n               Catch the Pandas Skeleton");
+        System.out.println("\n\nYou can press the following numbers to test the functions listed next to them");
         System.out.println(("1 - Panda lép egyet üresre\n" +
                 "2 - Orangután lép üresre\n" +
                 "3 - Orángután nekimegy pandának ami már vezet másik pandát\n" +
