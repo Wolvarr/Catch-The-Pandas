@@ -6,12 +6,12 @@ public class CowardPanda extends Panda {
 		System.out.println("Called function CowardPanda.scare()");
 		release();
 	}
-	
-	public void interact(OnTileObject obj) {
+
+
+	public void interact(Arcade a) {
 		System.out.println("Called function CowardPanda.interact()");
-		if(obj.getClass().getName() == "Arcade") {
 			this.scare();
 		return;
-		}
+
 	}
 }

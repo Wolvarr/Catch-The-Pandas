@@ -129,7 +129,11 @@ public class SkeletonMain {
     	floor.addTile(t2);
     	t1.addNeighbour(t2);
     	cp.grab(p);
-    	
+
+
+        t1.setOnTileObjext(cp);
+        t2.setOnTileObjext(arcade);
+
     	arcade.setLocation(t1);
     	cp.setLocation(t2);
     	

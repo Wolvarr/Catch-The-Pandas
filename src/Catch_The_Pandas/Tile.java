@@ -10,6 +10,11 @@ public class Tile {
     private Floor floor;
 
 
+    public void setOnTileObjext(OnTileObject object)
+    {
+        this.on = object;
+    }
+
     public Tile(Floor f)
     {
     	neighbours = new ArrayList<>();
