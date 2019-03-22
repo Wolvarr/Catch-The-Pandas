@@ -46,6 +46,12 @@ public class SkeletonMain {
 
 
             case 5: pandaFallsDown(); break;
+            
+            case 7: pandaScares(); break;
+            
+            case 8: pandaExits(); break;
+            
+            case 9: orangutanStepsUnmoveable(); break;
 
             case 17: break;
 
@@ -107,4 +113,56 @@ public class SkeletonMain {
         System.out.println("The panda moves to a fragile tile next to it :");
         p.move(t2);
     }
+    
+    //function for user choice 7
+    public static void pandaScares() {
+ 	   System.out.println("A panda scares and releases the line");
+    	Arcade a = new Arcade();
+    	CowardPanda cp = new CowardPanda();
+    	Panda p1 = new Panda();
+    	Panda p2 = new Panda();
+    	
+    	a.ring();
+    	cp.interact();
+    	cp.scare();
+    	p1.release();
+    	p2.release();
+    }
+    
+    //function for user choice 8
+    public static void pandaExits() {
+ 	   System.out.println("The orangutan guides a panda to the Exit");
+    	Orangutan o = new Orangutan();
+    	Floor f1 = new Floor();
+    	Tile t1 = new Tile(f1);
+    	Tile t2 = new Tile(f1);
+    	Panda p = new Panda();
+    	Exit e = new Exit(f1);
+    	Entrance en = new Entrance(f1);
+    	
+    	o.move(e);
+    	t1.movedFrom();
+    	e.receive(o);
+    	p.move(t1);
+    	t2.movedFrom();
+    	t1.receive(p);
+    	e.movedFrom();
+    	en.receive(o);
+    	p.move(e);
+    	t1.movedFrom();
+    	e.receive(p);
+    }
+    
+    public static void orangutanStepsUnmoveable() {
+    	Orangutan o = new Orangutan();
+    	Floor f1 = new Floor();
+    	Tile t1 = new Tile(f1);
+    	CandyVending cv = new CandyVending();
+    	
+    	o.move(t1);
+    	t1.receive(o);
+    	cv.steppedOn(o);    	
+    }
+    
+    
 }

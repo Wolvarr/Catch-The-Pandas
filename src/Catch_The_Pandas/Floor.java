@@ -15,12 +15,14 @@ public class Floor {
 
     public void addTile(Tile t)
     {
-        tiles.add(t);
+    	System.out.println("Called function floor.addTile()");
+    	tiles.add(t);
     }
 
     public void changePandaCount( int i)
     {
-        pandaCount += i;
+    	System.out.println("Called function floor.changePandaCount()");
+    	pandaCount += i;
     }
 
 }
