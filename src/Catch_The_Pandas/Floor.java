@@ -15,7 +15,6 @@ public class Floor {
 
     public void addTile(Tile t)
     {
-    	System.out.println("Called function floor.addTile()");
     	tiles.add(t);
     }
 

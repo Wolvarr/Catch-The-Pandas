@@ -12,7 +12,7 @@ public class Tile {
 
     public Tile(Floor f)
     {
-        neighbours = new ArrayList<>();
+    	neighbours = new ArrayList<>();
         floor = f;
     }
 
@@ -21,14 +21,13 @@ public class Tile {
         return on;
     }
 
-    public ArrayList getNeighbours()
+    public ArrayList<Tile> getNeighbours()
     {
         return  neighbours;
     }
 
     public void addNeighbour(Tile t)
     {
-    	System.out.println("Called function tile.addNeighbour()");
     	neighbours.add(t);
         if(!t.neighbours.contains(this))
             t.addNeighbour(this);

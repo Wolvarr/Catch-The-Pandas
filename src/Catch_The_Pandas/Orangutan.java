@@ -9,7 +9,7 @@ public class Orangutan extends Animal{
     @Override
     public boolean move(Tile tileTo) {
  	   System.out.println("Called function orangutan.move()");
- 	   /* if(location.getNeighbours().contains(tileTo))
+ 	   if(location.getNeighbours().contains(tileTo))
        {
            if(tileTo.getOnObject() == null)
            {
@@ -19,7 +19,7 @@ public class Orangutan extends Animal{
            }
 
            else return tileTo.getOnObject().steppedOn(this);
-       } */
+       }
 
        return false;
     }

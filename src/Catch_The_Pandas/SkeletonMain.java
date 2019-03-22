@@ -117,16 +117,24 @@ public class SkeletonMain {
     //function for user choice 7
     public static void pandaScares() {
  	   System.out.println("A panda scares and releases the line");
-    	Arcade a = new Arcade();
-    	CowardPanda cp = new CowardPanda();
-    	Panda p1 = new Panda();
-    	Panda p2 = new Panda();
     	
-    	a.ring();
-    	cp.interact();
-    	cp.scare();
-    	p1.release();
-    	p2.release();
+ 	   	Floor floor = new Floor();
+    	Tile t1 = new Tile(floor);
+    	Tile t2 = new Tile(floor);
+    	CowardPanda cp = new CowardPanda();
+    	Panda p = new Panda();
+    	Arcade arcade = new Arcade();
+    	
+    	floor.addTile(t1);
+    	floor.addTile(t2);
+    	t1.addNeighbour(t2);
+    	cp.grab(p);
+    	
+    	arcade.setLocation(t1);
+    	cp.setLocation(t2);
+    	
+    	arcade.ring();   	
+    	
     }
     
     //function for user choice 8
@@ -139,29 +147,14 @@ public class SkeletonMain {
     	Panda p = new Panda();
     	Exit e = new Exit(f1);
     	Entrance en = new Entrance(f1);
-    	
-    	o.move(e);
-    	t1.movedFrom();
-    	e.receive(o);
-    	p.move(t1);
-    	t2.movedFrom();
-    	t1.receive(p);
-    	e.movedFrom();
-    	en.receive(o);
-    	p.move(e);
-    	t1.movedFrom();
-    	e.receive(p);
     }
     
+    //function for user choice 9
     public static void orangutanStepsUnmoveable() {
     	Orangutan o = new Orangutan();
     	Floor f1 = new Floor();
     	Tile t1 = new Tile(f1);
-    	CandyVending cv = new CandyVending();
-    	
-    	o.move(t1);
-    	t1.receive(o);
-    	cv.steppedOn(o);    	
+    	CandyVending cv = new CandyVending();   	
     }
     
     
