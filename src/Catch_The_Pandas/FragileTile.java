@@ -11,7 +11,8 @@ public class FragileTile extends Tile {
 
     @Override
     public boolean receive(Animal a) {
-        if(health != 0)
+    	System.out.println("Called function fragiletile.recieve()");
+    	if(health != 0)
         return super.receive(a);
 
         else

@@ -12,7 +12,7 @@ public class Tile {
 
     public Tile(Floor f)
     {
-        neighbours = new ArrayList<>();
+    	neighbours = new ArrayList<>();
         floor = f;
     }
 
@@ -21,14 +21,14 @@ public class Tile {
         return on;
     }
 
-    public ArrayList getNeighbours()
+    public ArrayList<Tile> getNeighbours()
     {
         return  neighbours;
     }
 
     public void addNeighbour(Tile t)
     {
-        neighbours.add(t);
+    	neighbours.add(t);
         if(!t.neighbours.contains(this))
             t.addNeighbour(this);
     }
@@ -36,14 +36,15 @@ public class Tile {
 
     public void jumpedOn(Animal a)
     {
-
+    	System.out.println("Called function tile.jumpedOn()");
     }
 
 
 
     public boolean receive(Animal a)
     {
-       if(on == null) {
+    	System.out.println("Called function tile.recieve()");
+    	if(on == null) {
            on = a;
            on.setLocation(this);
             return true;
@@ -54,6 +55,7 @@ public class Tile {
 
     public  void movedFrom()
     {
-        this.on = null;
+    	System.out.println("Called function tile.movedFrom()");
+    	this.on = null;
     }
 }

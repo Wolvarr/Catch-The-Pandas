@@ -9,11 +9,11 @@ public class Panda extends Animal{
 
     @Override
     public boolean move(Tile tileTo) {
-        if(location.getNeighbours().contains(tileTo))
+    	System.out.println("Called function panda.move()");
+    	if(location.getNeighbours().contains(tileTo))
         {
             if(tileTo.getOnObject() == null)
             {
-                System.out.println(this.toString() + " moved to " + tileTo.toString() + " from " + location.toString() + "\n");
                 location.movedFrom();
                 tileTo.receive(this);
                 return true;
@@ -27,13 +27,13 @@ public class Panda extends Animal{
 
     public void grab(Panda p)
     {
-
+    	System.out.println("Called function panda.grab()");
     }
 
     public void release()
     {
-
+    	System.out.println("Called function panda.release()");
+    	this.nextPanda.previousAnimal = null;
+    	this.nextPanda = null;
     }
-
-
 }

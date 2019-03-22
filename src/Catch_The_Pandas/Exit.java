@@ -10,6 +10,7 @@ public class Exit extends Tile {
 
     public void setScore(int i)
     {
-        score = i;
+    	System.out.println("Called function exit.setScore()");
+    	score = i;
     }
 }
