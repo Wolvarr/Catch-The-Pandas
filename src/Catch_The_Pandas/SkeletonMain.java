@@ -43,8 +43,10 @@ public class SkeletonMain {
 
             case 2: pandaStepsEmpty(); break;
 
-
-
+            case 3: orangutanBumpsIntoPandaWithPanda(); break;
+            
+            case 4: orangutanMovesLeadingPandas(); break;
+            
             case 5: pandaFallsDown(); break;
             
             case 7: pandaScares(); break;
@@ -52,6 +54,8 @@ public class SkeletonMain {
             case 8: pandaExits(); break;
             
             case 9: orangutanStepsUnmoveable(); break;
+            
+            case 15: orangutanGrabsFirst(); break;
 
             case 17: break;
 
@@ -96,7 +100,68 @@ public class SkeletonMain {
         System.out.println("The panda moves to a tile next to it :");
         p.move(t2);
     }
-
+    
+    //DOMIAN
+  //function for user choice 3
+    public static void orangutanBumpsIntoPandaWithPanda() 
+    {
+    	//set up test environment
+    	Floor floor = new Floor();
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Tile t3 = new Tile(floor);
+        
+        Orangutan o = new Orangutan();
+        Panda p1 = new Panda();
+        Panda p2 = new Panda();
+        
+        floor.addTile(t1);
+        floor.addTile(t2);
+        floor.addTile(t3);
+        t1.receive(p1);
+        t2.receive(o);
+        t3.receive(p2);
+        t1.addNeighbour(t2);
+        t2.addNeighbour(t3);
+        o.grab(p1);
+        
+        o.move(t3);
+    }
+    
+    //DOMIAN
+    //function for user choice 4
+    public static void orangutanMovesLeadingPandas() 
+    {
+    	//set up test environment
+    	Floor floor = new Floor();
+    	
+    	Tile t0 = new Tile(floor);
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Tile t3 = new Tile(floor);
+        
+        Orangutan o = new Orangutan();
+        Panda p1 = new Panda();
+        Panda p2 = new Panda();
+        
+        floor.addTile(t0);
+        floor.addTile(t1);
+        floor.addTile(t2);
+        floor.addTile(t3);
+        t0.receive(p1);
+        t1.receive(p2);
+        t2.receive(o);
+        t0.addNeighbour(t1);
+        t1.addNeighbour(t2);
+        t2.addNeighbour(t3);
+        o.grab(p1);
+        p1.grabpreviousAnimal(o);
+        p1.grab(p2);
+        p2.grabpreviousAnimal(p1);
+        
+        o.move(t3);
+    }
+    
     //function for user choice 5
     public static void pandaFallsDown()
     {
@@ -161,5 +226,25 @@ public class SkeletonMain {
     	CandyVending cv = new CandyVending();   	
     }
     
+    //DOMIAN
+    //function for user choice 15
+    public static void orangutanGrabsFirst() {
+    	System.out.println("Orangutan grabs the first panda");
+    	
+    	//set up test environment
+    	Floor floor = new Floor();
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Orangutan o = new Orangutan();
+        floor.addTile(t1);
+        floor.addTile(t2);
+        t1.receive(o);
+        t1.addNeighbour(t2);
+        Panda p = new Panda();
+        t2.receive(p);
+        o.move(t2);
+    	
+    	
+    }
     
 }

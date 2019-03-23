@@ -24,10 +24,17 @@ public class Panda extends Animal{
 
         return false;
     }
-
+    
+    @Override
     public void grab(Panda p)
     {
     	System.out.println("Called function panda.grab()");
+    }
+    
+    //DOMIAN
+    public void grabpreviousAnimal(Animal a) {
+    	
+    	System.out.println("Called function panda.grabpreviousAnimal()");
     }
 
     public void release()
@@ -36,4 +43,30 @@ public class Panda extends Animal{
     	this.nextPanda.previousAnimal = null;
     	this.nextPanda = null;
     }
+    
+    @Override
+   
+    //DOMIAN
+    public boolean steppedOn(Animal Incoming) {
+    	
+    	System.out.println("Called function panda.steppedOn()");
+    	// CHECK IF ITS AN ORANGUTAN
+    	
+    	// check if o.grabbed==NULL
+    	if(Incoming.getGrabbed()== null) {
+    		this.grabpreviousAnimal(Incoming);
+        	Incoming.grab(this);
+    	}
+    	else {
+    		Incoming.getGrabbed().release();
+    		this.grabpreviousAnimal(Incoming);
+    		Incoming.grab(this);
+    		Incoming.getGrabbed().grab(this);
+    		
+    	}
+    	
+    	
+        return false;
+    }
+
 }

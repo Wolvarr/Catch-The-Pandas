@@ -23,10 +23,34 @@ public class Orangutan extends Animal{
 
        return false;
     }
-
+    
+    @Override
     public void grab(Panda p)
     {
+    	grabbedPanda=p;
     	System.out.println("Called function orangutan.grab()");
+    }
+    
+    @Override
+    public boolean steppedOn(Animal inComingAnimal) {
+    	
+    	System.out.println("Called function orangutan.steppedOn()");
+        return false;
+    }
+    
+    //DOMIAN
+    @Override
+    public Panda getGrabbed() {
+    	System.out.println("Called function orangutan.getGrabbed()");
+    	return grabbedPanda;
+    }
+    
+    //DOMIAN
+    @Override
+    public void release() 
+    {
+    	System.out.println("Called function orangutan.release()");
+    	grabbedPanda=null;
     }
 
 }

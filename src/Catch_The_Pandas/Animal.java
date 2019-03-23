@@ -1,6 +1,6 @@
 package Catch_The_Pandas;
 
-public class Animal extends OnTileObject implements IMoveable {
+public abstract class Animal extends OnTileObject implements IMoveable {
 
 
     public void fall()
@@ -23,6 +23,7 @@ public class Animal extends OnTileObject implements IMoveable {
 
     @Override
     public boolean steppedOn(Animal inComingAnimal) {
+    	
     	System.out.println("Called function animal.steppedOn()");
         return false;
     }
@@ -31,4 +32,21 @@ public class Animal extends OnTileObject implements IMoveable {
     public void interact(OnTileObject obj) {
     	System.out.println("Called function animal.interact()");
     }
+    
+    //DOMIAN
+    public void grab(Panda p)
+    {
+    	//System.out.println("Called function orangutan.grab()");
+    }
+    
+    //DOMIAN
+    public Animal getGrabbed()
+    {
+    	System.out.println("Called function Animal.getGrabbed()");
+    	return this;
+    }
+    
+    //DOMIAN
+    public abstract void release();
+
 }
