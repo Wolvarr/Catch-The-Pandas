@@ -124,7 +124,8 @@ public class SkeletonMain {
         t1.addNeighbour(t2);
         t2.addNeighbour(t3);
         o.grab(p1);
-        
+        p1.grabpreviousAnimal(o);
+        System.out.println("The orangutan Bumps IntoPanda WithPanda :");
         o.move(t3);
     }
     
@@ -148,9 +149,11 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
         floor.addTile(t3);
-        t0.receive(p1);
-        t1.receive(p2);
+        
+        t0.receive(p2);
+        t1.receive(p1);
         t2.receive(o);
+        
         t0.addNeighbour(t1);
         t1.addNeighbour(t2);
         t2.addNeighbour(t3);
@@ -158,7 +161,7 @@ public class SkeletonMain {
         p1.grabpreviousAnimal(o);
         p1.grab(p2);
         p2.grabpreviousAnimal(p1);
-        
+        System.out.println("AFTER :");
         o.move(t3);
     }
     

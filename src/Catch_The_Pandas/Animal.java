@@ -33,8 +33,4 @@ public class Animal extends OnTileObject implements IMoveable {
     	System.out.println("Called function animal.interact()");
     }
     
-    /*public void Incoming() {
-    	System.out.println("Called function animal.INCOMING()");
-    }*/
-
 }
