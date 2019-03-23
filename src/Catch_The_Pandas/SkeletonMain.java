@@ -103,6 +103,8 @@ public class SkeletonMain {
     
     //DOMIAN
   //function for user choice 3
+    //SZEKVENCIA ALAPJAN
+    // DE IGY FURA ELEGGE
     public static void orangutanBumpsIntoPandaWithPanda() 
     {
     	//set up test environment
@@ -148,8 +150,8 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
         floor.addTile(t3);
-        t0.receive(p1);
-        t1.receive(p2);
+        t0.receive(p2);
+        t1.receive(p1);
         t2.receive(o);
         t0.addNeighbour(t1);
         t1.addNeighbour(t2);
