@@ -103,8 +103,6 @@ public class SkeletonMain {
     
     //DOMIAN
   //function for user choice 3
-    //SZEKVENCIA ALAPJAN
-    // DE IGY FURA ELEGGE
     public static void orangutanBumpsIntoPandaWithPanda() 
     {
     	//set up test environment
@@ -150,8 +148,8 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
         floor.addTile(t3);
-        t0.receive(p2);
-        t1.receive(p1);
+        t0.receive(p1);
+        t1.receive(p2);
         t2.receive(o);
         t0.addNeighbour(t1);
         t1.addNeighbour(t2);
@@ -197,14 +195,12 @@ public class SkeletonMain {
     	t1.addNeighbour(t2);
     	cp.grab(p);
 
-
-        t1.setOnTileObjext(cp);
+        t1.receive(cp);
         t2.setOnTileObjext(arcade);
 
-    	arcade.setLocation(t1);
-    	cp.setLocation(t2);
+    	arcade.setLocation(t2);
     	
-    	arcade.ring();   	
+    	arcade.ring();
     	
     }
     
@@ -225,7 +221,16 @@ public class SkeletonMain {
     	Orangutan o = new Orangutan();
     	Floor f1 = new Floor();
     	Tile t1 = new Tile(f1);
-    	CandyVending cv = new CandyVending();   	
+    	Tile t2 = new Tile(f1);
+    	CandyVending cv = new CandyVending();
+
+    	t1.addNeighbour(t2);
+    	t1.receive(o);
+    	t2.setOnTileObjext(cv);
+    	cv.setLocation(t2);
+
+    	o.move(t2);
+
     }
     
     //DOMIAN
@@ -245,7 +250,6 @@ public class SkeletonMain {
         Panda p = new Panda();
         t2.receive(p);
         o.move(t2);
-    	
     	
     }
     

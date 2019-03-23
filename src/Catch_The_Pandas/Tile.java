@@ -3,22 +3,13 @@ package Catch_The_Pandas;
 import java.util.ArrayList;
 
 public class Tile {
-	
-	//CHECK
-	//static int number=0;
-	//int current=0;
-	
+
+
     private OnTileObject on;
     private ArrayList<Tile> neighbours;
     private Floor floor;
-  
-    //CHECK
-   /* @Override
-    public String toString() {
-		return "Tile"+this.current;
-    	
-    }*/
-    
+
+
     public void setOnTileObjext(OnTileObject object)
     {
         this.on = object;
@@ -28,9 +19,6 @@ public class Tile {
     {
     	neighbours = new ArrayList<>();
         floor = f;
-       //CHECK
-       // current=number;
-       //number++;
     }
 
     public OnTileObject getOnObject()
@@ -60,7 +48,7 @@ public class Tile {
 
     public boolean receive(Animal a)
     {
-    	System.out.println("Called function tile.recieve()"/*+this.toString()*/);
+    	System.out.println("Called function tile.recieve()");
     	if(on == null) {
            on = a;
            on.setLocation(this);
