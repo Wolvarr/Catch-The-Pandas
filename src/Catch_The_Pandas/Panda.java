@@ -38,26 +38,15 @@ public class Panda extends Animal {
 		this.nextPanda = null;
 	}
 
-	/*// DOMIAN
+	@Override
 	public boolean steppedOn(Animal Incoming) {
 
 		System.out.println("Called function panda.steppedOn()");
-		// CHECK IF ITS AN ORANGUTAN
-
-		// check if o.grabbed==NULL
-		if (Incoming.getGrabbed() == null) {
-			this.grabpreviousAnimal(Incoming);
-			Incoming.grab(this);
-		} else {
-			Incoming.getGrabbed().release();
-			this.grabpreviousAnimal(Incoming);
-			Incoming.grab(this);
-			Incoming.getGrabbed().grab(this);
-
-		}
+		
+		//this.steppedOn(o)
 
 		return false;
-	}*/
+	}
 
 	public boolean steppedOn(Orangutan o) {
 

@@ -44,5 +44,10 @@ public class Orangutan extends Animal{
     	return grabbedPanda;
     }
     
+    //DOMIAN
+    public void inComing() {
+    	
+    }
+    
 
 }
