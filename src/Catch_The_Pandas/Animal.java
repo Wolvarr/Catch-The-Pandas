@@ -23,6 +23,7 @@ public class Animal extends OnTileObject implements IMoveable {
 
     @Override
     public boolean steppedOn(Animal inComingAnimal) {
+    	
     	System.out.println("Called function animal.steppedOn()");
         return false;
     }
@@ -31,4 +32,5 @@ public class Animal extends OnTileObject implements IMoveable {
     public void interact(OnTileObject obj) {
     	System.out.println("Called function animal.interact()");
     }
+    
 }

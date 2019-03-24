@@ -12,8 +12,5 @@ public class Item extends OnTileObject {
     	return false;
     }
 
-    @Override
-    public void interact(OnTileObject obj) {
-    	System.out.println("Called function item.interact()");
-    }
+    public void interact(OnTileObject obj){ System.out.println("Called function item.interact()");}
 }

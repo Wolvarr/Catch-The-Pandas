@@ -43,8 +43,10 @@ public class SkeletonMain {
 
             case 2: pandaStepsEmpty(); break;
 
-
-
+            case 3: orangutanBumpsIntoPandaWithPanda(); break;
+            
+            case 4: orangutanMovesLeadingPandas(); break;
+            
             case 5: pandaFallsDown(); break;
             
             case 7: pandaScares(); break;
@@ -52,6 +54,16 @@ public class SkeletonMain {
             case 8: pandaExits(); break;
             
             case 9: orangutanStepsUnmoveable(); break;
+            
+            case 10: pandaSits(); break;
+            
+            case 12: orangutanMovesToHole(); break;
+            
+            case 13: arcadeBeepsPandaJumps(); break;
+            
+            case 14: pandaInLineMovesToHole(); break;
+            
+            case 15: orangutanGrabsFirst(); break;
 
             case 17: break;
 
@@ -96,7 +108,71 @@ public class SkeletonMain {
         System.out.println("The panda moves to a tile next to it :");
         p.move(t2);
     }
-
+    
+    //DOMIAN
+  //function for user choice 3
+    public static void orangutanBumpsIntoPandaWithPanda() 
+    {
+    	//set up test environment
+    	Floor floor = new Floor();
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Tile t3 = new Tile(floor);
+        
+        Orangutan o = new Orangutan();
+        Panda p1 = new Panda();
+        Panda p2 = new Panda();
+        
+        floor.addTile(t1);
+        floor.addTile(t2);
+        floor.addTile(t3);
+        t1.receive(p1);
+        t2.receive(o);
+        t3.receive(p2);
+        t1.addNeighbour(t2);
+        t2.addNeighbour(t3);
+        o.grab(p1);
+        p1.grabpreviousAnimal(o);
+        System.out.println("The orangutan Bumps IntoPanda WithPanda :");
+        o.move(t3);
+    }
+    
+    //DOMIAN
+    //function for user choice 4
+    public static void orangutanMovesLeadingPandas() 
+    {
+    	//set up test environment
+    	Floor floor = new Floor();
+    	
+    	Tile t0 = new Tile(floor);
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Tile t3 = new Tile(floor);
+        
+        Orangutan o = new Orangutan();
+        Panda p1 = new Panda();
+        Panda p2 = new Panda();
+        
+        floor.addTile(t0);
+        floor.addTile(t1);
+        floor.addTile(t2);
+        floor.addTile(t3);
+        
+        t0.receive(p2);
+        t1.receive(p1);
+        t2.receive(o);
+        
+        t0.addNeighbour(t1);
+        t1.addNeighbour(t2);
+        t2.addNeighbour(t3);
+        o.grab(p1);
+        p1.grabpreviousAnimal(o);
+        p1.grab(p2);
+        p2.grabpreviousAnimal(p1);
+        System.out.println("AFTER :");
+        o.move(t3);
+    }
+    
     //function for user choice 5
     public static void pandaFallsDown()
     {
@@ -130,14 +206,12 @@ public class SkeletonMain {
     	t1.addNeighbour(t2);
     	cp.grab(p);
 
-
-        t1.setOnTileObjext(cp);
+        t1.receive(cp);
         t2.setOnTileObjext(arcade);
 
-    	arcade.setLocation(t1);
-    	cp.setLocation(t2);
+    	arcade.setLocation(t2);
     	
-    	arcade.ring();   	
+    	arcade.ring();
     	
     }
     
@@ -158,8 +232,115 @@ public class SkeletonMain {
     	Orangutan o = new Orangutan();
     	Floor f1 = new Floor();
     	Tile t1 = new Tile(f1);
-    	CandyVending cv = new CandyVending();   	
+    	Tile t2 = new Tile(f1);
+    	CandyVending cv = new CandyVending();
+
+    	t1.addNeighbour(t2);
+    	t1.receive(o);
+    	t2.setOnTileObjext(cv);
+    	cv.setLocation(t2);
+
+    	o.move(t2);
+
     }
     
+    //function for user choice 10
+	public static void pandaSits() {
+		System.out.println("Armchair pulls panda");
+		Floor floor = new Floor();
+		Tile t1 = new Tile(floor);
+		Tile t2 = new Tile(floor);
+		LazyPanda lp = new LazyPanda();
+		Panda p1 = new Panda();
+		Panda p2 = new Panda();
+		Armchair armchair = new Armchair();
+
+		floor.addTile(t1);
+		floor.addTile(t2);
+		t1.addNeighbour(t2);
+		p1.grab(lp);
+		lp.grab(p2);
+		t1.receive(lp);
+		t2.setOnTileObjext(armchair);
+		armchair.setLocation(t2);
+		armchair.pull();
+
+	}
+	
+	// function for user choice 12
+	public static void orangutanMovesToHole() {
+    	System.out.println("Orangutan moves to a hole");
+    	Floor floor = new Floor();
+    	Tile t = new Tile(floor);
+    	Tile ft = new FragileTile(floor, 0);
+    	Orangutan o = new Orangutan();
+    	floor.addTile(t);
+    	floor.addTile(ft);
+    	t.addNeighbour(ft);
+    	t.receive(o);
+    	o.move(ft);
+    }
+	
+	// function for user choice 13
+	public static void arcadeBeepsPandaJumps() {
+		System.out.println("Panda jumps frightened, fragileTile's health decreases");
+		Floor floor = new Floor();
+    	Tile t = new Tile(floor);
+    	FragileTile ft = new FragileTile(floor, 4); // fragileTile's health > 0
+    	JumpyPanda jp = new JumpyPanda();
+    	CandyVending cv = new CandyVending();
+    	floor.addTile(t);
+    	floor.addTile(ft);
+    	t.addNeighbour(ft);
+    	ft.receive(jp);
+    	
+    	jp.setLocation(ft);
+    	
+    	t.setOnTileObjext(cv);
+    	cv.setLocation(t);
+    	cv.beep();
+    	
+	}
+	
+	// function for user choice 14
+	public static void pandaInLineMovesToHole() {
+		System.out.println("Panda moves to a hole, releases next panda");
+		Floor floor = new Floor();
+    	Tile t1 = new Tile(floor);
+    	Tile t2 = new Tile(floor);
+    	FragileTile ft = new FragileTile(floor, 0);
+    	Panda p1 = new Panda();
+    	Panda p2 = new Panda();
+    	floor.addTile(t1);
+    	floor.addTile(t2);
+    	floor.addTile(ft);
+    	t2.addNeighbour(t1);
+    	t1.addNeighbour(ft);
+    	p1.grab(p2);
+
+        t2.receive(p2);
+        t1.receive(p1);
+        p1.move(ft);
+	}
+    
+    //DOMIAN
+    //function for user choice 15
+    public static void orangutanGrabsFirst() {
+    	System.out.println("Orangutan grabs the first panda");
+    	
+    	//set up test environment
+    	Floor floor = new Floor();
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+        Orangutan o = new Orangutan();
+        floor.addTile(t1);
+        floor.addTile(t2);
+        t1.receive(o);
+        t1.addNeighbour(t2);
+        Panda p = new Panda();
+        t2.receive(p);
+        o.move(t2);
+    	
+    }
     
 }

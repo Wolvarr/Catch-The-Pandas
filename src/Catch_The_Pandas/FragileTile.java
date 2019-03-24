@@ -21,4 +21,13 @@ public class FragileTile extends Tile {
             return false;
         }
     }
+    
+    @Override
+    public void jumpedOn(Animal jp) {
+    	System.out.println("Called function fragiletile.jumpedOn()");
+    	if(health > 0) {
+    		health--;
+    		System.out.println("Health decreased");
+    	}
+    }
 }

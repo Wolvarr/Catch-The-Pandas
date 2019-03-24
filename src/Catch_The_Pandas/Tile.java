@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class Tile {
 
-
+	private int number=0;
+	private static int stat=0;
+	
     private OnTileObject on;
     private ArrayList<Tile> neighbours;
     private Floor floor;
@@ -19,8 +21,14 @@ public class Tile {
     {
     	neighbours = new ArrayList<>();
         floor = f;
+        this.number=stat;
+        stat++;
     }
-
+    
+    public String toString() {
+    	return "Tile"+ this.number;
+    }
+    
     public OnTileObject getOnObject()
     {
         return on;
@@ -48,7 +56,7 @@ public class Tile {
 
     public boolean receive(Animal a)
     {
-    	System.out.println("Called function tile.recieve()");
+    	System.out.println("Called function tile.recieve()"+this.toString());
     	if(on == null) {
            on = a;
            on.setLocation(this);

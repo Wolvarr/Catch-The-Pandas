@@ -1,32 +1,47 @@
 package Catch_The_Pandas;
 
+public class Orangutan extends Animal {
 
-public class Orangutan extends Animal{
+	private Panda grabbedPanda;
 
+	@Override
+	public boolean move(Tile tileTo) {
+		System.out.println("Called function orangutan.move()");
+		if (location.getNeighbours().contains(tileTo)) {
+			if (tileTo.getOnObject() == null) {
+				location.movedFrom();
+				if (this.grabbedPanda != null) {
+					this.grabbedPanda.move(location);
+				}
+				tileTo.receive(this);
+				return true;
+			} else
+				return tileTo.getOnObject().steppedOn(this);
+		}
+		return false;
+	}
 
-    private Panda grabbedPanda;
+	public void grab(Panda p) {
+		this.grabbedPanda = p;
+		System.out.println("Called function orangutan.grab()");
+	}
 
-    @Override
-    public boolean move(Tile tileTo) {
- 	   System.out.println("Called function orangutan.move()");
- 	   if(location.getNeighbours().contains(tileTo))
-       {
-           if(tileTo.getOnObject() == null)
-           {
-               location.movedFrom();
-               tileTo.receive(this);
-               return true;
-           }
+	@Override
+	public boolean steppedOn(Animal inComingAnimal) {
 
-           else return tileTo.getOnObject().steppedOn(this);
-       }
+		System.out.println("Called function orangutan.steppedOn()");
+		return false;
+	}
 
-       return false;
-    }
+	// DOMIAN
+	public Panda getGrabbed() {
+		// System.out.println("Called function orangutan.getGrabbed()");
+		return grabbedPanda;
+	}
 
-    public void grab(Panda p)
-    {
-    	System.out.println("Called function orangutan.grab()");
-    }
+	// DOMIAN
+	public void inComing() {
+
+	}
 
 }
