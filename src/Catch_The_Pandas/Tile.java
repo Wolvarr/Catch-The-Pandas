@@ -26,7 +26,7 @@ public class Tile {
     }
     
     public String toString() {
-    	return "Tile"+ this.number;
+    	return "Tile: "+ hashCode() + " ";
     }
     
     public OnTileObject getOnObject()
@@ -49,14 +49,14 @@ public class Tile {
 
     public void jumpedOn(Animal a)
     {
-    	System.out.println("Called function tile.jumpedOn()");
+    	System.out.println(toString() + "Called function tile.jumpedOn()");
     }
 
 
 
     public boolean receive(Animal a)
     {
-    	System.out.println("Called function" +this.toString()+ "tile.recieve()");
+    	System.out.println(toString() + "Called function tile.recieve()");
     	if(on == null) {
            on = a;
            on.setLocation(this);
@@ -68,7 +68,7 @@ public class Tile {
 
     public  void movedFrom()
     {
-    	System.out.println("Called function tile.movedFrom()");
+    	System.out.println(toString() + "Called function tile.movedFrom()");
     	this.on = null;
     }
 }

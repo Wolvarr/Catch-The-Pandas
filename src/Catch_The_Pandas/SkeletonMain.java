@@ -48,6 +48,8 @@ public class SkeletonMain {
             case 4: orangutanMovesLeadingPandas(); break;
             
             case 5: pandaFallsDown(); break;
+
+            case 6: pandasStepInHole(); break;
             
             case 7: pandaScares(); break;
             
@@ -189,6 +191,37 @@ public class SkeletonMain {
         System.out.println("The panda moves to a fragile tile next to it :");
         p.move(t2);
     }
+    //function for user choice 6
+    //Örvényesi
+    public static void pandasStepInHole(){
+        //setting up
+        Floor floor = new Floor();
+        Panda p1 = new Panda();
+        Panda p2 = new Panda();
+        //sorrend: ft, t1, t2
+        FragileTile ft = new FragileTile(floor, 1);
+        Tile t1 = new Tile(floor);
+        Tile t2 = new Tile(floor);
+
+        floor.addTile(ft);
+        floor.addTile(t1);
+        floor.addTile(t2);
+
+        ft.addNeighbour(t1);
+        t1.addNeighbour(t2);
+
+        t1.receive(p1);
+        t2.receive(p2);
+
+        p1.grab(p2);
+
+        System.out.println("End of setup\n\n");
+        p1.move(ft);
+
+
+
+
+    }
     
     //function for user choice 7
     public static void pandaScares() {
@@ -266,6 +299,9 @@ public class SkeletonMain {
 		armchair.pull();
 
 	}
+
+    // function for user choice 11
+
 	
 	// function for user choice 12
 	public static void orangutanMovesToHole() {

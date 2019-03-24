@@ -11,14 +11,17 @@ public class FragileTile extends Tile {
 
     @Override
     public boolean receive(Animal a) {
-    	System.out.println("Called function fragiletile.recieve()");
+    	System.out.println(toString() + "Called function fragiletile.recieve()");
+    	health--;
     	if(health != 0)
         return super.receive(a);
 
         else
         {
             a.fall();
+            System.out.println(toString() + "Animal has fallen");
             return false;
+
         }
     }
     
@@ -29,5 +32,14 @@ public class FragileTile extends Tile {
     		health--;
     		System.out.println("Health decreased");
     	}
+    }
+
+    public void setHealth(int h){
+        health = h;
+    }
+
+    @Override
+    public String toString(){
+        return "Fragile tile: " + hashCode() + " ";
     }
 }

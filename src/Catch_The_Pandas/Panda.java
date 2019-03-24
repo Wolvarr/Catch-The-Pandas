@@ -7,7 +7,7 @@ public class Panda extends Animal {
 
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println("Called function panda.move()");
+		System.out.println(toString() + "Called function panda.move()");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
@@ -31,7 +31,7 @@ public class Panda extends Animal {
 	public void grab(Panda p) {
 
 		this.nextPanda = p;
-		System.out.println("Called function panda.grab()");
+		System.out.println(toString() + "Called function panda.grab()");
 	}
 
 	// DOMIAN
@@ -39,11 +39,11 @@ public class Panda extends Animal {
 	public void grabpreviousAnimal(Animal a) {
 
 		this.previousAnimal = a;
-		System.out.println("Called function panda.grabpreviousAnimal()");
+		System.out.println(toString() + "Called function panda.grabpreviousAnimal()");
 	}
 
 	public void release() {
-		System.out.println("Called function panda.release()");
+		System.out.println(toString() + "Called function panda.release()");
 		this.previousAnimal = null;
 		this.nextPanda = null;
 	}
@@ -52,7 +52,7 @@ public class Panda extends Animal {
 	// DOMIAN
 	public boolean steppedOn(Orangutan o) {
 
-		System.out.println("Called function panda.steppedOn(ORANGUTAN)");
+		System.out.println(toString() + "Called function panda.steppedOn(ORANGUTAN)");
 
 		// teszeli hogy o.grabbed==NULL
 		if (o.getGrabbed() == null) {
@@ -60,7 +60,7 @@ public class Panda extends Animal {
 			o.grab(this);
 		}
 		// ha nem akkor elengedi a fogott pandat
-		// a korábban fogott megragadja amire érkezik (becsatolodik a vegere)
+		// a korabban fogott megragadja amire érkezik (becsatolodik a vegere)
 		// az orangutan is megragadja amire erkezik
 		// majd amire erkeztek is megfogja az elotte levo pandat
 		else {
@@ -79,7 +79,7 @@ public class Panda extends Animal {
 	//nem csinal semmit ha panda lep pandara
 	public boolean steppedOn(Panda p) {
 
-		System.out.println("Called function panda.steppedOn(PANDA)");
+		System.out.println(toString() + "Called function panda.steppedOn(PANDA)");
 
 		return false;
 	}
@@ -87,11 +87,16 @@ public class Panda extends Animal {
 	@Override
 	public void fall()
     {
-    	System.out.println("Called function panda.fall()");
+    	System.out.println(toString() + "Called function panda.fall()");
     	if(nextPanda != null) {
     		release();
     	}
     }
+
+    @Override
+	public String toString(){
+		return "Panda: " + hashCode()+ " ";
+	}
 
 
 }
