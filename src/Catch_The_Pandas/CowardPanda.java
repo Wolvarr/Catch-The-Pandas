@@ -8,13 +8,13 @@ public class CowardPanda extends Panda {
 	}
 
 	//Dani
-	@Override
-	public void interact(OnTileObject obj) {
-		System.out.println("Called function CowardPanda.interact()");
-		//Erre ki kéne találni valamit
-		this.interact((Arcade)obj);
-		return;
-	}
+//	@Override
+//	public void interact(OnTileObject obj) {
+//		System.out.println("Called function CowardPanda.interact()");
+//		//Erre ki kéne találni valamit
+//
+//		return;
+//	}
 
 	public void interact(Arcade a) {
 		System.out.println("Called function CowardPanda.interact(Arcade)");

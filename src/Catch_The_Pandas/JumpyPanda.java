@@ -8,15 +8,13 @@ public class JumpyPanda extends Panda {
 	}
 
 	@Override
-	public void interact(OnTileObject obj) {
-		System.out.println("Called function JumpyPanda.interact()");
-		this.interact((CandyVending)obj);
-		return;
+	public void interact(CandyVending obj) {
+		System.out.println("Called function JumpyPanda.interact(CandyVending)");
+		this.jump();
+
+
 	}
 
-	public void interact(CandyVending cv) {
-		System.out.println("Called function CowardPanda.interact(CandyVending)");
-		this.jump();
-		return;
+
 	}
-}
+

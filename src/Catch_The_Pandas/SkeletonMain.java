@@ -287,17 +287,21 @@ public class SkeletonMain {
 		Floor floor = new Floor();
     	Tile t = new Tile(floor);
     	FragileTile ft = new FragileTile(floor, 4); // fragileTile's health > 0
+
     	JumpyPanda jp = new JumpyPanda();
     	CandyVending cv = new CandyVending();
+
     	floor.addTile(t);
     	floor.addTile(ft);
     	t.addNeighbour(ft);
-    	ft.receive(jp);
-    	
+
+
+    	ft.setOnTileObjext(jp);
     	jp.setLocation(ft);
     	
     	t.setOnTileObjext(cv);
     	cv.setLocation(t);
+
     	cv.beep();
     	
 	}

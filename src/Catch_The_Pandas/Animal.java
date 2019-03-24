@@ -23,14 +23,25 @@ public class Animal extends OnTileObject implements IMoveable {
 
     @Override
     public boolean steppedOn(Animal inComingAnimal) {
-    	
+
     	System.out.println("Called function animal.steppedOn()");
         return false;
     }
 
     @Override
-    public void interact(OnTileObject obj) {
-    	System.out.println("Called function animal.interact()");
+    public void interact(Arcade obj) {
+    	System.out.println("Called function animal.interact(Arcade)");
     }
-    
+
+    @Override
+    public void interact(CandyVending obj) {
+        System.out.println("Called function animal.interact(CandyVending)");
+    }
+
+    @Override
+    public void interact(Armchair obj) {
+        System.out.println("Called function animal.interact(Armchair)");
+
+    }
+
 }

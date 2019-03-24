@@ -12,5 +12,16 @@ public class Item extends OnTileObject {
     	return false;
     }
 
-    public void interact(OnTileObject obj){ System.out.println("Called function item.interact()");}
+    public void interact(Arcade obj){ System.out.println("Called function item.interact()");}
+
+    @Override
+    public void interact(CandyVending obj) {
+        System.out.println("Called function item.interact(CandyVending)");
+    }
+
+    @Override
+    public void interact(Armchair obj) {
+        System.out.println("Called function item.interact(Armchair)");
+
+    }
 }

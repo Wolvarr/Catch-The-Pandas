@@ -16,9 +16,9 @@ public class LazyPanda extends Panda {
 	}
 	
 	@Override
-	public void interact(OnTileObject obj) {
-		System.out.println("Called function LazyPanda.interact()");
-		this.interact((Armchair)obj);
+	public void interact(Arcade obj) {
+		System.out.println("Called function LazyPanda.interact(Arcade)");
+
 		return;
 	}
 	
