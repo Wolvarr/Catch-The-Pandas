@@ -15,8 +15,8 @@ public class JumpyPanda extends Panda {
 	}
 
 	public void interact(CandyVending cv) {
-		System.out.println("Called function CowardPanda.interact(Arcade)");
-			this.jump();
+		System.out.println("Called function CowardPanda.interact(CandyVending)");
+		this.jump();
 		return;
 	}
 }

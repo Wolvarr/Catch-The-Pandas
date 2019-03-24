@@ -250,7 +250,6 @@ public class SkeletonMain {
 		Floor floor = new Floor();
 		Tile t1 = new Tile(floor);
 		Tile t2 = new Tile(floor);
-		// Tile t3 = new Tile(floor);
 		LazyPanda lp = new LazyPanda();
 		Panda p1 = new Panda();
 		Panda p2 = new Panda();
@@ -258,9 +257,7 @@ public class SkeletonMain {
 
 		floor.addTile(t1);
 		floor.addTile(t2);
-		// floor.addTile(t3);
 		t1.addNeighbour(t2);
-		// t2.addNeighbour(t3);
 		p1.grab(lp);
 		lp.grab(p2);
 		t1.receive(lp);
@@ -309,19 +306,21 @@ public class SkeletonMain {
 	public static void pandaInLineMovesToHole() {
 		System.out.println("Panda moves to a hole, releases next panda");
 		Floor floor = new Floor();
-    	Tile t = new Tile(floor);
+    	Tile t1 = new Tile(floor);
+    	Tile t2 = new Tile(floor);
     	FragileTile ft = new FragileTile(floor, 0);
     	Panda p1 = new Panda();
     	Panda p2 = new Panda();
-    	floor.addTile(t);
+    	floor.addTile(t1);
+    	floor.addTile(t2);
     	floor.addTile(ft);
-    	t.addNeighbour(ft);
+    	t2.addNeighbour(t1);
+    	t1.addNeighbour(ft);
     	p1.grab(p2);
 
-        ft.receive(p1);
-        t.receive(p2);
-        p1.fall();
-        
+        t2.receive(p2);
+        t1.receive(p1);
+        p1.move(ft);
 	}
     
     //DOMIAN
