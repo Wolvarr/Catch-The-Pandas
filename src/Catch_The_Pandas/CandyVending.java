@@ -15,4 +15,5 @@ public class CandyVending extends Item {
 					tile.getOnObject().interact(this);
 		}
 	}
+
 }

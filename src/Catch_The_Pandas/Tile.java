@@ -56,7 +56,7 @@ public class Tile {
 
     public boolean receive(Animal a)
     {
-    	System.out.println("Called function tile.recieve()"+this.toString());
+    	System.out.println("Called function" +this.toString()+ "tile.recieve()");
     	if(on == null) {
            on = a;
            on.setLocation(this);

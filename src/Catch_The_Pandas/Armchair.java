@@ -15,4 +15,6 @@ public class Armchair extends Item {
         System.out.print("Nem tudsz ide lépni!");
         return false;
     }
+
+	
 }

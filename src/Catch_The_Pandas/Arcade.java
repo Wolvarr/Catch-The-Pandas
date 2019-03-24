@@ -9,4 +9,22 @@ public class Arcade extends Item {
 					tile.getOnObject().interact(this);
 		}
 	}
+
+	@Override
+	public boolean steppedOn(Orangutan o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean steppedOn(Panda p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean steppedOn(Animal a) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

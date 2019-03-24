@@ -10,6 +10,8 @@ public class Orangutan extends Animal {
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
+				//DOMIAN
+				//Ha sorban vannak mogotte a pandak akkor meghivodik az o move-juk is
 				if (this.grabbedPanda != null) {
 					this.grabbedPanda.move(location);
 				}
@@ -26,22 +28,30 @@ public class Orangutan extends Animal {
 		System.out.println("Called function orangutan.grab()");
 	}
 
-	@Override
-	public boolean steppedOn(Animal inComingAnimal) {
-
-		System.out.println("Called function orangutan.steppedOn()");
-		return false;
-	}
 
 	// DOMIAN
+	// Visszaadja a megragadott pandat
 	public Panda getGrabbed() {
 		// System.out.println("Called function orangutan.getGrabbed()");
 		return grabbedPanda;
 	}
+	
+	//DOMIAN
+	// Nem csinal egyenlore semmit
+	@Override
+	public boolean steppedOn(Orangutan o) {
+		
+		System.out.println("Called function orangutan.steppedOn(Orangutan)");
+		return false;
+	}
 
-	// DOMIAN
-	public void inComing() {
-
+	//DOMIAN
+	// Szinten nem csinal semmit
+	@Override
+	public boolean steppedOn(Panda p) {
+		
+		System.out.println("Called function orangutan.steppedOn(Panda)");
+		return false;
 	}
 
 }

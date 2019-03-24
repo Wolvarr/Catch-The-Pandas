@@ -1,6 +1,6 @@
 package Catch_The_Pandas;
 
-public class Animal extends OnTileObject implements IMoveable {
+public abstract class Animal extends OnTileObject implements IMoveable {
 
 
     public void fall()
