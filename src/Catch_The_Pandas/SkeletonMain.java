@@ -266,7 +266,7 @@ public class SkeletonMain {
 		t1.receive(lp);
 		t2.setOnTileObjext(armchair);
 		armchair.setLocation(t2);
-		lp.sit();
+		armchair.pull();
 
 	}
 	
@@ -301,7 +301,7 @@ public class SkeletonMain {
     	
     	t.setOnTileObjext(cv);
     	cv.setLocation(t);
-    	jp.jump();
+    	cv.beep();
     	
 	}
 	

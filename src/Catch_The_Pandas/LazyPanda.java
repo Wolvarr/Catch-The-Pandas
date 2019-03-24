@@ -22,7 +22,7 @@ public class LazyPanda extends Panda {
 		return;
 	}
 	
-	public void interact(Arcade a) {
+	public void interact(Armchair a) {
 		System.out.println("Called function LazyPanda.interact(Armchair)");
 		this.sit();
 		return;
