@@ -84,5 +84,14 @@ public class Panda extends Animal {
 
 		return false;
 	}
+	
+	@Override
+	public void fall()
+    {
+    	System.out.println("Called function panda.fall()");
+    	if(nextPanda != null) {
+    		release();
+    	}
+    }
 
 }

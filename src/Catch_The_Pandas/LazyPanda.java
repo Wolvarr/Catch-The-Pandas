@@ -8,6 +8,14 @@ public class LazyPanda extends Panda {
 	}
 
 	@Override
+	public void release() {
+		System.out.println("Called function LazyPanda.release()");
+		this.nextPanda.grab((Panda)this.previousAnimal);
+		this.previousAnimal = null;
+		this.nextPanda = null;
+	}
+	
+	@Override
 	public void interact(OnTileObject obj) {
 		System.out.println("Called function LazyPanda.interact()");
 		this.interact((Armchair)obj);
@@ -16,7 +24,7 @@ public class LazyPanda extends Panda {
 	
 	public void interact(Arcade a) {
 		System.out.println("Called function LazyPanda.interact(Armchair)");
-			this.sit();
+		this.sit();
 		return;
 	}
 }
