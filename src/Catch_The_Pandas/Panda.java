@@ -11,11 +11,9 @@ public class Panda extends Animal {
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
-				//DOMIAN
-				if(nextPanda!=null) {
-					nextPanda.move(location);
+				if (this.nextPanda != null) {
+					this.nextPanda.move(location);
 				}
-				//
 				tileTo.receive(this);
 				return true;
 			}
@@ -28,41 +26,39 @@ public class Panda extends Animal {
 	}
 
 	public void grab(Panda p) {
-		
-		nextPanda=p;
+
+		this.nextPanda = p;
 		System.out.println("Called function panda.grab()");
 	}
 
 	// DOMIAN
 	public void grabpreviousAnimal(Animal a) {
-		
-		previousAnimal=a;
+
+		this.previousAnimal = a;
 		System.out.println("Called function panda.grabpreviousAnimal()");
 	}
 
 	public void release() {
 		System.out.println("Called function panda.release()");
-		this.nextPanda.previousAnimal = null;
+		this.previousAnimal = null;
 		this.nextPanda = null;
 	}
-	
-	
-	//IDE KI KENE TALALNI VMIT
+
+	// IDE KI KENE TALALNI VMIT
 	@Override
 	public boolean steppedOn(Animal Incoming) {
 
 		System.out.println("Called function panda.steppedOn()");
-		
-		this.steppedOn((Orangutan)Incoming);
+
+		this.steppedOn((Orangutan) Incoming);
 
 		return false;
 	}
-	
-	//DOMIAN
+
+	// DOMIAN
 	public boolean steppedOn(Orangutan o) {
 
 		System.out.println("Called function panda.steppedOn(ORANGUTAN)");
-		
 
 		// check if o.grabbed==NULL
 		if (o.getGrabbed() == null) {
@@ -70,26 +66,23 @@ public class Panda extends Animal {
 			o.grab(this);
 		} else {
 			o.getGrabbed().release();
-			this.grabpreviousAnimal(o);
-			o.grab(this);
 			o.getGrabbed().grab(this);
+			o.grab(this);
+
+			this.grabpreviousAnimal(o);
 
 		}
 
 		return false;
 	}
-	
-	//DOMIAN
-	//EZ SEM JO IGY
+
+	// DOMIAN
+	// EZ SEM JO IGY
 	public boolean steppedOn(Panda p) {
 
 		System.out.println("Called function panda.steppedOn(PANDA)");
 
 		return false;
-	}
-	
-	public void pandaLineMove() {
-		
 	}
 
 }
