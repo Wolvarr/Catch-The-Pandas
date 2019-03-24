@@ -55,6 +55,8 @@ public class SkeletonMain {
             
             case 9: orangutanStepsUnmoveable(); break;
             
+            case 10: pandaSits(); break;
+            
             case 15: orangutanGrabsFirst(); break;
 
             case 17: break;
@@ -201,6 +203,32 @@ public class SkeletonMain {
     	arcade.setLocation(t2);
     	
     	arcade.ring();
+    	
+    }
+    
+    //function for user choice 10
+    public static void pandaSits() {
+    	System.out.println("Fotel pulls panda");
+    	Floor floor = new Floor();
+    	Tile t1 = new Tile(floor);
+    	Tile t2 = new Tile(floor);
+    	// Tile t3 = new Tile(floor);
+    	LazyPanda lp = new LazyPanda();
+    	Panda p1 = new Panda();
+    	Panda p2 = new Panda();
+    	Armchair armchair = new Armchair();
+    	
+    	floor.addTile(t1);
+    	floor.addTile(t2);
+    	// floor.addTile(t3);
+    	t1.addNeighbour(t2);
+    	// t2.addNeighbour(t3);
+    	p1.grab(lp);
+    	lp.grab(p2);
+    	t1.receive(lp);
+    	t2.setOnTileObjext(armchair);
+    	armchair.setLocation(t2);
+    	armchair.pull();
     	
     }
     
