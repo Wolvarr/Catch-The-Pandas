@@ -13,7 +13,7 @@ public class SkeletonMain {
                 "3 - Orángután nekimegy pandának ami már vezet másik pandát\n" + //Domián
                 "4 - Orángután vezet két pandát, lépnek egyet\n" + //Domián
                 "5 - Vándorló panda leesik egy lyukba\n" + //Pasics
-                "6 - Két panda lép, első lyukba lép másodikkal mi történik\n" + //Domián
+                "6 - Két panda lép, első lyukba lép másodikkal mi történik\n" + //Örvényesi
                 "7 - Pandák sorban mennek, egyik megijed és elengedi a sort\n" + //Máthé
                 "8 - Orángután kivezet egy pandát a kijáraton\n" + //Máthé
                 "9 - Orángután nekimegy objektumnak ami nem mozgatható\n" + //Máthé
@@ -22,7 +22,7 @@ public class SkeletonMain {
                 "12 - Orángután lyukba lép\n" + //Molnár
                 "13 - Arcade beeps panda jumps\n" + //Molnár
                 "14 - Panda in line moves to hole\n" + //Molnár
-                "15 - Orangutan grabs panda (first)\n" + //Örvényesi
+                "15 - Orangutan grabs panda (first)\n" + //Domián
                 "16 - Orangutan wardrobe -> teleport -> wardrobe már van ilyen\n" + //Örvényesi
                 "17 - Exit skeleton"));
 
@@ -58,6 +58,8 @@ public class SkeletonMain {
             case 9: orangutanStepsUnmoveable(); break;
             
             case 10: pandaSits(); break;
+
+            case 11: orangutanTrapped(); break;
             
             case 12: orangutanMovesToHole(); break;
             
@@ -66,6 +68,8 @@ public class SkeletonMain {
             case 14: pandaInLineMovesToHole(); break;
             
             case 15: orangutanGrabsFirst(); break;
+
+            case 16: wardrobeWarp(); break;
 
             case 17: break;
 
@@ -301,6 +305,31 @@ public class SkeletonMain {
 	}
 
     // function for user choice 11
+    public static void orangutanTrapped(){
+        Floor f = new Floor();
+        //this is where the orangutan stands
+        Tile t1 = new Tile(f);
+        Tile t2 = new Tile(f);
+        Tile t3 = new Tile(f);
+        //setting up tile neighbourhoods
+        t1.addNeighbour(t2);
+        t1.addNeighbour(t3);
+        //creating non steppable objects and orangutan
+        Orangutan o = new Orangutan();
+        Armchair a = new Armchair();
+        CandyVending cv = new CandyVending();
+        //adding them to the tiles
+        t1.receive(o);
+        t2.setOnTileObjext(a);
+        t3.setOnTileObjext(cv);
+        //másik irányú kapcsolat
+        a.setLocation(t2);
+        cv.setLocation(t3);
+        System.out.println("end of setting up\n\n");
+        //maga a teszt:
+        o.eachTurn();
+
+    }
 
 	
 	// function for user choice 12
@@ -380,7 +409,67 @@ public class SkeletonMain {
         Panda p = new Panda();
         t2.receive(p);
         o.move(t2);
-    	
+    }
+    //Örvényesi
+    //function for user choice 16
+    public static void wardrobeWarp(){
+        //setting up floor
+        Floor f = new Floor();
+        //setting up tiles for the wardrobes
+        Tile t0 = new Tile(f); //this is where the monkey starts
+        Tile t1 = new Tile(f); //this is where the wardrobe which it steps in is
+        Tile t2 = new Tile(f);
+        Tile t22 = new Tile(f); //neighbouring tile to t2
+        Tile t3 = new Tile(f);
+        Tile t33 = new Tile(f); //neighbouring tile to t3
+        //setting up neigbourhood
+        t2.addNeighbour(t22);
+        t3.addNeighbour(t33);
+        t0.addNeighbour(t1);
+        t1.addNeighbour(t0);
+        //Adding the tiles to the floor
+        f.addTile(t1);
+        f.addTile(t2);
+        f.addTile(t3);
+        f.addTile(t0);
+        //setting up wardrobes
+        Wardrobe w1 = new Wardrobe(); //this is where the orangutan's gonna step
+        Wardrobe w2 = new Wardrobe();
+        Wardrobe w3 = new Wardrobe();
+        //connecting the wardrobes to their locations
+        w1.setLocation(t1);
+        w2.setLocation(t2);
+        w3.setLocation(t3);
+        //and the other way around
+        t1.setOnTileObjext(w1);
+        t2.setOnTileObjext(w2);
+        t3.setOnTileObjext(w3);
+        //creating our dear monkey
+        Orangutan o = new Orangutan();
+        o.setLocation(t0);
+        t0.setOnTileObjext(o);
+        //setting up the wardrobes
+        w1.addWardrobe(w2);
+        w1.addWardrobe(w3);
+        //easier copying
+        w2.importList(w1.exportList());
+        w3.importList(w1.exportList());
+        System.out.println("end of setting up\n\n");
+        //the test iteself:
+        o.move(t1);
+        System.out.println("new location is: " + o.getLocation().toString());
+        //multiple test to prove that it's actually random
+        for (int i=0; i<5; i++) {
+            System.out.println("run #" + i);
+            //setting everything back to it's original place
+            o.setLocation(t0);
+            t0.setOnTileObjext(o);
+            o.move(t1);
+            System.out.println("new location is: " + o.getLocation().toString()+ "\n");
+
+        }
+
+
     }
     
 }

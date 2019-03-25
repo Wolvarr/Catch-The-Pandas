@@ -1,12 +1,14 @@
 package Catch_The_Pandas;
 
+import java.util.ArrayList;
+
 public class Orangutan extends Animal {
 
 	private Panda grabbedPanda;
 
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println("Called function orangutan.move()");
+		System.out.println(toString() + "Called function orangutan.move()");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
@@ -25,7 +27,7 @@ public class Orangutan extends Animal {
 
 	public void grab(Panda p) {
 		this.grabbedPanda = p;
-		System.out.println("Called function orangutan.grab()");
+		System.out.println(toString() + "Called function orangutan.grab()");
 	}
 
 
@@ -40,8 +42,8 @@ public class Orangutan extends Animal {
 	// Nem csinal egyenlore semmit
 	@Override
 	public boolean steppedOn(Orangutan o) {
-		
-		System.out.println("Called function orangutan.steppedOn(Orangutan)");
+		//mindig hamissal tér vissza
+		System.out.println(toString() + "Called function orangutan.steppedOn(Orangutan)");
 		return false;
 	}
 
@@ -50,8 +52,33 @@ public class Orangutan extends Animal {
 	@Override
 	public boolean steppedOn(Panda p) {
 		
-		System.out.println("Called function orangutan.steppedOn(Panda)");
+		System.out.println(toString() + "Called function orangutan.steppedOn(Panda)");
 		return false;
 	}
+
+	@Override
+	//minden kör elején lefut majd
+	public void eachTurn(){
+		//megnézi, hogy az orángután beszorult-e
+		boolean freetomove = false;
+		//elkéri az alatta lévő csempe szomszédait
+		ArrayList<Tile> neighbours = location.getNeighbours();
+		//majd végignézi azokat, lehet-e rájuk lépni
+		for(Tile t : neighbours){
+			if (t.getOnObject()!=null)
+				//amennyiben bármelyik is igazzal tér vissza, az orángután nincs beszorulva
+				freetomove = freetomove || t.getOnObject().steppedOn(this);
+		}
+
+		//itt majd a game controller játék vége funkcióját hívjuk
+		if (!freetomove) System.out.println(toString() + "GAME OVER, YOU GOT TRAPPED");
+	}
+
+	@Override
+	public String toString(){
+		return "Orangutan: " + hashCode() + " ";
+	}
+
+
 
 }

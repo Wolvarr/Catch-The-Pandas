@@ -19,7 +19,7 @@ public class Tile {
 
     public Tile(Floor f)
     {
-    	neighbours = new ArrayList<>();
+    	neighbours = new ArrayList<Tile>();
         floor = f;
         this.number=stat;
         stat++;

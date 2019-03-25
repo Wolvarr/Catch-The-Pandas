@@ -3,7 +3,7 @@ package Catch_The_Pandas;
 public class Arcade extends Item {
 	
 	public void ring() {
-		System.out.println("Called function arcade.ring()");
+		System.out.println(toString() + "Called function arcade.ring()");
 			for(Tile tile : location.getNeighbours()) {
 				if(tile.getOnObject() != null)	
 					tile.getOnObject().interact(this);
@@ -12,24 +12,24 @@ public class Arcade extends Item {
 
 	@Override
 	public boolean steppedOn(Orangutan o) {
-		// TODO Auto-generated method stub
+		System.out.println(toString() + "Called function item.steppedOn(Orangutan)");
 		return false;
 	}
 
 	@Override
 	public boolean steppedOn(Panda p) {
-		// TODO Auto-generated method stub
+		System.out.println(toString() + "Called function item.steppedOn(Panda)");
 		return false;
 	}
 
 	@Override
 	public boolean steppedOn(Animal a) {
-		// TODO Auto-generated method stub
+		System.out.println(toString() + "Called function item.steppedOn(Animal)");
 		return false;
 	}
 
 	@Override
 	public String toString(){
-		return "Arcade: " + hashCode();
+		return "Arcade: " + hashCode() + " ";
 	}
 }
