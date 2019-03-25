@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Orangutan extends Animal {
 
-	private Panda grabbedPanda;
+	private Panda grabbedPanda = null;
 
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println(toString() + "Called function orangutan.move()");
+	//	System.out.println("Called function " + this.hashCode() + ".move()");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
@@ -27,7 +27,8 @@ public class Orangutan extends Animal {
 
 	public void grab(Panda p) {
 		this.grabbedPanda = p;
-		System.out.println(toString() + "Called function orangutan.grab()");
+		p.setPreviousAnimal(this);
+		System.out.println("Called function " + this.hashCode() + ".grab(Panda)");
 	}
 
 
@@ -43,7 +44,7 @@ public class Orangutan extends Animal {
 	@Override
 	public boolean steppedOn(Orangutan o) {
 		//mindig hamissal tér vissza
-		System.out.println(toString() + "Called function orangutan.steppedOn(Orangutan)");
+		System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
 		return false;
 	}
 
@@ -51,8 +52,8 @@ public class Orangutan extends Animal {
 	// Szinten nem csinal semmit
 	@Override
 	public boolean steppedOn(Panda p) {
-		
-		System.out.println(toString() + "Called function orangutan.steppedOn(Panda)");
+
+		System.out.println("Called function " + this.hashCode() + ".steppedOn(panda)");
 		return false;
 	}
 

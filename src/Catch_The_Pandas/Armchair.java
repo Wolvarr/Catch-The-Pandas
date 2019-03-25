@@ -12,7 +12,7 @@ public class Armchair extends Item {
 	
 	@Override
     public boolean steppedOn(Animal inComingAnimal){
-        System.out.print("Nem tudsz ide lépni!");
+        System.out.print("You cant step to an Armchair");
         return false;
     }
 

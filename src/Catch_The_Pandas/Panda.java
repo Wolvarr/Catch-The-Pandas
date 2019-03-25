@@ -5,9 +5,14 @@ public class Panda extends Animal {
 	protected Panda nextPanda;
 	protected Animal previousAnimal;
 
+	public void setPreviousAnimal(Animal a)
+	{
+		this.previousAnimal = a;
+	}
+
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println(toString() + "Called function panda.move()");
+		System.out.println(toString() + "Called function panda.move(" + tileTo.toString() + ")");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
@@ -31,7 +36,7 @@ public class Panda extends Animal {
 	public void grab(Panda p) {
 
 		this.nextPanda = p;
-		System.out.println(toString() + "Called function panda.grab()");
+		System.out.println(toString() + "Called function panda.grab(pandaa)");
 	}
 
 	// DOMIAN
@@ -39,7 +44,7 @@ public class Panda extends Animal {
 	public void grabpreviousAnimal(Animal a) {
 
 		this.previousAnimal = a;
-		System.out.println(toString() + "Called function panda.grabpreviousAnimal()");
+		System.out.println(toString() + "Called function panda.grabPreviousAnimal()");
 	}
 
 	public void release() {
@@ -52,7 +57,7 @@ public class Panda extends Animal {
 	// DOMIAN
 	public boolean steppedOn(Orangutan o) {
 
-		System.out.println(toString() + "Called function panda.steppedOn(ORANGUTAN)");
+		System.out.println(toString() + "Called function panda.steppedOn(oranguan)");
 
 		// teszeli hogy o.grabbed==NULL
 		if (o.getGrabbed() == null) {

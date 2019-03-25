@@ -8,32 +8,34 @@ public class SkeletonMain {
         System.out.println("\n               Catch the Pandas Skeleton");
         System.out.println("\n\nYou can press the following numbers to test the functions listed next to them");
         System.out.println((
-                "1 - Orángután lép egyet üresre\n" + //Pasics
-                "2 - Panda lép üresre\n" + //Pasics
-                "3 - Orángután nekimegy pandának ami már vezet másik pandát\n" + //Domián
-                "4 - Orángután vezet két pandát, lépnek egyet\n" + //Domián
-                "5 - Vándorló panda leesik egy lyukba\n" + //Pasics
-                "6 - Két panda lép, első lyukba lép másodikkal mi történik\n" + //Örvényesi
-                "7 - Pandák sorban mennek, egyik megijed és elengedi a sort\n" + //Máthé
-                "8 - Orángután kivezet egy pandát a kijáraton\n" + //Máthé
-                "9 - Orángután nekimegy objektumnak ami nem mozgatható\n" + //Máthé
-                "10 - Fotel pulls panda\n" + //Molnár
-                "11 - Orángután trapped\n" + //Örvényesi
-                "12 - Orángután lyukba lép\n" + //Molnár
-                "13 - Arcade beeps panda jumps\n" + //Molnár
+                "1 - Orangutan steps to empty tile\n" + //Pasics
+                "2 - Panda steps to empty tile\n" + //Pasics
+                "3 - Orangutan grabs a panda, that has already grabbed another\n" + //Domián
+                "4 - Orangutan steps, two panda follows it\n" + //Domián
+                "5 - Panda steps into a hole\n" + //Pasics
+                "6 - Two pandas in a row step, the first falls down\n" + //Örvényesi
+                "7 - Scared panda releases the one following him\n" + //Máthé
+                "8 - Orangutan exits with a panda following him\n" + //Máthé
+                "9 - Orangutan steps to an immovable object\n" + //Máthé
+                "10 - Armchair pulls panda\n" + //Molnár
+                "11 - Orangutan gets trapped\n" + //Örvényesi
+                "12 - Orangutan steps into a hole\n" + //Molnár
+                "13 - Arcade beeps panda next to it jumps\n" + //Molnár
                 "14 - Panda in line moves to hole\n" + //Molnár
                 "15 - Orangutan grabs panda (first)\n" + //Domián
-                "16 - Orangutan wardrobe -> teleport -> wardrobe már van ilyen\n" + //Örvényesi
+                "16 - Orangutan wardrobe steps into a wardrobe\n" + //Örvényesi
                 "17 - Exit skeleton"));
 
 
-        // Set up som test object to demonstrate the functions
+
 
 
         //reading user input
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         int input =0;
 
+        //main loop for the skeleton
+        //each option tests on of our functions
     while (input != 17)
     {
         input = reader.nextInt(); // Scans the next token of the input as an int.
@@ -90,7 +92,7 @@ public class SkeletonMain {
         Orangutan o = new Orangutan();
         floor.addTile(t1);
         floor.addTile(t2);
-        t1.receive(o);
+        t1.setOnTileObject(o);
         t1.addNeighbour(t2);
 
         //the tested function
@@ -108,7 +110,7 @@ public class SkeletonMain {
         Panda p = new Panda();
         floor.addTile(t1);
         floor.addTile(t2);
-        t1.receive(p);
+        t1.setOnTileObject(p);
         t1.addNeighbour(t2);
 
         System.out.println("The panda moves to a tile next to it :");
@@ -132,14 +134,14 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
         floor.addTile(t3);
-        t1.receive(p1);
-        t2.receive(o);
-        t3.receive(p2);
+        t1.setOnTileObject(p1);
+        t2.setOnTileObject(o);
+        t3.setOnTileObject(p2);
         t1.addNeighbour(t2);
         t2.addNeighbour(t3);
         o.grab(p1);
         p1.grabpreviousAnimal(o);
-        System.out.println("The orangutan Bumps IntoPanda WithPanda :");
+        System.out.println("\nThe orangutan Bumps Into Panda With Panda :");
         o.move(t3);
     }
     
@@ -164,9 +166,9 @@ public class SkeletonMain {
         floor.addTile(t2);
         floor.addTile(t3);
         
-        t0.receive(p2);
-        t1.receive(p1);
-        t2.receive(o);
+        t0.setOnTileObject(p2);
+        t1.setOnTileObject(p1);
+        t2.setOnTileObject(o);
         
         t0.addNeighbour(t1);
         t1.addNeighbour(t2);
@@ -189,7 +191,7 @@ public class SkeletonMain {
         Panda p = new Panda();
         floor.addTile(t1);
         floor.addTile(t2);
-        t1.receive(p);
+        t1.setOnTileObject(p);
         t1.addNeighbour(t2);
 
         System.out.println("The panda moves to a fragile tile next to it :");
@@ -214,8 +216,8 @@ public class SkeletonMain {
         ft.addNeighbour(t1);
         t1.addNeighbour(t2);
 
-        t1.receive(p1);
-        t2.receive(p2);
+        t1.setOnTileObject(p1);
+        t2.setOnTileObject(p2);
 
         p1.grab(p2);
 
@@ -243,8 +245,8 @@ public class SkeletonMain {
     	t1.addNeighbour(t2);
     	cp.grab(p);
 
-        t1.receive(cp);
-        t2.setOnTileObjext(arcade);
+        t1.setOnTileObject(cp);
+        t2.setOnTileObject(arcade);
 
     	arcade.setLocation(t2);
     	
@@ -273,8 +275,8 @@ public class SkeletonMain {
     	CandyVending cv = new CandyVending();
 
     	t1.addNeighbour(t2);
-    	t1.receive(o);
-    	t2.setOnTileObjext(cv);
+    	t1.setOnTileObject(o);
+    	t2.setOnTileObject(cv);
     	cv.setLocation(t2);
 
     	o.move(t2);
@@ -298,7 +300,7 @@ public class SkeletonMain {
 		p1.grab(lp);
 		lp.grab(p2);
 		t1.receive(lp);
-		t2.setOnTileObjext(armchair);
+		t2.setOnTileObject(armchair);
 		armchair.setLocation(t2);
 		armchair.pull();
 
@@ -319,9 +321,9 @@ public class SkeletonMain {
         Armchair a = new Armchair();
         CandyVending cv = new CandyVending();
         //adding them to the tiles
-        t1.receive(o);
-        t2.setOnTileObjext(a);
-        t3.setOnTileObjext(cv);
+        t1.setOnTileObject(o);
+        t2.setOnTileObject(a);
+        t3.setOnTileObject(cv);
         //másik irányú kapcsolat
         a.setLocation(t2);
         cv.setLocation(t3);
@@ -342,7 +344,7 @@ public class SkeletonMain {
     	floor.addTile(t);
     	floor.addTile(ft);
     	t.addNeighbour(ft);
-    	t.receive(o);
+    	t.setOnTileObject(o);
     	o.move(ft);
     }
 	
@@ -361,10 +363,10 @@ public class SkeletonMain {
     	t.addNeighbour(ft);
 
 
-    	ft.setOnTileObjext(jp);
+    	ft.setOnTileObject(jp);
     	jp.setLocation(ft);
     	
-    	t.setOnTileObjext(cv);
+    	t.setOnTileObject(cv);
     	cv.setLocation(t);
 
     	cv.beep();
@@ -387,8 +389,8 @@ public class SkeletonMain {
     	t1.addNeighbour(ft);
     	p1.grab(p2);
 
-        t2.receive(p2);
-        t1.receive(p1);
+        t2.setOnTileObject(p2);
+        t1.setOnTileObject(p1);
         p1.move(ft);
 	}
     
@@ -407,7 +409,7 @@ public class SkeletonMain {
         t1.receive(o);
         t1.addNeighbour(t2);
         Panda p = new Panda();
-        t2.receive(p);
+        t2.setOnTileObject(p);
         o.move(t2);
     }
     //Örvényesi
@@ -441,13 +443,13 @@ public class SkeletonMain {
         w2.setLocation(t2);
         w3.setLocation(t3);
         //and the other way around
-        t1.setOnTileObjext(w1);
-        t2.setOnTileObjext(w2);
-        t3.setOnTileObjext(w3);
+        t1.setOnTileObject(w1);
+        t2.setOnTileObject(w2);
+        t3.setOnTileObject(w3);
         //creating our dear monkey
         Orangutan o = new Orangutan();
         o.setLocation(t0);
-        t0.setOnTileObjext(o);
+        t0.setOnTileObject(o);
         //setting up the wardrobes
         w1.addWardrobe(w2);
         w1.addWardrobe(w3);
@@ -463,7 +465,7 @@ public class SkeletonMain {
             System.out.println("run #" + i);
             //setting everything back to it's original place
             o.setLocation(t0);
-            t0.setOnTileObjext(o);
+            t0.setOnTileObject(o);
             o.move(t1);
             System.out.println("new location is: " + o.getLocation().toString()+ "\n");
 

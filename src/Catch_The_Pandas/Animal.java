@@ -1,6 +1,6 @@
 package Catch_The_Pandas;
 
-public abstract class Animal extends OnTileObject implements IMoveable {
+public abstract class Animal extends OnTileObject implements IMovable {
 
 
     public void fall()
@@ -12,7 +12,7 @@ public abstract class Animal extends OnTileObject implements IMoveable {
 
     @Override
     public boolean move(Tile tileTo) {
-    	System.out.println(toString() + "Called function animal.move()");
+    	System.out.println(toString() + "Called function animal.move( " + tileTo.toString() + ")");
         return false;
     }
 

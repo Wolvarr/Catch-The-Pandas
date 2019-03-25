@@ -27,7 +27,7 @@ public class Wardrobe extends Item {
         Tile newlocation = otherWardrobes.get(r.nextInt(otherWardrobes.size())).getLocation();
         //making the warp, setting up connection between the animal and it's new tile
         o.setLocation(newlocation.getNeighbours().get(0));
-        newlocation.getNeighbours().get(0).setOnTileObjext(o);
+        newlocation.getNeighbours().get(0).setOnTileObject(o);
         return true;
     }
 

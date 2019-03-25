@@ -12,9 +12,10 @@ public class Tile {
     private Floor floor;
 
 
-    public void setOnTileObjext(OnTileObject object)
+    public void setOnTileObject(OnTileObject object)
     {
         this.on = object;
+        on.setLocation(this);
     }
 
     public Tile(Floor f)
