@@ -110,7 +110,10 @@ public class InputParser {
             //formátum: locationID::TYPE::opcionális orangutanID
             switch(splittedline[1]){
                 case "O":
-                    res.put(Integer.parseInt(splittedline[0]), new Orangutan(Integer.parseInt(splittedline[2])));
+                    Orangutan tempo = new Orangutan(Integer.parseInt(splittedline[2]));
+                    res.put(Integer.parseInt(splittedline[0]), tempo);
+                    floor.addOrangutan(tempo.getID(), tempo);
+
                     break;
                 case "CP":
                     res.put(Integer.parseInt(splittedline[0]),new CowardPanda());

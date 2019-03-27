@@ -20,7 +20,7 @@ public class Orangutan extends Animal {
 
 	@Override
 	public boolean move(Tile tileTo) {
-	//	System.out.println("Called function " + this.hashCode() + ".move()");
+		System.out.println("Called function " + this.hashCode() + ".move()");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();

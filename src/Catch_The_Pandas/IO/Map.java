@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class Map {
-    Floor underConstruction = new Floor();
+    Floor underConstruction;
     String sourceFolder = null;
     java.util.Map<Integer, Tile> tiles = new HashMap<Integer, Tile>();
     ArrayList<TileConnection> connections = new ArrayList<TileConnection>();
@@ -19,10 +19,12 @@ public class Map {
     }
 
     public Floor build(){
+        underConstruction = new Floor();
         InputParser iparser = new InputParser(underConstruction,sourceFolder);
         //a csempelista betöltése
         try {
             tiles = (HashMap<Integer, Tile>)iparser.parse(InputType.tiles);
+            if (tiles!=null) System.out.println("tiles ok");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,7 +53,7 @@ public class Map {
 
         //hozzáadjuk a floorhoz a kész tile-okat;
         for (java.util.Map.Entry<Integer, Tile> t : tiles.entrySet()) {
-            //underConstruction.addTile(t.getKey(),t.getValue());
+            underConstruction.addTile(t.getKey(),t.getValue());
         }
 
         //majd visszatérünk az elkészült floorral
