@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class Wardrobe extends Item {
 
+    public boolean deterministic = false;
 
     List<Wardrobe> otherWardrobes = new ArrayList<Wardrobe>();
 
@@ -24,11 +25,18 @@ public class Wardrobe extends Item {
         //creating a new Random for more enjoyable gameplay resulting from randomly warpin' around the hood
         Random r = new Random();
         //choosing the new location randomly
-        Tile newlocation = otherWardrobes.get(r.nextInt(otherWardrobes.size())).getLocation();
+        Tile newlocation;
+        if(!deterministic)
+            newlocation = otherWardrobes.get(r.nextInt(otherWardrobes.size())).getLocation();
+        else newlocation = otherWardrobes.get(0).getLocation();
         //making the warp, setting up connection between the animal and it's new tile
         o.setLocation(newlocation.getNeighbours().get(0));
         newlocation.getNeighbours().get(0).setOnTileObject(o);
         return true;
+    }
+
+    public void setDeterministic(boolean deterministic) {
+        this.deterministic = deterministic;
     }
 
     @Override

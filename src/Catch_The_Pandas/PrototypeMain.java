@@ -1,11 +1,13 @@
 package Catch_The_Pandas;
 
 
-import Catch_The_Pandas.IO.InputParser;
-import Catch_The_Pandas.IO.InputType;
+import Catch_The_Pandas.IO.Command;
+import Catch_The_Pandas.IO.CommandParser;
+import Catch_The_Pandas.IO.CommandType;
 import Catch_The_Pandas.IO.Map;
 import Catch_The_Pandas.Resources.GameElements.Floor;
-import Catch_The_Pandas.Resources.GameElements.Tile;
+
+import java.util.ArrayList;
 
 public class PrototypeMain {
     public static void main(String[] args){
@@ -17,9 +19,12 @@ public class PrototypeMain {
             if (testfloor.getTile(i)!=null) System.out.println(i + ". ok");
             else System.out.println(i + ". nem ok");
         }
-        testfloor.getOrangutan(0).move(testfloor.getTile(1));
-
-
-
+        //új parser
+        CommandParser cp = new CommandParser(testfloor, "C://inputtest/");
+        //beolvasunk, és a parancsokat lokál tároljuk
+        ArrayList<Command> commandlist = cp.parse();
+        //automatizálva van, ez lefuttatja az összes parancsot, gyártsatok teszteseteket, testvéreim!
+        for (Command c: commandlist)
+                c.execute();
     }
 }

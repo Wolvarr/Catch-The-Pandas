@@ -4,7 +4,6 @@ import Catch_The_Pandas.Resources.GameElements.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Map {
     Floor underConstruction;
@@ -20,10 +19,10 @@ public class Map {
 
     public Floor build(){
         underConstruction = new Floor();
-        InputParser iparser = new InputParser(underConstruction,sourceFolder);
+        EnveriomentParser eparser = new EnveriomentParser(underConstruction,sourceFolder);
         //a csempelista betöltése
         try {
-            tiles = (HashMap<Integer, Tile>)iparser.parse(InputType.tiles);
+            tiles = (HashMap<Integer, Tile>)eparser.parse(InputType.tiles);
             if (tiles!=null) System.out.println("tiles ok");
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,14 +30,14 @@ public class Map {
 
         //a játéktéren található objetumok betöltése
         try {
-            objects = (HashMap<Integer, OnTileObject>) iparser.parse(InputType.objects);
+            objects = (HashMap<Integer, OnTileObject>) eparser.parse(InputType.objects);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         //a csempék közti kapcsolatok listájának betöltése
         try {
-            connections = (ArrayList<TileConnection>) iparser.parse(InputType.connections);
+            connections = (ArrayList<TileConnection>) eparser.parse(InputType.connections);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -12,11 +12,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class InputParser {
+public class EnveriomentParser {
     private String path = null;
     private Floor floor;
 
-    public InputParser(Floor f, String filepath){
+    public EnveriomentParser(Floor f, String filepath){
         path = filepath;
         floor = f;
     }
