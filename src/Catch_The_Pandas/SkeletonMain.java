@@ -1,5 +1,7 @@
 package Catch_The_Pandas;
 
+import Catch_The_Pandas.Resources.*;
+
 import java.util.Scanner;
 
 public class SkeletonMain {
