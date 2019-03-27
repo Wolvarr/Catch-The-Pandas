@@ -1,6 +1,7 @@
 package Catch_The_Pandas;
 
-import Catch_The_Pandas.Resources.*;
+import Catch_The_Pandas.Resources.GameElements.Floor;
+import Catch_The_Pandas.Resources.GameElements.*;
 
 import java.util.Scanner;
 
@@ -92,10 +93,11 @@ public class SkeletonMain {
         Tile t1 = new Tile(floor);
         Tile t2 = new Tile(floor);
         Orangutan o = new Orangutan();
-        floor.addTile(t1);
-        floor.addTile(t2);
+        //most már ezek nélkül is működik, a konstruktor megcsinálja
+        //floor.addTile(t1);
+        //floor.addTile(t2);
         t1.setOnTileObject(o);
-        t1.addNeighbour(t2);
+        t1.connect(t2);
 
         //the tested function
         System.out.println("The orangutan moves to a tile next to it :");
@@ -113,7 +115,7 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
         t1.setOnTileObject(p);
-        t1.addNeighbour(t2);
+        t1.connect(t2);
 
         System.out.println("The panda moves to a tile next to it :");
         p.move(t2);
@@ -139,8 +141,8 @@ public class SkeletonMain {
         t1.setOnTileObject(p1);
         t2.setOnTileObject(o);
         t3.setOnTileObject(p2);
-        t1.addNeighbour(t2);
-        t2.addNeighbour(t3);
+        t1.connect(t2);
+        t2.connect(t3);
         o.grab(p1);
         p1.grabpreviousAnimal(o);
         System.out.println("\nThe orangutan Bumps Into Panda With Panda :");
@@ -172,9 +174,9 @@ public class SkeletonMain {
         t1.setOnTileObject(p1);
         t2.setOnTileObject(o);
         
-        t0.addNeighbour(t1);
-        t1.addNeighbour(t2);
-        t2.addNeighbour(t3);
+        t0.connect(t1);
+        t1.connect(t2);
+        t2.connect(t3);
         o.grab(p1);
         p1.grabpreviousAnimal(o);
         p1.grab(p2);
@@ -194,7 +196,7 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
         t1.setOnTileObject(p);
-        t1.addNeighbour(t2);
+        t1.connect(t2);
 
         System.out.println("The panda moves to a fragile tile next to it :");
         p.move(t2);
@@ -215,8 +217,8 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
 
-        ft.addNeighbour(t1);
-        t1.addNeighbour(t2);
+        ft.connect(t1);
+        t1.connect(t2);
 
         t1.setOnTileObject(p1);
         t2.setOnTileObject(p2);
@@ -244,7 +246,7 @@ public class SkeletonMain {
     	
     	floor.addTile(t1);
     	floor.addTile(t2);
-    	t1.addNeighbour(t2);
+    	t1.connect(t2);
     	cp.grab(p);
 
         t1.setOnTileObject(cp);
@@ -276,7 +278,7 @@ public class SkeletonMain {
     	Tile t2 = new Tile(f1);
     	CandyVending cv = new CandyVending();
 
-    	t1.addNeighbour(t2);
+    	t1.connect(t2);
     	t1.setOnTileObject(o);
     	t2.setOnTileObject(cv);
     	cv.setLocation(t2);
@@ -298,7 +300,7 @@ public class SkeletonMain {
 
 		floor.addTile(t1);
 		floor.addTile(t2);
-		t1.addNeighbour(t2);
+		t1.connect(t2);
 		p1.grab(lp);
 		lp.grab(p2);
 		t1.receive(lp);
@@ -316,8 +318,8 @@ public class SkeletonMain {
         Tile t2 = new Tile(f);
         Tile t3 = new Tile(f);
         //setting up tile neighbourhoods
-        t1.addNeighbour(t2);
-        t1.addNeighbour(t3);
+        t1.connect(t2);
+        t1.connect(t3);
         //creating non steppable objects and orangutan
         Orangutan o = new Orangutan();
         Armchair a = new Armchair();
@@ -345,7 +347,7 @@ public class SkeletonMain {
     	Orangutan o = new Orangutan();
     	floor.addTile(t);
     	floor.addTile(ft);
-    	t.addNeighbour(ft);
+    	t.connect(ft);
     	t.setOnTileObject(o);
     	o.move(ft);
     }
@@ -362,7 +364,7 @@ public class SkeletonMain {
 
     	floor.addTile(t);
     	floor.addTile(ft);
-    	t.addNeighbour(ft);
+    	t.connect(ft);
 
 
     	ft.setOnTileObject(jp);
@@ -387,8 +389,8 @@ public class SkeletonMain {
     	floor.addTile(t1);
     	floor.addTile(t2);
     	floor.addTile(ft);
-    	t2.addNeighbour(t1);
-    	t1.addNeighbour(ft);
+    	t2.connect(t1);
+    	t1.connect(ft);
     	p1.grab(p2);
 
         t2.setOnTileObject(p2);
@@ -409,7 +411,7 @@ public class SkeletonMain {
         floor.addTile(t1);
         floor.addTile(t2);
         t1.receive(o);
-        t1.addNeighbour(t2);
+        t1.connect(t2);
         Panda p = new Panda();
         t2.setOnTileObject(p);
         o.move(t2);
@@ -427,10 +429,10 @@ public class SkeletonMain {
         Tile t3 = new Tile(f);
         Tile t33 = new Tile(f); //neighbouring tile to t3
         //setting up neigbourhood
-        t2.addNeighbour(t22);
-        t3.addNeighbour(t33);
-        t0.addNeighbour(t1);
-        t1.addNeighbour(t0);
+        t2.connect(t22);
+        t3.connect(t33);
+        t0.connect(t1);
+        t1.connect(t0);
         //Adding the tiles to the floor
         f.addTile(t1);
         f.addTile(t2);
