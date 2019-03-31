@@ -4071,7 +4071,7 @@
 <XPD:ATTR name="Left" type="integer">1024</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">324</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">125</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">95</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">108</XPD:ATTR>
 <XPD:REF name="Model">0bMJEI1TnEC4vSNjyq0yhwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="3AIe5+CDUUWtQy1dvM3x/gAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="qH4t6M6ex0+aRI82Hk9RGgAA">
@@ -4810,7 +4810,7 @@
 <XPD:OBJ name="OwnedViews[31]" type="UMLGeneralizationView" guid="iQY1ponzvUaxYE7IYbYzjQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1024,381;878,403</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1024,385;878,405</XPD:ATTR>
 <XPD:REF name="Model">50v0XHKz5E6hdLEB6/W7QgAA</XPD:REF>
 <XPD:REF name="Head">C4uYrJrvNUWYXbOKB5O4fAAA</XPD:REF>
 <XPD:REF name="Tail">TZWA9i7nbU2YSHKQz/KN1QAA</XPD:REF>
@@ -5076,7 +5076,7 @@
 <XPD:REF name="Specializations[0]">CDf6goIwtUGZwvQj25bDugAA</XPD:REF>
 <XPD:REF name="Specializations[1]">OFmxfCmKqku7AOBNjY0d9gAA</XPD:REF>
 <XPD:REF name="Specializations[2]">FTdRaxN8kU6IiSyWkPlvZQAA</XPD:REF>
-<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="sI0gAN50Wkm+PFsb7dzrzAAA">
 <XPD:ATTR name="Name" type="string">grab</XPD:ATTR>
 <XPD:REF name="Owner">BZbC7DvaJUe39ysPOmB4WgAA</XPD:REF>
@@ -5097,6 +5097,10 @@
 <XPD:REF name="CallActions[2]">9/I0XMogv0+eVk7HG39OFwAA</XPD:REF>
 <XPD:REF name="CallActions[3]">aqjsMzaGikWoyVPRjq/yrQAA</XPD:REF>
 <XPD:REF name="CallActions[4]">DlU0G60VUUiaqX9PkJWwdwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="I2rzFqlyXUyEzpJsPRg/sAAA">
+<XPD:ATTR name="Name" type="string">release</XPD:ATTR>
+<XPD:REF name="Owner">BZbC7DvaJUe39ysPOmB4WgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#TypedFeatures" type="integer">3</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">GhPMAYWUtkq6a50WMwOECwAA</XPD:REF>
@@ -5641,7 +5645,7 @@
 <XPD:ATTR name="#Generalizations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">Clo+uSC7WUyA3EqUZF40KwAA</XPD:REF>
 <XPD:REF name="Generalizations[1]">50v0XHKz5E6hdLEB6/W7QgAA</XPD:REF>
-<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="KZ3ZHfA4uUGEl6RpMCe8QwAA">
 <XPD:ATTR name="Name" type="string">grab</XPD:ATTR>
 <XPD:REF name="Owner">0bMJEI1TnEC4vSNjyq0yhwAA</XPD:REF>
@@ -5662,6 +5666,10 @@
 <XPD:REF name="CallActions[2]">mcG4yEcj9ky75TmyE+y0twAA</XPD:REF>
 <XPD:REF name="CallActions[3]">9imWysePOkCnwlCDY+3H5QAA</XPD:REF>
 <XPD:REF name="CallActions[4]">sffPZOP8XEuh2yFY3/eUWwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="UtUb87YGB0eGychZ6kUlpAAA">
+<XPD:ATTR name="Name" type="string">releasePanda</XPD:ATTR>
+<XPD:REF name="Owner">0bMJEI1TnEC4vSNjyq0yhwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#Attributes" type="integer">3</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="jyUwGK0KmEij1Itl4ZX2YwAA">
@@ -6211,7 +6219,7 @@
 <XPD:ATTR name="#Specializations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Specializations[0]">UVi2w1gs60eiT8Pbk8KA9wAA</XPD:REF>
 <XPD:REF name="Specializations[1]">50v0XHKz5E6hdLEB6/W7QgAA</XPD:REF>
-<XPD:ATTR name="#Operations" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="BUmmQLMu9kG9flkXUU+TbAAA">
 <XPD:ATTR name="Name" type="string">fall</XPD:ATTR>
 <XPD:REF name="Owner">pGuk12k1s0KlbONE3EgOgAAA</XPD:REF>
@@ -6222,11 +6230,7 @@
 <XPD:REF name="BehavioralFeature">BUmmQLMu9kG9flkXUU+TbAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="C5GyteYcIEmVqKsv8B0VXwAA">
-<XPD:ATTR name="Name" type="string">releaseLine</XPD:ATTR>
-<XPD:REF name="Owner">pGuk12k1s0KlbONE3EgOgAAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="de2ZHPqbckGVvoHkwPDqnAAA">
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="de2ZHPqbckGVvoHkwPDqnAAA">
 <XPD:ATTR name="Name" type="string">swapLocation</XPD:ATTR>
 <XPD:REF name="Owner">pGuk12k1s0KlbONE3EgOgAAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
@@ -6237,10 +6241,6 @@
 </XPD:OBJ>
 <XPD:ATTR name="#CallActions" type="integer">1</XPD:ATTR>
 <XPD:REF name="CallActions[0]">wLzfFUttJk6/IgQajBac+QAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="oVSrhti9okmNdroYhzvP2gAA">
-<XPD:ATTR name="Name" type="string">recursiveRelease</XPD:ATTR>
-<XPD:REF name="Owner">pGuk12k1s0KlbONE3EgOgAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">wzbYQK0ldkqRi2RfmY5yPgAA</XPD:REF>
