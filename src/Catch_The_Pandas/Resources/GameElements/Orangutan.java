@@ -6,6 +6,7 @@ public class Orangutan extends Animal {
 
 	private int ID;
 	private Panda grabbedPanda = null;
+	private int counter = 0;
 
 	public void setID(int id){ID = id;}
 	public int getID(){return ID;}
@@ -13,6 +14,7 @@ public class Orangutan extends Animal {
 	public Orangutan (int id){
 		ID = id;
 	}
+
 
 	public Orangutan(){
 		ID = 0;
@@ -38,6 +40,7 @@ public class Orangutan extends Animal {
 	}
 
 	public void grab(Panda p) {
+		if (counter >0) return;
 		this.grabbedPanda = p;
 		p.setPreviousAnimal(this);
 		System.out.println("Called function " + this.hashCode() + ".grab(Panda)");
@@ -56,8 +59,20 @@ public class Orangutan extends Animal {
 	@Override
 	public boolean steppedOn(Orangutan o) {
 		//mindig hamissal tér vissza
+		swapLine(o);
 		System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
 		return false;
+	}
+	private void swapLine(Orangutan o)
+	{
+		Tile temp = o.location;
+		o.setLocation(this.location);
+		this.location.setOnTileObject(o);
+		o.grab(this.grabbedPanda);
+		this.grabbedPanda = null;
+		this.location = temp;
+		this.location.setOnTileObject(this);
+		counter = 3;
 	}
 
 	//DOMIAN
@@ -72,6 +87,7 @@ public class Orangutan extends Animal {
 	@Override
 	//minden kör elején lefut majd
 	public void eachTurn(){
+		if (counter>0) counter--;
 		//megnézi, hogy az orángután beszorult-e
 		boolean freetomove = false;
 		//elkéri az alatta lévő csempe szomszédait
