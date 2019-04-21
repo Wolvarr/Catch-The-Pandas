@@ -26,7 +26,6 @@ public class Orangutan extends Animal {
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
-				//DOMIAN
 				//Ha sorban vannak mogotte a pandak akkor meghivodik az o move-juk is
 				if (this.grabbedPanda != null) {
 					this.grabbedPanda.move(location);
@@ -47,35 +46,39 @@ public class Orangutan extends Animal {
 	}
 
 
-	// DOMIAN
+
 	// Visszaadja a megragadott pandat
 	public Panda getGrabbed() {
 		// System.out.println("Called function orangutan.getGrabbed()");
 		return grabbedPanda;
 	}
 	
-	//DOMIAN
 	// Nem csinal egyenlore semmit
 	@Override
 	public boolean steppedOn(Orangutan o) {
 		//mindig hamissal tér vissza
-		swapLine(o);
+		swapLocation(o);
 		System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
 		return false;
 	}
-	private void swapLine(Orangutan o)
+
+	//domian
+	//ezt kicsit átírtam
+	@Override
+	public void swapLocation(Orangutan incoming)
 	{
-		Tile temp = o.location;
-		o.setLocation(this.location);
-		this.location.setOnTileObject(o);
-		o.grab(this.grabbedPanda);
+		Tile pandat=this.location;
+		Tile orangutant= incoming.location;
+		//this.location.movedFrom();
+		//incoming.location.movedFrom();
+		pandat.setOnTileObject(incoming);
+		orangutant.setOnTileObject(this);
+
+		incoming.grab(this.grabbedPanda);
 		this.grabbedPanda = null;
-		this.location = temp;
-		this.location.setOnTileObject(this);
 		counter = 3;
 	}
 
-	//DOMIAN
 	// Szinten nem csinal semmit
 	@Override
 	public boolean steppedOn(Panda p) {
