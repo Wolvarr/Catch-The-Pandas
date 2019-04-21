@@ -11,6 +11,15 @@ public abstract class Animal extends OnTileObject implements IMovable {
     	//System.out.println(this.toString() + " falls down");
         //location.movedFrom();
     }
+    public void swapLocation(Orangutan incoming)
+    {
+
+    }
+
+    public void releaseNextPanda()
+    {
+
+    }
 
     @Override
     public boolean move(Tile tileTo) {

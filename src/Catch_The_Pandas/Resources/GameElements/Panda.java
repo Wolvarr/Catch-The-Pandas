@@ -39,18 +39,42 @@ public class Panda extends Animal {
 		System.out.println(toString() + "Called function panda.grab(pandaa)");
 	}
 
-	// DOMIAN
-	//megragadja az elotte levo allatot
-	public void grabpreviousAnimal(Animal a) {
-
-		this.previousAnimal = a;
-		System.out.println(toString() + "Called function panda.grabPreviousAnimal()");
-	}
 
 	public void release() {
 		System.out.println(toString() + "Called function panda.release()");
+		//Ez szerintem kell ide
+		//Mivel több irányú a kötés
+		// Az elozo állatnak is el kell engednie ot
+		this.previousAnimal.releaseNextPanda();
 		this.previousAnimal = null;
 		this.nextPanda = null;
+	}
+	//Domian
+	// Ez kell szerintem hogy felbomoljon a sor
+	public void releaseAll() {
+		this.previousAnimal.releaseNextPanda();
+		System.out.println(toString() + "Called function panda.release()");
+		this.previousAnimal = null;
+		if (this.nextPanda != null) {
+			this.nextPanda.releaseAll();
+			this.nextPanda=null;
+		}
+
+	}
+
+	//Domian
+	public void releasePrevious() {
+
+		this.previousAnimal = null;
+	}
+
+	//Domian
+	@Override
+	public void releaseNextPanda() {
+		if (nextPanda!=null){
+			this.nextPanda = null;
+		}
+
 	}
 
 
@@ -61,23 +85,37 @@ public class Panda extends Animal {
 
 		// teszeli hogy o.grabbed==NULL
 		if (o.getGrabbed() == null) {
-			this.grabpreviousAnimal(o);
+			this.setPreviousAnimal(o);
 			o.grab(this);
 		}
-		// ha nem akkor elengedi a fogott pandat
+		// ha nem akkor elengedi a fogott orangutant
 		// a korabban fogott megragadja amire érkezik (becsatolodik a vegere)
 		// az orangutan is megragadja amire erkezik
-		// majd amire erkeztek is megfogja az elotte levo pandat
+		// majd amire erkeztek is megfogja az elotte levo orangutant
 		else {
-			o.getGrabbed().release();
+			o.getGrabbed().releasePrevious();
+			this.swapLocation(o);
 			o.getGrabbed().grab(this);
+
 			o.grab(this);
 
-			this.grabpreviousAnimal(o);
+			this.setPreviousAnimal(o);
 
 		}
 
 		return false;
+	}
+
+	//Domian
+	@Override
+	public void swapLocation(Orangutan incoming){
+		Tile panda=this.location;
+		Tile orangutan= incoming.location;
+		this.location.movedFrom();
+		incoming.location.movedFrom();
+		panda.setOnTileObject(incoming);
+		orangutan.setOnTileObject(this);
+
 	}
 
 	// DOMIAN

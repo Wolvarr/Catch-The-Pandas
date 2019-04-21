@@ -108,9 +108,16 @@ public class Orangutan extends Animal {
 		return "Orangutan: " + hashCode() + " ";
 	}
 
+	@Override
+	public void releaseNextPanda(){
+		if (grabbedPanda!=null)
+			grabbedPanda=null;
+		System.out.println(toString() + "Called release function");
+	}
+
 	public void releasePanda(){
 		if (grabbedPanda!=null)
-			grabbedPanda.release();
+			grabbedPanda.releaseAll();
 		System.out.println(toString() + "Called release function");
 	}
 
