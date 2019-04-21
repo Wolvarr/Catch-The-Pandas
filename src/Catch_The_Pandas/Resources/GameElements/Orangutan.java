@@ -31,6 +31,9 @@ public class Orangutan extends Animal {
 					this.grabbedPanda.move(location);
 				}
 				tileTo.receive(this);
+				if(counter>0){
+					counter-=1;
+				}
 				return true;
 			} else
 				return tileTo.getOnObject().steppedOn(this);
@@ -57,7 +60,10 @@ public class Orangutan extends Animal {
 	@Override
 	public boolean steppedOn(Orangutan o) {
 		//mindig hamissal tér vissza
-		swapLocation(o);
+		if(this.grabbedPanda==null){
+			swapLocation(o);
+		}
+
 		System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
 		return false;
 	}
@@ -67,12 +73,11 @@ public class Orangutan extends Animal {
 	@Override
 	public void swapLocation(Orangutan incoming)
 	{
-		Tile pandat=this.location;
-		Tile orangutant= incoming.location;
-		//this.location.movedFrom();
-		//incoming.location.movedFrom();
-		pandat.setOnTileObject(incoming);
-		orangutant.setOnTileObject(this);
+		Tile orangutant=this.location;
+		Tile incomingt= incoming.location;
+		// setOntileObject az objecteckben is beállítja a lokaciot
+		orangutant.setOnTileObject(incoming);
+		incomingt.setOnTileObject(this);
 
 		incoming.grab(this.grabbedPanda);
 		this.grabbedPanda = null;
