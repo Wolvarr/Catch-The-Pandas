@@ -24,17 +24,48 @@ public class CommandParser {
         List<String> lines = readLines(path + "commands.txt");
         for(String line:lines){
             String[] splittedLine = line.split("::");
-            int size = splittedLine.length;
+
             //hibás parancsok kiszűrése
             if (splittedLine[0].equals("move")||splittedLine[0].equals("release")){
-            switch(size){
-                case 3:
+                Command tempc = null;
+            switch(splittedLine[0]){
+                case "move":
+
                     //ez egy move tipusu parancs lesz
-                    temp.add(new Command(floor.getOrangutan(Integer.parseInt(splittedLine[1])),
-                            floor.getTile(Integer.parseInt(splittedLine[2])), floor));
-                case 2:
+                    tempc = new Command(CommandType.move, floor);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    tempc.setTarget(floor.getTile(Integer.parseInt(splittedLine[2])));
+                    temp.add(tempc);
+
+                    break;
+                case "release":
                     //ez egy release tipusu parancs lesz
-                    temp.add(new Command(floor.getOrangutan(Integer.parseInt(splittedLine[1])), floor));
+                    tempc = new Command(CommandType.release, floor);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    temp.add(tempc);
+                    break;
+
+                case "display":
+                    tempc = new Command(CommandType.display, floor);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    temp.add(tempc);
+                    break;
+
+                case "displayLine":
+                    tempc = new Command(CommandType.displayLine, floor);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    temp.add(tempc);
+                    break;
+
+                case "displayAll":
+                    tempc = new Command(CommandType.displayAll, floor);
+                    temp.add(tempc);
+                    break;
+
+                case "eachTurn":
+                    tempc = new Command(CommandType.eachTurn, floor);
+                    temp.add(tempc);
+                    break;
                 }
             } else {
                 System.out.println("invalid command");

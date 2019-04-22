@@ -10,29 +10,20 @@ public class Command {
     private Orangutan orangutan;
     private Floor floor;
 
-    public Command(Orangutan o, Tile ttarget,  Floor f) throws RuntimeException{
-        type = CommandType.move;
-        //magyarul létezik a cél
-        if(f.getTile(ttarget.getID())!=null){
-            target = ttarget;
-            floor = f;
-        } else throw new RuntimeException("Floor does not contain the target tile!");
-        if (f.getOrangutan(o.getID())!=null){
-            orangutan = o;
-        } else throw new RuntimeException("Floor does not contain the Orangutan!");
+    public Command(CommandType ct, Floor ff){
+        type = ct;
+        floor = ff;
     }
 
-    public Command(Orangutan o, Floor f){
-        type = CommandType.release;
-        if (f.getOrangutan(o.getID())!=null){
-            orangutan = o;
-        } else throw new RuntimeException("Floor does not contain the Orangutan!");
+    public void setTarget(Tile tt){
+        //csekkoljuk, hogy van-e ilyen mező a floorban
+        if (floor.getTile(tt.getID())!=null)
+            target = tt;
     }
 
-    public void modify(Tile newtarget) {
-        //létezik a cél és move típusú a parancs
-        if ((floor.getTile(newtarget.getID()) != null)&& type==CommandType.move) {
-            target = newtarget;
+    public void setOrangutan(Orangutan o) {
+        if (floor.getOrangutan(o.getID()) != null) {
+            orangutan = o;
         }
     }
 
@@ -41,9 +32,23 @@ public class Command {
             case move:
                 orangutan.move(target);
                 break;
+
             case release:
                 orangutan.releasePanda();
                 break;
+
+            case display:
+                break;
+
+            case displayAll:
+                break;
+
+            case displayLine:
+                break;
+
+            case eachTurn:
+                break;
+
             default:
                 break;
         }
