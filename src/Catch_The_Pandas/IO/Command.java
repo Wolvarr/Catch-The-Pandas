@@ -9,10 +9,12 @@ public class Command {
     private Tile target;
     private Orangutan orangutan;
     private Floor floor;
+    OutputWriter output;
 
-    public Command(CommandType ct, Floor ff){
+    public Command(CommandType ct, Floor ff, OutputWriter o){
         type = ct;
         floor = ff;
+        output = o;
     }
 
     public void setTarget(Tile tt){
@@ -38,6 +40,7 @@ public class Command {
                 break;
 
             case display:
+                output.write("probageci");
                 break;
 
             case displayAll:
