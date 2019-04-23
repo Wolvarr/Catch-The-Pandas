@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PrototypeMain {
-    public static boolean deterministic;
+    public static boolean deterministic = false;
 
     public static void main(String[] args){
         OutputWriter writer;

@@ -32,7 +32,8 @@ public class Wardrobe extends Item {
         //creating a new Random for more enjoyable gameplay resulting from randomly warpin' around the hood
         Random r = new Random();
         //Wardroba lépés esetén eltűnik
-        o.getGrabbed().disappearPandas();
+        if(o.getGrabbed()!=null)
+            o.getGrabbed().disappearPandas();
         if(!deterministic)
             newlocation = otherWardrobes.get(r.nextInt(otherWardrobes.size())).getLocation();
         else newlocation = otherWardrobes.get(0).getLocation();
