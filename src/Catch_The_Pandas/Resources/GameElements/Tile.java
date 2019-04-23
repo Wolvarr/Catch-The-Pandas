@@ -28,6 +28,11 @@ public class Tile {
         return neighbours.contains(f);
     }
 
+    //Ez a wardrobe miatt kell
+    public void setObject(OnTileObject object){
+        this.on = object;
+    }
+
     //beállítja a kétirányú ismeretséget a paraméterül kapott játékelem és önmaga között
     public void setOnTileObject(OnTileObject object)
     {

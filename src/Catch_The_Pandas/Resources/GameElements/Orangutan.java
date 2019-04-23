@@ -7,6 +7,9 @@ public class Orangutan extends Animal {
 	private int ID;
 	private Panda grabbedPanda = null;
 	private int counter = 0;
+	private int pandacounter = 0;
+	//True ha wardrobeból lép ki
+	private boolean teleported = false;
 
 	public void setID(int id){ID = id;}
 
@@ -21,6 +24,10 @@ public class Orangutan extends Animal {
 		ID = 0;
 	}
 
+	public void setTeleported(boolean teleported){
+		this.teleported = teleported;
+	}
+
 	@Override
 	public boolean move(Tile tileTo) {
 		System.out.println("Called function " + this.hashCode() + ".move()");
@@ -29,7 +36,11 @@ public class Orangutan extends Animal {
 				location.movedFrom();
 				//Ha sorban vannak mogotte a pandak akkor meghivodik az o move-juk is
 				if (this.grabbedPanda != null) {
-					this.grabbedPanda.move(location);
+					if(teleported) {
+
+					}
+					else
+						this.grabbedPanda.move(location);
 				}
 				tileTo.receive(this);
 				if(counter>0){
@@ -43,6 +54,7 @@ public class Orangutan extends Animal {
 	}
 
 	public void grab(Panda p) {
+		pandacounter++;
 		if (counter >0) return;
 		this.grabbedPanda = p;
 		p.setPreviousAnimal(this);

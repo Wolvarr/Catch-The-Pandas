@@ -21,98 +21,78 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1861495278">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.19" value="2" />
-          <entry key="project.open.time.21" value="2" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="387" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="387" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="IO" value="1" />
-          <entry key="java" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="5" />
-          <entry key="UML" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="Catch-The-Pandas" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/PrototypeMain.java">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="24" column="53" lean-forward="true" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+            <state relative-caret-position="17">
+              <caret line="124" column="25" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Tile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Wardrobe.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#584#585#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Orangutan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="561">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="e#3049#3050#0" expanded="true" />
+                <element signature="e#3095#3096#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/PrototypeMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="54" column="63" lean-forward="true" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="63" />
+            <state relative-caret-position="389">
+              <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/CommandParser.java">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Animal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
+            <state relative-caret-position="357">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/OnTileObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="132" column="5" lean-forward="true" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
+            <state relative-caret-position="340">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -120,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Floor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            <state relative-caret-position="629">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -129,121 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/CandyVending.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/OutputWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/Catch_The_Pandas.IO">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>Catch_The_Pandas.IO</OriginalElement>
-              <nodes>
-                <node x="0.0" y="80.0">Catch_The_Pandas.IO.CommandType</node>
-                <node x="0.09999999999999432" y="315.0">Catch_The_Pandas.IO.TileConnection</node>
-                <node x="137.0" y="0.0">Catch_The_Pandas.IO.OutputDestination</node>
-                <node x="64.34791666666666" y="160.0">Catch_The_Pandas.IO.Command</node>
-                <node x="92.74427083333333" y="240.0">Catch_The_Pandas.IO.CommandParser</node>
-                <node x="307.35" y="315.0">Catch_The_Pandas.IO.ListDisplay</node>
-                <node x="37.02499999999999" y="485.0">Catch_The_Pandas.IO.Map</node>
-                <node x="73.67460732984293" y="399.5811518324607">Catch_The_Pandas.IO.EnveriomentParser</node>
-                <node x="151.0" y="80.0">Catch_The_Pandas.IO.OutputWriter</node>
-                <node x="160.35" y="315.0">Catch_The_Pandas.IO.InputType</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="Catch_The_Pandas.IO.OutputWriter" target="Catch_The_Pandas.IO.OutputDestination">
-                  <point x="-29.5" y="-15.0" />
-                  <point x="180.5" y="55.0" />
-                  <point x="173.5" y="55.0" />
-                  <point x="-36.5" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.Map" target="Catch_The_Pandas.IO.EnveriomentParser">
-                  <point x="18.0" y="-15.0" />
-                  <point x="91.02499999999999" y="455.0" />
-                  <point x="165.6" y="455.0" />
-                  <point x="36.75" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.Command" target="Catch_The_Pandas.IO.OutputWriter">
-                  <point x="13.125" y="-15.0" />
-                  <point x="129.97291666666666" y="130.0" />
-                  <point x="165.75" y="130.0" />
-                  <point x="-44.25" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.CommandParser" target="Catch_The_Pandas.IO.Command">
-                  <point x="0.0" y="-15.0" />
-                  <point x="161.24427083333333" y="220.0" />
-                  <point x="143.09791666666666" y="220.0" />
-                  <point x="26.25" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.EnveriomentParser" target="Catch_The_Pandas.IO.InputType">
-                  <point x="49.0" y="-15.0" />
-                  <point x="177.85" y="370.0" />
-                  <point x="185.85" y="370.0" />
-                  <point x="-25.5" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.Command" target="Catch_The_Pandas.IO.CommandType">
-                  <point x="-13.125" y="-15.0" />
-                  <point x="103.72291666666666" y="140.0" />
-                  <point x="109.16666666666666" y="140.0" />
-                  <point x="43.66666666666666" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.CommandParser" target="Catch_The_Pandas.IO.CommandType">
-                  <point x="-54.80000000000001" y="-15.0" />
-                  <point x="106.44427083333332" y="220.0" />
-                  <point x="47.60364583333333" y="220.0" />
-                  <point x="47.60364583333333" y="140.0" />
-                  <point x="21.833333333333343" y="140.0" />
-                  <point x="-43.66666666666666" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.Map" target="Catch_The_Pandas.IO.TileConnection">
-                  <point x="-6.0" y="-15.0" />
-                  <point x="67.02499999999999" y="445.0" />
-                  <point x="44.84999999999999" y="445.0" />
-                  <point x="44.84999999999999" y="370.0" />
-                  <point x="64.6" y="370.0" />
-                  <point x="0.0" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.Map" target="Catch_The_Pandas.IO.InputType">
-                  <point x="30.0" y="-15.0" />
-                  <point x="103.02499999999999" y="465.0" />
-                  <point x="229.1" y="465.0" />
-                  <point x="229.1" y="370.0" />
-                  <point x="236.85" y="370.0" />
-                  <point x="25.5" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.CommandParser" target="Catch_The_Pandas.IO.OutputWriter">
-                  <point x="54.79999999999998" y="-15.0" />
-                  <point x="216.04427083333331" y="220.0" />
-                  <point x="241.47864583333333" y="220.0" />
-                  <point x="241.47864583333333" y="140.0" />
-                  <point x="254.25" y="140.0" />
-                  <point x="44.25000000000001" y="15.0" />
-                </edge>
-                <edge source="Catch_The_Pandas.IO.EnveriomentParser" target="Catch_The_Pandas.IO.TileConnection">
-                  <point x="-49.0" y="-15.0" />
-                  <point x="79.85" y="370.0" />
-                  <point x="90.39999999999999" y="370.0" />
-                  <point x="25.799999999999997" y="15.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0914285714285719" x="49.89528795811509" y="326.8952879581151" />
-              <SelectedNodes />
-              <Categories />
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
+            <state relative-caret-position="323">
+              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -308,33 +175,27 @@
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileConnection.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/FragileTile.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/InputType.java" />
-        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Tile.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/ListDisplay.java" />
-        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Wardrobe.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/InputParser.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/CowardPanda.java" />
-        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Animal.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/SkeletonMain.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/CommandType.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/OutputDestination.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/CommandParser.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/PrototypeMain.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/OutputWriter.java" />
-        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Orangutan.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/OnTileObject.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Floor.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java" />
+        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Animal.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java" />
+        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Tile.java" />
+        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Wardrobe.java" />
+        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Orangutan.java" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
@@ -349,6 +210,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -371,30 +234,12 @@
               <item name="Catch-The-Pandas" type="b2602c69:ProjectViewProjectNode" />
               <item name="Catch-The-Pandas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Catch_The_Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="IO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Catch-The-Pandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Catch-The-Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Catch_The_Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Catch-The-Pandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Catch-The-Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Catch_The_Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="GameElements" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -497,11 +342,14 @@
       <workItem from="1556008356806" duration="3390000" />
       <workItem from="1556011931315" duration="5000" />
       <workItem from="1556012899367" duration="5103000" />
+      <workItem from="1556022799040" duration="1757000" />
+      <workItem from="1556024794079" duration="1762000" />
+      <workItem from="1556026626380" duration="244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75323000" />
+    <option name="totallyTimeSpent" value="79086000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -513,9 +361,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49673203" visible="true" weight="0.30181542" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49673203" visible="true" weight="0.31543118" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.27836612" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -550,9 +398,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -614,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Wardrobe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -646,13 +484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -691,62 +522,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/OnTileObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Orangutan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding>
-            <element signature="e#311#312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/CommandType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Floor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/CandyVending.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/OutputWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
@@ -844,7 +623,7 @@
               <point x="25.799999999999997" y="15.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="1.0914285714285719" x="49.89528795811509" y="326.8952879581151" />
+          <settings layout="Hierarchic Group" zoom="1.0914285714285719" x="50.0" y="327.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -852,41 +631,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="54" column="63" lean-forward="true" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="63" />
+        <state relative-caret-position="1190">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/OutputWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/CommandParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
+        <state relative-caret-position="536">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java">
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="408">
+          <caret line="54" column="63" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java">
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Animal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="132" column="5" lean-forward="true" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
+        <state relative-caret-position="357">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/OnTileObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Floor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/CandyVending.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/PrototypeMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="24" column="53" lean-forward="true" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+        <state relative-caret-position="389">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Wardrobe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Orangutan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#3049#3050#0" expanded="true" />
+            <element signature="e#3095#3096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="124" column="25" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
         </state>
       </provider>
     </entry>

@@ -13,6 +13,7 @@ public class Panda extends Animal {
 	@Override
 	public boolean move(Tile tileTo) {
 		System.out.println(toString() + "Called function panda.move(" + tileTo.toString() + ")");
+		//Megnézi hogy érvényes helyre lépünk-e
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
@@ -140,6 +141,15 @@ public class Panda extends Animal {
     @Override
 	public String toString(){
 		return "Panda";
+	}
+
+	//Wardobe-ba lépés eserén el kell tüntetni a pandákat
+	public void disappearPandas(){
+		while(this.nextPanda != null){
+			this.location = null;
+			this.location.setObject(null);
+			disappearPandas();
+		}
 	}
 
 
