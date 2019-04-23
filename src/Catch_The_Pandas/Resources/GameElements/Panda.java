@@ -139,7 +139,7 @@ public class Panda extends Animal {
 
     @Override
 	public String toString(){
-		return "Panda: " + hashCode()+ " ";
+		return "Panda";
 	}
 
 
