@@ -118,7 +118,7 @@ public class EnveriomentParser {
                 case "CP":
                     res.put(Integer.parseInt(splittedline[0]),new CowardPanda());
                     break;
-                case "JO":
+                case "JP":
                     res.put(Integer.parseInt(splittedline[0]),new JumpyPanda());
                     break;
                 case "LP":

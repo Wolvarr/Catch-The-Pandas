@@ -1,4 +1,4 @@
 move::0::00
 move::0::02
-displayAll
-release::0
+move::0::03
+displayLine::0

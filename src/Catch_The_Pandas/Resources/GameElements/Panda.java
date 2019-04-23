@@ -2,8 +2,8 @@ package Catch_The_Pandas.Resources.GameElements;
 
 public class Panda extends Animal {
 
-	protected Panda nextPanda;
-	protected Animal previousAnimal;
+	protected Panda nextPanda = null;
+	protected Animal previousAnimal = null;
 
 	public void setPreviousAnimal(Animal a)
 	{
@@ -49,6 +49,11 @@ public class Panda extends Animal {
 		this.previousAnimal = null;
 		this.nextPanda = null;
 	}
+
+	public Panda getNextPanda() {
+		return nextPanda;
+	}
+
 	//Domian
 	// Ez kell szerintem hogy felbomoljon a sor
 	public void releaseAll() {

@@ -41,22 +41,33 @@ public class Command {
                 break;
 
             case display:
+                output.write("display tiles around orangutan: " + orangutan.getID());
                 for(Tile t: orangutan.getLocation().getNeighbours()){
                     output.write("TileID: " + t.getID());
                     if (t.getOnObject()!=null)
                         output.write("   " + t.getOnObject().toString());
                 }
+                output.write("::::::::::::::::::::::");
                 break;
 
             case displayAll:
+                output.write("displayAll");
                 for (Tile t: floor.getAllTiles()){
                     output.write("TileID: " + t.getID());
                     if (t.getOnObject()!=null)
                         output.write("   " + t.getOnObject().toString());
+                    else output.write("   empty");
+                    String neighbours = "   Neighbours: ";
+                    for(Tile tt: t.getNeighbours()){
+                        neighbours+= "ID::" + tt.getID() + " ";
+                    }
+                    output.write(neighbours);
                 }
+                output.write("::::::::::::::::::::::");
                 break;
 
             case displayLine:
+                output.write("displayLine on orangutan: " + orangutan.getID());
                 if (orangutan.getGrabbed() == null)
                     output.write("This orangutan does not lead a line");
                 else {
@@ -66,7 +77,9 @@ public class Command {
                         output.write("TileID: " +
                                 tempp.getLocation().getID());
                         output.write("   " + tempp.toString());
+                        tempp = tempp.getNextPanda();
                     }
+                    output.write("::::::::::::::::::::::");
 
                 }
                 break;
