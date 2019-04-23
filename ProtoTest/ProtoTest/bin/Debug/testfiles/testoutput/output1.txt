@@ -1,0 +1,26 @@
+
+invalid command
+displayAll
+TileID: 0
+   Orangutan: 1134517053 
+   Neighbours: ID::1 
+TileID: 1
+   empty
+   Neighbours: ID::0 
+::::::::::::::::::::::
+displayAll
+TileID: 0
+   empty
+   Neighbours: ID::1 
+TileID: 1
+   Orangutan: 1134517053 
+   Neighbours: ID::0 
+::::::::::::::::::::::
+displayAll
+TileID: 0
+   Orangutan: 1134517053 
+   Neighbours: ID::1 
+TileID: 1
+   empty
+   Neighbours: ID::0 
+::::::::::::::::::::::

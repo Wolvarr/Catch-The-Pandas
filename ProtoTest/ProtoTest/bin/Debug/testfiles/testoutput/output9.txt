@@ -1,0 +1,23 @@
+
+displayLine on orangutan: 0
+This orangutan does not lead a line
+displayAll
+TileID: 0
+   Panda
+   Neighbours: ID::1 
+TileID: 1
+   Panda
+   Neighbours: ID::0 ID::2 ID::7 
+TileID: 2
+   empty
+   Neighbours: ID::1 ID::3 
+TileID: 3
+   empty
+   Neighbours: ID::2 ID::4 
+TileID: 4
+   Orangutan: 1109371569 
+   Neighbours: ID::3 
+TileID: 7
+   empty
+   Neighbours: ID::1 
+::::::::::::::::::::::

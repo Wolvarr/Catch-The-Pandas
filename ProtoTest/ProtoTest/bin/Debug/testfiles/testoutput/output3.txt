@@ -1,0 +1,13 @@
+
+displayAll
+TileID: 0
+   Orangutan: 1751075886 
+   Neighbours: ID::1 
+TileID: 1
+   Panda
+   Neighbours: ID::0 
+::::::::::::::::::::::
+displayLine on orangutan: 0
+TileID: 1
+   Panda
+::::::::::::::::::::::

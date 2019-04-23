@@ -2,8 +2,8 @@ package Catch_The_Pandas.Resources.GameElements;
 
 public class Entrance extends Tile {
 
-    public Entrance(Floor f) {
-        super(f);
+    public Entrance(Floor f, int i) {
+        super(f, i);
     }
 
     public void createOrangutan()

@@ -266,8 +266,8 @@ public class SkeletonMain {
     	Tile t1 = new Tile(f1);
     	Tile t2 = new Tile(f1);
     	Panda p = new Panda();
-    	Exit e = new Exit(f1);
-    	Entrance en = new Entrance(f1);
+    	//Exit e = new Exit(f1);
+    	//Entrance en = new Entrance(f1);
     }
     
     //function for user choice 9
