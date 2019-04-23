@@ -1,7 +1,7 @@
 
 displayAll
 TileID: 0
-   Orangutan: 610998173 
+   Orangutan: 0
    Neighbours: ID::1 
 TileID: 1
    Panda

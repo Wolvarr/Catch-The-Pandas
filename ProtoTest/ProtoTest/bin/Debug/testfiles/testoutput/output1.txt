@@ -2,7 +2,7 @@
 invalid command
 displayAll
 TileID: 0
-   Orangutan: 1751075886 
+   Orangutan: 0
    Neighbours: ID::1 
 TileID: 1
    empty
@@ -13,12 +13,12 @@ TileID: 0
    empty
    Neighbours: ID::1 
 TileID: 1
-   Orangutan: 1751075886 
+   Orangutan: 0
    Neighbours: ID::0 
 ::::::::::::::::::::::
 displayAll
 TileID: 0
-   Orangutan: 1751075886 
+   Orangutan: 0
    Neighbours: ID::1 
 TileID: 1
    empty

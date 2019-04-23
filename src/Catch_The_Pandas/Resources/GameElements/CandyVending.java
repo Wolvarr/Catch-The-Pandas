@@ -29,7 +29,7 @@ public class CandyVending extends Item {
 	}
 	@Override
     public String toString(){
-        return "CandyVending: " + hashCode() + " ";
+        return "CandyVending";
     }
 
 }

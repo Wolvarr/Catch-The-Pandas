@@ -13,6 +13,6 @@ TileID: 1
    Panda
    Neighbours: ID::0 ID::2 
 TileID: 2
-   Orangutan: 1349277854 
+   Orangutan: 0
    Neighbours: ID::1 
 ::::::::::::::::::::::

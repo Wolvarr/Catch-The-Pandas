@@ -1,9 +1,9 @@
 
 displayAll
 TileID: 0
-   Orangutan: 596512129 
+   Orangutan: 0
    Neighbours: ID::1 
 TileID: 1
-   Arcade: 1051754451 
+   Arcade
    Neighbours: ID::0 
 ::::::::::::::::::::::

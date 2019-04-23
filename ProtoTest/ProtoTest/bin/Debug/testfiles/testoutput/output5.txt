@@ -4,6 +4,6 @@ TileID: 0
    empty
    Neighbours: ID::1 
 TileID: 1
-   Orangutan: 787604730 
+   Orangutan: 0
    Neighbours: ID::0 
 ::::::::::::::::::::::

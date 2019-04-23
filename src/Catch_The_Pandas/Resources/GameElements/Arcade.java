@@ -30,6 +30,6 @@ public class Arcade extends Item {
 
 	@Override
 	public String toString(){
-		return "Arcade: " + hashCode() + " ";
+		return "Arcade";
 	}
 }

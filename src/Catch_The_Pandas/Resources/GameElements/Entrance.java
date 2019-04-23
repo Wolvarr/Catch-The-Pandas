@@ -10,4 +10,5 @@ public class Entrance extends Tile {
     {
     	//System.out.println("Called function entrance.createOrangutan()");
     }
+
 }

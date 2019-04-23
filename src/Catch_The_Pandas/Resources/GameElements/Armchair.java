@@ -16,5 +16,10 @@ public class Armchair extends Item {
         return false;
     }
 
+    @Override
+    public String toString(){
+		return "Arcade";
+	}
+
 	
 }

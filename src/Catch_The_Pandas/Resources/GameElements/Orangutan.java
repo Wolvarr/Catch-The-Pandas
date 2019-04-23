@@ -132,7 +132,7 @@ public class Orangutan extends Animal {
 
 	@Override
 	public String toString(){
-		return "Orangutan: " + hashCode() + " ";
+		return "Orangutan: " + ID;
 	}
 
 	@Override

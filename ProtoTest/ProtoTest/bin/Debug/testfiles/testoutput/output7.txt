@@ -4,9 +4,9 @@ TileID: 0
    Panda
    Neighbours: ID::1 
 TileID: 1
-   Orangutan: 1349277854 
+   Orangutan: 0
    Neighbours: ID::0 ID::2 
 TileID: 2
-   Arcade: 661672156 
+   Arcade
    Neighbours: ID::1 
 ::::::::::::::::::::::

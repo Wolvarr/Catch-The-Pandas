@@ -15,7 +15,7 @@ TileID: 3
    empty
    Neighbours: ID::2 ID::4 
 TileID: 4
-   Orangutan: 1349277854 
+   Orangutan: 0
    Neighbours: ID::3 
 TileID: 7
    empty
