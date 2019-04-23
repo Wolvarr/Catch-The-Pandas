@@ -48,8 +48,9 @@ public class Panda extends Animal {
 			o.setTeleported(false);
 		}
 		// ha nulla a helyzet teleport és visszatér
-		if(location==null){
+		if(this.location==null){
 			location=teleportloc;
+			teleportloc.setOnTileObject(this);
 			return  true;
 		}
 		else if (location.getNeighbours().contains(tileTo)) {

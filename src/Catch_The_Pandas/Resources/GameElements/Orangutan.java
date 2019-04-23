@@ -11,11 +11,12 @@ public class Orangutan extends Animal {
 	//True ha wardrobeból lép ki
 	private boolean teleported = false;
 	// ahova ment
-	Wardrobe teleportedto;
+	Tile teleportedto;
 
 	public void setID(int id){ID = id;}
 
 	public int getID(){return ID;}
+	public  void setteleportedto(Tile t){teleportedto=t;}
 
 	//public Wardrobe getWardrobe(){return  teleportedto;}
 
@@ -42,7 +43,7 @@ public class Orangutan extends Animal {
 				//ha épp teleportált akkor más
 				if (this.grabbedPanda != null) {
 					if(teleported) {
-						this.grabbedPanda.moveTeleported(location,teleportedto.getNewLocation(),this);
+						this.grabbedPanda.moveTeleported(location,teleportedto,this);
 					}
 					else
 						this.grabbedPanda.move(location);
