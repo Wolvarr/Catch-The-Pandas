@@ -1,0 +1,7 @@
+D:\Repositories\ProtoTest\ProtoTest\bin\Debug\ProtoTest.exe.config
+D:\Repositories\ProtoTest\ProtoTest\bin\Debug\ProtoTest.exe
+D:\Repositories\ProtoTest\ProtoTest\bin\Debug\ProtoTest.pdb
+D:\Repositories\ProtoTest\ProtoTest\obj\Debug\ProtoTest.csprojAssemblyReference.cache
+D:\Repositories\ProtoTest\ProtoTest\obj\Debug\ProtoTest.csproj.CoreCompileInputs.cache
+D:\Repositories\ProtoTest\ProtoTest\obj\Debug\ProtoTest.exe
+D:\Repositories\ProtoTest\ProtoTest\obj\Debug\ProtoTest.pdb

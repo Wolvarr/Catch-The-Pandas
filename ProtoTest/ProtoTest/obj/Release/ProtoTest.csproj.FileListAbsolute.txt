@@ -1,0 +1,6 @@
+D:\Repositories\ProtoTest\ProtoTest\bin\Release\ProtoTest.exe.config
+D:\Repositories\ProtoTest\ProtoTest\bin\Release\ProtoTest.exe
+D:\Repositories\ProtoTest\ProtoTest\bin\Release\ProtoTest.pdb
+D:\Repositories\ProtoTest\ProtoTest\obj\Release\ProtoTest.csproj.CoreCompileInputs.cache
+D:\Repositories\ProtoTest\ProtoTest\obj\Release\ProtoTest.exe
+D:\Repositories\ProtoTest\ProtoTest\obj\Release\ProtoTest.pdb
