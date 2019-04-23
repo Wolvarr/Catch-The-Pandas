@@ -1,0 +1,11 @@
+
+TileID: 0
+TileID: 1
+   Panda: 1073502961 
+TileID: 2
+   Orangutan: 1783593083 
+TileID: 0
+TileID: 1
+   Panda: 1073502961 
+TileID: 2
+   Orangutan: 1783593083 

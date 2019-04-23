@@ -46,7 +46,6 @@ public class CommandParser {
                     break;
 
                 case "display":
-                    System.out.println("display command parsed");
                     tempc = new Command(CommandType.display, floor, output);
                     tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
                     temp.add(tempc);

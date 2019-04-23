@@ -9,6 +9,7 @@ public class Orangutan extends Animal {
 	private int counter = 0;
 
 	public void setID(int id){ID = id;}
+
 	public int getID(){return ID;}
 
 	public Orangutan (int id){

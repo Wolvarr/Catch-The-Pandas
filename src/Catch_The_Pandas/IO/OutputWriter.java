@@ -1,9 +1,6 @@
 package Catch_The_Pandas.IO;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class OutputWriter {
     OutputDestination target;
@@ -24,14 +21,13 @@ public class OutputWriter {
                 break;
 
             case file:
-                BufferedWriter writer = null;
+
                 try {
-                    writer = new BufferedWriter(new FileWriter(outputPath));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath, true));
+                    writer.newLine();
                     writer.append(s);
+
+                    writer.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

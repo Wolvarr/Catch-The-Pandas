@@ -31,7 +31,6 @@ public class PrototypeMain {
             writer.setPath( basePath+ args[2]);
         } else
             writer = new OutputWriter(OutputDestination.console);
-        writer.write("geci");
         System.out.println("This is the prototype main class");
         Map testmap = new Map(basePath + args[0]);
         Floor testfloor = testmap.build();

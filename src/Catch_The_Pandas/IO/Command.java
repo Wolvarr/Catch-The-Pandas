@@ -2,6 +2,7 @@ package Catch_The_Pandas.IO;
 
 import Catch_The_Pandas.Resources.GameElements.Floor;
 import Catch_The_Pandas.Resources.GameElements.Orangutan;
+import Catch_The_Pandas.Resources.GameElements.Panda;
 import Catch_The_Pandas.Resources.GameElements.Tile;
 
 public class Command {
@@ -40,13 +41,34 @@ public class Command {
                 break;
 
             case display:
-                output.write("probageci");
+                for(Tile t: orangutan.getLocation().getNeighbours()){
+                    output.write("TileID: " + t.getID());
+                    if (t.getOnObject()!=null)
+                        output.write("   " + t.getOnObject().toString());
+                }
                 break;
 
             case displayAll:
+                for (Tile t: floor.getAllTiles()){
+                    output.write("TileID: " + t.getID());
+                    if (t.getOnObject()!=null)
+                        output.write("   " + t.getOnObject().toString());
+                }
                 break;
 
             case displayLine:
+                if (orangutan.getGrabbed() == null)
+                    output.write("This orangutan does not lead a line");
+                else {
+                    Panda tempp = orangutan.getGrabbed();
+                    while (tempp != null) {
+
+                        output.write("TileID: " +
+                                tempp.getLocation().getID());
+                        output.write("   " + tempp.toString());
+                    }
+
+                }
                 break;
 
             case eachTurn:
