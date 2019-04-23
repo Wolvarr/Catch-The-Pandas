@@ -10,10 +10,14 @@ public class Orangutan extends Animal {
 	private int pandacounter = 0;
 	//True ha wardrobeból lép ki
 	private boolean teleported = false;
+	// ahova ment
+	Wardrobe teleportedto;
 
 	public void setID(int id){ID = id;}
 
 	public int getID(){return ID;}
+
+	//public Wardrobe getWardrobe(){return  teleportedto;}
 
 	public Orangutan (int id){
 		ID = id;
@@ -30,14 +34,15 @@ public class Orangutan extends Animal {
 
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println("Called function " + this.hashCode() + ".move()");
+		//System.out.println("Called function " + this.hashCode() + ".move()");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
 				//Ha sorban vannak mogotte a pandak akkor meghivodik az o move-juk is
+				//ha épp teleportált akkor más
 				if (this.grabbedPanda != null) {
 					if(teleported) {
-
+						this.grabbedPanda.moveTeleported(location,teleportedto.getNewLocation(),this);
 					}
 					else
 						this.grabbedPanda.move(location);
@@ -58,7 +63,7 @@ public class Orangutan extends Animal {
 		if (counter >0) return;
 		this.grabbedPanda = p;
 		p.setPreviousAnimal(this);
-		System.out.println("Called function " + this.hashCode() + ".grab(Panda)");
+		//System.out.println("Called function " + this.hashCode() + ".grab(Panda)");
 	}
 
 
@@ -77,7 +82,7 @@ public class Orangutan extends Animal {
 			swapLocation(o);
 		}
 
-		System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
+		//System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
 		return false;
 	}
 
@@ -101,7 +106,7 @@ public class Orangutan extends Animal {
 	@Override
 	public boolean steppedOn(Panda p) {
 
-		System.out.println("Called function " + this.hashCode() + ".steppedOn(panda)");
+		//System.out.println("Called function " + this.hashCode() + ".steppedOn(panda)");
 		return false;
 	}
 
@@ -133,13 +138,13 @@ public class Orangutan extends Animal {
 	public void releaseNextPanda(){
 		if (grabbedPanda!=null)
 			grabbedPanda=null;
-		System.out.println(toString() + "Called release function");
+		//System.out.println(toString() + "Called release function");
 	}
 
 	public void releasePanda(){
 		if (grabbedPanda!=null)
 			grabbedPanda.releaseAll();
-		System.out.println(toString() + "Called release function");
+		//System.out.println(toString() + "Called release function");
 	}
 
 

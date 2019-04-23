@@ -3,7 +3,7 @@ package Catch_The_Pandas.Resources.GameElements;
 public class Armchair extends Item {
 	
 	public void pull() {
-		System.out.println("Called function armchair.pull()");
+		//System.out.println("Called function armchair.pull()");
 			for(Tile tile : location.getNeighbours()) {
 				if(tile.getOnObject() != null)	
 					tile.getOnObject().interact(this);
@@ -12,7 +12,7 @@ public class Armchair extends Item {
 	
 	@Override
     public boolean steppedOn(Animal inComingAnimal){
-        System.out.print("You cant step to an Armchair");
+        //System.out.print("You cant step to an Armchair");
         return false;
     }
 

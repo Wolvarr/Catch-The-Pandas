@@ -46,7 +46,7 @@ public class Floor {
 
     public void changePandaCount( int i)
     {
-    	System.out.println("Called function floor.changePandaCount()");
+    	//System.out.println("Called function floor.changePandaCount()");
     	pandaCount += i;
     }
 

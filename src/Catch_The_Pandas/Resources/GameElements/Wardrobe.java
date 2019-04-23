@@ -27,7 +27,7 @@ public class Wardrobe extends Item {
 
     @Override
     public boolean steppedOn(Orangutan o){
-        System.out.println(toString()+"Called function wardrobe.steppedOn");
+        //System.out.println(toString()+"Called function wardrobe.steppedOn");
         o.setTeleported(true);
         //creating a new Random for more enjoyable gameplay resulting from randomly warpin' around the hood
         Random r = new Random();

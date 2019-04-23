@@ -3,9 +3,9 @@ package Catch_The_Pandas.Resources.GameElements;
 public class CowardPanda extends Panda {
 	
 	public void scare() {
-		System.out.println("Called function CowardPanda.scare()");
+		//System.out.println("Called function CowardPanda.scare()");
 		// ez itt nemhiszem hogy jó Danikám
-		release();
+		this.releaseAll();
 		//this.nextPanda.releaseAll();
 	}
 
@@ -19,7 +19,7 @@ public class CowardPanda extends Panda {
 //	}
 
 	public void interact(Arcade a) {
-		System.out.println("Called function CowardPanda.interact(Arcade)");
+		//System.out.println("Called function CowardPanda.interact(Arcade)");
 			this.scare();
 		return;
 	}

@@ -8,6 +8,6 @@ public class Entrance extends Tile {
 
     public void createOrangutan()
     {
-    	System.out.println("Called function entrance.createOrangutan()");
+    	//System.out.println("Called function entrance.createOrangutan()");
     }
 }

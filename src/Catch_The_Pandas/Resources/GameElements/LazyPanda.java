@@ -3,13 +3,13 @@ package Catch_The_Pandas.Resources.GameElements;
 public class LazyPanda extends Panda {
 	
 	public void sit() {
-		System.out.println("Called function LazyPanda.sit()");
+		//System.out.println("Called function LazyPanda.sit()");
 		release();
 	}
 
 	@Override
 	public void release() {
-		System.out.println("Called function LazyPanda.release()");
+		//System.out.println("Called function LazyPanda.release()");
 		this.nextPanda.grab((Panda)this.previousAnimal);
 		this.previousAnimal = null;
 		this.nextPanda = null;
@@ -17,13 +17,13 @@ public class LazyPanda extends Panda {
 	
 	@Override
 	public void interact(Arcade obj) {
-		System.out.println("Called function LazyPanda.interact(Arcade)");
+		//System.out.println("Called function LazyPanda.interact(Arcade)");
 
 		return;
 	}
 	
 	public void interact(Armchair a) {
-		System.out.println("Called function LazyPanda.interact(Armchair)");
+		//System.out.println("Called function LazyPanda.interact(Armchair)");
 		this.sit();
 		return;
 	}

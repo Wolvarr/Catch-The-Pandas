@@ -5,6 +5,7 @@ public class Panda extends Animal {
 	protected Panda nextPanda = null;
 	protected Animal previousAnimal = null;
 
+
 	public void setPreviousAnimal(Animal a)
 	{
 		this.previousAnimal = a;
@@ -12,12 +13,12 @@ public class Panda extends Animal {
 
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println(toString() + "Called function panda.move(" + tileTo.toString() + ")");
+		//System.out.println(toString() + "Called function panda.move(" + tileTo.toString() + ")");
 		//Megnézi hogy érvényes helyre lépünk-e
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
-				
+
 				// ha van kovetkezo panda akkor rekurzivan vegig megy
 				if (this.nextPanda != null) {
 					this.nextPanda.move(location);
@@ -33,16 +34,56 @@ public class Panda extends Animal {
 		return false;
 	}
 
+
+	//Teleport fv, hogy szépen átlátható legyen
+	// kap egyet hogy hova kell menni
+	// Hova kell teleportálni
+	// Orangutánt is kap ajándékba
+
+	public boolean moveTeleported(Tile tileTo, Tile teleportloc, Orangutan o) {
+
+		// ha végig fut szépen a rekurzió és a kövi panda null
+		// akkor már nem teleportálgat
+		if(this.nextPanda==null){
+			o.setTeleported(false);
+		}
+		// ha nulla a helyzet teleport és visszatér
+		if(location==null){
+			location=teleportloc;
+			return  true;
+		}
+		else if (location.getNeighbours().contains(tileTo)) {
+			if (tileTo.getOnObject() == null) {
+				location.movedFrom();
+
+				// ha van kovetkezo panda akkor rekurzivan vegig megy
+
+				if (this.nextPanda != null && this.location!=null) {
+					this.nextPanda.moveTeleported(location, teleportloc,o);
+				}
+				// minden hasonló mint a sima mozgásnál
+				tileTo.receive(this);
+
+				return true;
+			}
+
+			else
+				return tileTo.getOnObject().steppedOn(this);
+		}
+
+		return false;
+	}
+
 	public void grab(Panda p) {
 
 		this.nextPanda = p;
 		p.setPreviousAnimal(this);
-		System.out.println(toString() + "Called function panda.grab(pandaa)");
+		//System.out.println(toString() + "Called function panda.grab(pandaa)");
 	}
 
 	//ez szerintem nem kell
 	public void release() {
-		System.out.println(toString() + "Called function panda.release()");
+		//System.out.println(toString() + "Called function panda.release()");
 		//Ez szerintem kell ide
 		//Mivel több irányú a kötés
 		// Az elozo állatnak is el kell engednie ot
@@ -59,7 +100,7 @@ public class Panda extends Animal {
 	// Ez kell szerintem hogy felbomoljon a sor
 	public void releaseAll() {
 		this.previousAnimal.releaseNextPanda();
-		System.out.println(toString() + "Called function panda.release()");
+		//System.out.println(toString() + "Called function panda.release()");
 		this.previousAnimal = null;
 		if (this.nextPanda != null) {
 			this.nextPanda.releaseAll();
@@ -82,7 +123,7 @@ public class Panda extends Animal {
 	// DOMIAN
 	public boolean steppedOn(Orangutan o) {
 
-		System.out.println(toString() + "Called function panda.steppedOn(oranguan)");
+		//System.out.println(toString() + "Called function panda.steppedOn(oranguan)");
 
 		// teszeli hogy o.grabbed==NULL
 		if (o.getGrabbed() == null) {
@@ -124,7 +165,7 @@ public class Panda extends Animal {
 	//nem csinal semmit ha panda lep pandara
 	public boolean steppedOn(Panda p) {
 
-		System.out.println(toString() + "Called function panda.steppedOn(PANDA)");
+		//System.out.println(toString() + "Called function panda.steppedOn(PANDA)");
 
 		return false;
 	}
@@ -132,7 +173,7 @@ public class Panda extends Animal {
 	@Override
 	public void fall()
     {
-    	System.out.println(toString() + "Called function panda.fall()");
+    	//System.out.println(toString() + "Called function panda.fall()");
     	if(nextPanda != null) {
     		release();
     	}

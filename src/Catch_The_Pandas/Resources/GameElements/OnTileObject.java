@@ -21,11 +21,11 @@ public abstract class OnTileObject {
 
 
     public void setLocation(Tile tile) {
-        System.out.println(toString() + "Called function OnTileObject.setLocation( " +tile.toString() + " )");
+       // System.out.println(toString() + "Called function OnTileObject.setLocation( " +tile.toString() + " )");
         location = tile;
     }
     public Tile getLocation() {
-        System.out.println(toString() + "Called function OnTileObject.getLocation()");
+        //System.out.println(toString() + "Called function OnTileObject.getLocation()");
         return location;
     }
 
