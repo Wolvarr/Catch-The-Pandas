@@ -187,8 +187,8 @@ public class Panda extends Animal {
 	//Wardobe-ba lépés eserén el kell tüntetni a pandákat
 	public void disappearPandas(){
 		while(this.nextPanda != null){
+			this.location.movedFrom();
 			this.location = null;
-			this.location.setObject(null);
 			disappearPandas();
 		}
 	}
