@@ -36,7 +36,7 @@ public class Wardrobe extends Item {
         if(!deterministic)
             newlocation = otherWardrobes.get(r.nextInt(otherWardrobes.size())).getLocation();
         else newlocation = otherWardrobes.get(0).getLocation();
-        o.setteleportedto(newlocation);
+        o.setteleportedto(newlocation.getNeighbours().get(0));
         //making the warp, setting up connection between the animal and it's new tile
         //Mi van ha a mellette lévő mező csapda?!
         o.setLocation(newlocation.getNeighbours().get(0)); // Ez nem biztos hogy kell mivel a setontileobject is beállítja a locationt
