@@ -1,6 +1,0 @@
-displayAll
-move::0::01
-displayAll
-00::CV
-move::0::00
-displayAll

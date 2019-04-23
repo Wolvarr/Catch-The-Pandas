@@ -1,4 +1,0 @@
-move::0::00
-move::0::02
-move::0::03
-displayLine::0

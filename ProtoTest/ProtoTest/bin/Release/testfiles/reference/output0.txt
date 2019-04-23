@@ -1,7 +1,0 @@
-
-displayLine on orangutan: 0
-TileID: 2
-   Panda
-TileID: 1
-   Panda
-::::::::::::::::::::::

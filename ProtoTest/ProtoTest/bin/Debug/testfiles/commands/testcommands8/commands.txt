@@ -1,3 +1,0 @@
-move::0::02
-move::0::08
-displayAll

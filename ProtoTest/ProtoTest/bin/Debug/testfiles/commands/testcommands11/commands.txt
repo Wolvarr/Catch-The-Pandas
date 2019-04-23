@@ -1,3 +1,0 @@
-release::0::00
-move::0::04
-displayAll
