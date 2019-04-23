@@ -1,0 +1,7 @@
+displayAll
+move::0::01
+displayAll
+//ha nem üresre lép
+00::CV
+move::0::00
+displayAll

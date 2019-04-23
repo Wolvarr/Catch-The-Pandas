@@ -1,8 +1,4 @@
-displayAll
 move::0::00
-displayAll
 move::0::02
-displayAll
 move::0::03
-displayAll
 displayLine::0
