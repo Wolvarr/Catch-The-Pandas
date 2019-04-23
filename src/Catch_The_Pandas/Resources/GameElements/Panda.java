@@ -190,7 +190,7 @@ public class Panda extends Animal {
 		while(this.nextPanda != null){
 			this.location.movedFrom();
 			this.location = null;
-			disappearPandas();
+			this.nextPanda.disappearPandas();
 		}
 	}
 

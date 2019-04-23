@@ -45,8 +45,8 @@ public class Orangutan extends Animal {
 					if(teleported) {
 						this.grabbedPanda.moveTeleported(location,teleportedto,this);
 					}
-					else
-						this.grabbedPanda.move(location);
+					else{
+						this.grabbedPanda.move(location);}
 				}
 				tileTo.receive(this);
 				if(counter>0){
