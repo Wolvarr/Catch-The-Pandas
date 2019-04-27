@@ -70,6 +70,10 @@ public class EnveriomentParser {
                     res.put(Integer.parseInt(splittedline[0]), new FragileTile(floor,
                             Integer.parseInt(splittedline[0]),Integer.parseInt(splittedline[2])));
                     break;
+                case "ex":
+                    res.put(Integer.parseInt(splittedline[0]),new Exit(floor, Integer.parseInt(splittedline[0])));
+                case "en":
+                    res.put(Integer.parseInt(splittedline[0]),new Entrance(floor, Integer.parseInt(splittedline[0])));
                     //kommentet // jelölés után írhatunk a fájlba
                 default:
                     break;
@@ -118,7 +122,7 @@ public class EnveriomentParser {
                 case "CP":
                     res.put(Integer.parseInt(splittedline[0]),new CowardPanda());
                     break;
-                case "JO":
+                case "JP":
                     res.put(Integer.parseInt(splittedline[0]),new JumpyPanda());
                     break;
                 case "LP":

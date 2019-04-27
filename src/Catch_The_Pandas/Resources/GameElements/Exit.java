@@ -4,13 +4,14 @@ public class Exit extends Tile {
 
     private int score;
 
-    public Exit(Floor f) {
-        super(f);
+    public Exit(Floor floor, int parseInt) {
+        super(floor, parseInt);
     }
+
 
     public void setScore(int i)
     {
-    	System.out.println("Called function exit.setScore()");
+    	//System.out.println("Called function exit.setScore()");
     	score = i;
     }
 }

@@ -144,7 +144,7 @@ public class SkeletonMain {
         t1.connect(t2);
         t2.connect(t3);
         o.grab(p1);
-        p1.grabpreviousAnimal(o);
+        //p1.grabpreviousAnimal(o);
         System.out.println("\nThe orangutan Bumps Into Panda With Panda :");
         o.move(t3);
     }
@@ -178,9 +178,9 @@ public class SkeletonMain {
         t1.connect(t2);
         t2.connect(t3);
         o.grab(p1);
-        p1.grabpreviousAnimal(o);
+        //p1.grabpreviousAnimal(o);
         p1.grab(p2);
-        p2.grabpreviousAnimal(p1);
+        //p2.grabpreviousAnimal(p1);
         System.out.println("AFTER :");
         o.move(t3);
     }
@@ -266,8 +266,8 @@ public class SkeletonMain {
     	Tile t1 = new Tile(f1);
     	Tile t2 = new Tile(f1);
     	Panda p = new Panda();
-    	Exit e = new Exit(f1);
-    	Entrance en = new Entrance(f1);
+    	//Exit e = new Exit(f1);
+    	//Entrance en = new Entrance(f1);
     }
     
     //function for user choice 9

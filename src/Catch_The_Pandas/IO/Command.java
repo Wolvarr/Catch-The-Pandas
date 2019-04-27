@@ -2,6 +2,7 @@ package Catch_The_Pandas.IO;
 
 import Catch_The_Pandas.Resources.GameElements.Floor;
 import Catch_The_Pandas.Resources.GameElements.Orangutan;
+import Catch_The_Pandas.Resources.GameElements.Panda;
 import Catch_The_Pandas.Resources.GameElements.Tile;
 
 public class Command {
@@ -9,30 +10,23 @@ public class Command {
     private Tile target;
     private Orangutan orangutan;
     private Floor floor;
+    OutputWriter output;
 
-    public Command(Orangutan o, Tile ttarget,  Floor f) throws RuntimeException{
-        type = CommandType.move;
-        //magyarul létezik a cél
-        if(f.getTile(ttarget.getID())!=null){
-            target = ttarget;
-            floor = f;
-        } else throw new RuntimeException("Floor does not contain the target tile!");
-        if (f.getOrangutan(o.getID())!=null){
-            orangutan = o;
-        } else throw new RuntimeException("Floor does not contain the Orangutan!");
+    public Command(CommandType ct, Floor ff, OutputWriter o){
+        type = ct;
+        floor = ff;
+        output = o;
     }
 
-    public Command(Orangutan o, Floor f){
-        type = CommandType.release;
-        if (f.getOrangutan(o.getID())!=null){
-            orangutan = o;
-        } else throw new RuntimeException("Floor does not contain the Orangutan!");
+    public void setTarget(Tile tt){
+        //csekkoljuk, hogy van-e ilyen mező a floorban
+        if (floor.getTile(tt.getID())!=null)
+            target = tt;
     }
 
-    public void modify(Tile newtarget) {
-        //létezik a cél és move típusú a parancs
-        if ((floor.getTile(newtarget.getID()) != null)&& type==CommandType.move) {
-            target = newtarget;
+    public void setOrangutan(Orangutan o) {
+        if (floor.getOrangutan(o.getID()) != null) {
+            orangutan = o;
         }
     }
 
@@ -41,9 +35,58 @@ public class Command {
             case move:
                 orangutan.move(target);
                 break;
+
             case release:
                 orangutan.releasePanda();
                 break;
+
+            case display:
+                output.write("display tiles around orangutan: " + orangutan.getID());
+                for(Tile t: orangutan.getLocation().getNeighbours()){
+                    output.write("TileID: " + t.getID());
+                    if (t.getOnObject()!=null)
+                        output.write("   " + t.getOnObject().toString());
+                }
+                output.write("::::::::::::::::::::::");
+                break;
+
+            case displayAll:
+                output.write("displayAll");
+                for (Tile t: floor.getAllTiles()){
+                    output.write("TileID: " + t.getID());
+                    if (t.getOnObject()!=null)
+                        output.write("   " + t.getOnObject().toString());
+                    else output.write("   empty");
+                    String neighbours = "   Neighbours: ";
+                    for(Tile tt: t.getNeighbours()){
+                        neighbours+= "ID::" + tt.getID() + " ";
+                    }
+                    output.write(neighbours);
+                }
+                output.write("::::::::::::::::::::::");
+                break;
+
+            case displayLine:
+                output.write("displayLine on orangutan: " + orangutan.getID());
+                if (orangutan.getGrabbed() == null)
+                    output.write("This orangutan does not lead a line");
+                else {
+                    Panda tempp = orangutan.getGrabbed();
+                    while (tempp != null) {
+
+                        output.write("TileID: " +
+                                tempp.getLocation().getID());
+                        output.write("   " + tempp.toString());
+                        tempp = tempp.getNextPanda();
+                    }
+                    output.write("::::::::::::::::::::::");
+
+                }
+                break;
+
+            case eachTurn:
+                break;
+
             default:
                 break;
         }

@@ -2,9 +2,7 @@ package Catch_The_Pandas.Resources.GameElements;
 
 import Catch_The_Pandas.Resources.GameElements.Tile;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Floor {
 
@@ -41,10 +39,14 @@ public class Floor {
     	//tiles.add(t);
     }
 
+    public Collection<Tile> getAllTiles(){
+        return tiles.values();
+    }
+
 
     public void changePandaCount( int i)
     {
-    	System.out.println("Called function floor.changePandaCount()");
+    	//System.out.println("Called function floor.changePandaCount()");
     	pandaCount += i;
     }
 

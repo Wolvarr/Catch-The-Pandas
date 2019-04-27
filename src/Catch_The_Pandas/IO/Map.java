@@ -35,6 +35,17 @@ public class Map {
             e.printStackTrace();
         }
 
+        Wardrobe dummywardrobe = new Wardrobe();
+        ArrayList<Wardrobe> wardrobes = new ArrayList<>();
+        for(OnTileObject ot: objects.values()){
+            if(ot.getClass().equals(dummywardrobe.getClass()))
+                wardrobes.add((Wardrobe)ot);
+        }
+
+        for(Wardrobe w: wardrobes){
+            w.importList(wardrobes);
+        }
+
         //a csempék közti kapcsolatok listájának betöltése
         try {
             connections = (ArrayList<TileConnection>) eparser.parse(InputType.connections);

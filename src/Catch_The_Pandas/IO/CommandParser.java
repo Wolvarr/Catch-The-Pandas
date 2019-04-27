@@ -13,10 +13,12 @@ import java.util.stream.Stream;
 public class CommandParser {
     private String path;
     private Floor floor;
+    private OutputWriter output;
 
-    public CommandParser(Floor f, String path){
-        this.path = path;
+    public CommandParser(Floor f, String inputpath, OutputWriter o){
+        this.path = inputpath;
         this.floor = f;
+        output = o;
     }
 
     public ArrayList<Command> parse(){
@@ -24,21 +26,50 @@ public class CommandParser {
         List<String> lines = readLines(path + "commands.txt");
         for(String line:lines){
             String[] splittedLine = line.split("::");
-            int size = splittedLine.length;
-            //hibás parancsok kiszűrése
-            if (splittedLine[0].equals("move")||splittedLine[0].equals("release")){
-            switch(size){
-                case 3:
+            Command tempc = null;
+
+            switch(splittedLine[0]){
+                case "move":
+
                     //ez egy move tipusu parancs lesz
-                    temp.add(new Command(floor.getOrangutan(Integer.parseInt(splittedLine[1])),
-                            floor.getTile(Integer.parseInt(splittedLine[2])), floor));
-                case 2:
+                    tempc = new Command(CommandType.move, floor, output);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    tempc.setTarget(floor.getTile(Integer.parseInt(splittedLine[2])));
+                    temp.add(tempc);
+
+                    break;
+                case "release":
                     //ez egy release tipusu parancs lesz
-                    temp.add(new Command(floor.getOrangutan(Integer.parseInt(splittedLine[1])), floor));
+                    tempc = new Command(CommandType.release, floor, output);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    temp.add(tempc);
+                    break;
+
+                case "display":
+                    tempc = new Command(CommandType.display, floor, output);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    temp.add(tempc);
+                    break;
+
+                case "displayLine":
+                    tempc = new Command(CommandType.displayLine, floor, output);
+                    tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
+                    temp.add(tempc);
+                    break;
+
+                case "displayAll":
+                    tempc = new Command(CommandType.displayAll, floor, output);
+                    temp.add(tempc);
+                    break;
+
+                case "eachTurn":
+                    tempc = new Command(CommandType.eachTurn, floor, output);
+                    temp.add(tempc);
+                    break;
+
+                default:
+                    output.write("invalid command");
                 }
-            } else {
-                System.out.println("invalid command");
-            }
         }
         return temp;
     }

@@ -2,8 +2,9 @@ package Catch_The_Pandas.Resources.GameElements;
 
 public class Panda extends Animal {
 
-	protected Panda nextPanda;
-	protected Animal previousAnimal;
+	protected Panda nextPanda = null;
+	protected Animal previousAnimal = null;
+
 
 	public void setPreviousAnimal(Animal a)
 	{
@@ -12,12 +13,12 @@ public class Panda extends Animal {
 
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println(toString() + "Called function panda.move(" + tileTo.toString() + ")");
+		//System.out.println(toString() + "Called function panda.move(" + tileTo.toString() + ")");
+		//Megnézi hogy érvényes helyre lépünk-e
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
-				
-				//DOMIAN
+
 				// ha van kovetkezo panda akkor rekurzivan vegig megy
 				if (this.nextPanda != null) {
 					this.nextPanda.move(location);
@@ -33,58 +34,139 @@ public class Panda extends Animal {
 		return false;
 	}
 
+
+	//Teleport fv, hogy szépen átlátható legyen
+	// kap egyet hogy hova kell menni
+	// Hova kell teleportálni
+	// Orangutánt is kap ajándékba
+
+	public boolean moveTeleported(Tile tileTo, Tile teleportloc, Orangutan o) {
+
+		// ha végig fut szépen a rekurzió és a kövi panda null
+		// akkor már nem teleportálgat
+		if(this.nextPanda==null){
+			o.setTeleported(false);
+		}
+		// ha nulla a helyzet teleport és visszatér
+		if(this.location==null){
+			location=teleportloc;
+			teleportloc.setOnTileObject(this);
+			return  true;
+		}
+		else if (location.getNeighbours().contains(tileTo)) {
+			if (tileTo.getOnObject() == null) {
+				location.movedFrom();
+
+				// ha van kovetkezo panda akkor rekurzivan vegig megy
+
+				if (this.nextPanda != null && this.location!=null) {
+					this.nextPanda.moveTeleported(location, teleportloc,o);
+				}
+				// minden hasonló mint a sima mozgásnál
+				tileTo.receive(this);
+
+				return true;
+			}
+
+			else
+				return tileTo.getOnObject().steppedOn(this);
+		}
+
+		return false;
+	}
+
 	public void grab(Panda p) {
 
 		this.nextPanda = p;
-		System.out.println(toString() + "Called function panda.grab(pandaa)");
+		p.setPreviousAnimal(this);
+		//System.out.println(toString() + "Called function panda.grab(pandaa)");
 	}
 
-	// DOMIAN
-	//megragadja az elotte levo allatot
-	public void grabpreviousAnimal(Animal a) {
-
-		this.previousAnimal = a;
-		System.out.println(toString() + "Called function panda.grabPreviousAnimal()");
-	}
-
+	//ez szerintem nem kell
 	public void release() {
-		System.out.println(toString() + "Called function panda.release()");
+		//System.out.println(toString() + "Called function panda.release()");
+		//Ez szerintem kell ide
+		//Mivel több irányú a kötés
+		// Az elozo állatnak is el kell engednie ot
+		//this.previousAnimal.releaseNextPanda();
 		this.previousAnimal = null;
 		this.nextPanda = null;
+	}
+
+	public Panda getNextPanda() {
+		return nextPanda;
+	}
+
+	//Domian
+	// Ez kell szerintem hogy felbomoljon a sor
+	public void releaseAll() {
+		this.previousAnimal.releaseNextPanda();
+		//System.out.println(toString() + "Called function panda.release()");
+		this.previousAnimal = null;
+		if (this.nextPanda != null) {
+			this.nextPanda.releaseAll();
+			this.nextPanda=null;
+		}
+
+	}
+
+
+	//Domian
+	@Override
+	public void releaseNextPanda() {
+		if (nextPanda!=null){
+			this.nextPanda = null;
+		}
+
 	}
 
 
 	// DOMIAN
 	public boolean steppedOn(Orangutan o) {
 
-		System.out.println(toString() + "Called function panda.steppedOn(oranguan)");
+		//System.out.println(toString() + "Called function panda.steppedOn(oranguan)");
 
 		// teszeli hogy o.grabbed==NULL
 		if (o.getGrabbed() == null) {
-			this.grabpreviousAnimal(o);
+			//this.setPreviousAnimal(o);
 			o.grab(this);
 		}
-		// ha nem akkor elengedi a fogott pandat
-		// a korabban fogott megragadja amire érkezik (becsatolodik a vegere)
+
+		//helycsere
+		// a korabban fogottat megragadja amire érkeztek(becsatolodik a vegere)
 		// az orangutan is megragadja amire erkezik
-		// majd amire erkeztek is megfogja az elotte levo pandat
 		else {
-			o.getGrabbed().release();
-			o.getGrabbed().grab(this);
+			//o.getGrabbed().releasePrevious();
+			this.swapLocation(o);
+			this.grab(o.getGrabbed());
+
 			o.grab(this);
 
-			this.grabpreviousAnimal(o);
+			//this.setPreviousAnimal(o);
 
 		}
 
 		return false;
 	}
 
-	// DOMIAN
+	//Domian
+	// pandara lépve is lehet csere
+	@Override
+	public void swapLocation(Orangutan incoming){
+		Tile pandat=this.location;
+		Tile orangutant= incoming.location;
+		//this.location.movedFrom();
+		//incoming.location.movedFrom();
+		pandat.setOnTileObject(incoming);
+		orangutant.setOnTileObject(this);
+
+	}
+
+
 	//nem csinal semmit ha panda lep pandara
 	public boolean steppedOn(Panda p) {
 
-		System.out.println(toString() + "Called function panda.steppedOn(PANDA)");
+		//System.out.println(toString() + "Called function panda.steppedOn(PANDA)");
 
 		return false;
 	}
@@ -92,7 +174,7 @@ public class Panda extends Animal {
 	@Override
 	public void fall()
     {
-    	System.out.println(toString() + "Called function panda.fall()");
+    	//System.out.println(toString() + "Called function panda.fall()");
     	if(nextPanda != null) {
     		release();
     	}
@@ -100,7 +182,16 @@ public class Panda extends Animal {
 
     @Override
 	public String toString(){
-		return "Panda: " + hashCode()+ " ";
+		return "Panda";
+	}
+
+	//Wardobe-ba lépés eserén el kell tüntetni a pandákat
+	public void disappearPandas(){
+		while(this.nextPanda != null){
+			this.location.movedFrom();
+			this.location = null;
+			this.nextPanda.disappearPandas();
+		}
 	}
 
 

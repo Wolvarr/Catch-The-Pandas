@@ -6,30 +6,52 @@ public class Orangutan extends Animal {
 
 	private int ID;
 	private Panda grabbedPanda = null;
+	private int counter = 0;
+	private int pandacounter = 0;
+	//True ha wardrobeból lép ki
+	private boolean teleported = false;
+	// ahova ment
+	Tile teleportedto;
 
 	public void setID(int id){ID = id;}
+
 	public int getID(){return ID;}
+	public  void setteleportedto(Tile t){teleportedto=t;}
+
+	//public Wardrobe getWardrobe(){return  teleportedto;}
 
 	public Orangutan (int id){
 		ID = id;
 	}
 
+
 	public Orangutan(){
 		ID = 0;
 	}
 
+	public void setTeleported(boolean teleported){
+		this.teleported = teleported;
+	}
+
 	@Override
 	public boolean move(Tile tileTo) {
-		System.out.println("Called function " + this.hashCode() + ".move()");
+		//System.out.println("Called function " + this.hashCode() + ".move()");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
-				//DOMIAN
 				//Ha sorban vannak mogotte a pandak akkor meghivodik az o move-juk is
+				//ha épp teleportált akkor más
 				if (this.grabbedPanda != null) {
-					this.grabbedPanda.move(location);
+					if(teleported) {
+						this.grabbedPanda.moveTeleported(location,teleportedto,this);
+					}
+					else{
+						this.grabbedPanda.move(location);}
 				}
 				tileTo.receive(this);
+				if(counter>0){
+					counter-=1;
+				}
 				return true;
 			} else
 				return tileTo.getOnObject().steppedOn(this);
@@ -38,40 +60,61 @@ public class Orangutan extends Animal {
 	}
 
 	public void grab(Panda p) {
+		pandacounter++;
+		if (counter >0) return;
 		this.grabbedPanda = p;
 		p.setPreviousAnimal(this);
-		System.out.println("Called function " + this.hashCode() + ".grab(Panda)");
+		//System.out.println("Called function " + this.hashCode() + ".grab(Panda)");
 	}
 
 
-	// DOMIAN
+
 	// Visszaadja a megragadott pandat
 	public Panda getGrabbed() {
 		// System.out.println("Called function orangutan.getGrabbed()");
 		return grabbedPanda;
 	}
 	
-	//DOMIAN
 	// Nem csinal egyenlore semmit
 	@Override
 	public boolean steppedOn(Orangutan o) {
 		//mindig hamissal tér vissza
-		System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
+		if(this.grabbedPanda==null){
+			swapLocation(o);
+		}
+
+		//System.out.println("Called function " + this.hashCode() + ".steppedOn(orangutan)");
 		return false;
 	}
 
-	//DOMIAN
+	//domian
+	//ezt kicsit átírtam
+	@Override
+	public void swapLocation(Orangutan incoming)
+	{
+		Tile orangutant=this.location;
+		Tile incomingt= incoming.location;
+		// setOntileObject az objecteckben is beállítja a lokaciot
+		orangutant.setOnTileObject(incoming);
+		incomingt.setOnTileObject(this);
+
+		incoming.grab(this.grabbedPanda);
+		this.grabbedPanda = null;
+		counter = 3;
+	}
+
 	// Szinten nem csinal semmit
 	@Override
 	public boolean steppedOn(Panda p) {
 
-		System.out.println("Called function " + this.hashCode() + ".steppedOn(panda)");
+		//System.out.println("Called function " + this.hashCode() + ".steppedOn(panda)");
 		return false;
 	}
 
 	@Override
 	//minden kör elején lefut majd
 	public void eachTurn(){
+		if (counter>0) counter--;
 		//megnézi, hogy az orángután beszorult-e
 		boolean freetomove = false;
 		//elkéri az alatta lévő csempe szomszédait
@@ -89,13 +132,20 @@ public class Orangutan extends Animal {
 
 	@Override
 	public String toString(){
-		return "Orangutan: " + hashCode() + " ";
+		return "Orangutan: " + ID;
+	}
+
+	@Override
+	public void releaseNextPanda(){
+		if (grabbedPanda!=null)
+			grabbedPanda=null;
+		//System.out.println(toString() + "Called release function");
 	}
 
 	public void releasePanda(){
 		if (grabbedPanda!=null)
-			grabbedPanda.release();
-		System.out.println(toString() + "Called release function");
+			grabbedPanda.releaseAll();
+		//System.out.println(toString() + "Called release function");
 	}
 
 

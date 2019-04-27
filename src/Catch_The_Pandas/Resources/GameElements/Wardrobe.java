@@ -9,6 +9,8 @@ import java.util.Random;
 public class Wardrobe extends Item {
 
     public boolean deterministic = false;
+    //choosing the new location randomly
+    Tile newlocation;
 
     List<Wardrobe> otherWardrobes = new ArrayList<Wardrobe>();
 
@@ -19,18 +21,26 @@ public class Wardrobe extends Item {
             otherWardrobes.add(w);
     }
 
+    public Tile getNewLocation(){
+        return newlocation;
+    }
+
     @Override
     public boolean steppedOn(Orangutan o){
-        System.out.println(toString()+"Called function wardrobe.steppedOn");
+        //System.out.println(toString()+"Called function wardrobe.steppedOn");
+        o.setTeleported(true);
         //creating a new Random for more enjoyable gameplay resulting from randomly warpin' around the hood
         Random r = new Random();
-        //choosing the new location randomly
-        Tile newlocation;
+        //Wardroba lépés esetén eltűnik
+        if(o.getGrabbed()!=null)
+            o.getGrabbed().disappearPandas();
         if(!deterministic)
             newlocation = otherWardrobes.get(r.nextInt(otherWardrobes.size())).getLocation();
         else newlocation = otherWardrobes.get(0).getLocation();
+        o.setteleportedto(newlocation.getNeighbours().get(0));
         //making the warp, setting up connection between the animal and it's new tile
-        o.setLocation(newlocation.getNeighbours().get(0));
+        //Mi van ha a mellette lévő mező csapda?!
+        o.setLocation(newlocation.getNeighbours().get(0)); // Ez nem biztos hogy kell mivel a setontileobject is beállítja a locationt
         newlocation.getNeighbours().get(0).setOnTileObject(o);
         return true;
     }
