@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -20,11 +21,12 @@
           <RowConstraints maxHeight="772.0" minHeight="0.0" prefHeight="758.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <Canvas fx:id="mainGameCanvas" height="759.0" width="682.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
             <MenuBar prefHeight="76.0" prefWidth="131.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Game">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="drawMenuItem" mnemonicParsing="false" onAction="#drawSomeShit" text="Draw Some shit my boi" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Exit">
