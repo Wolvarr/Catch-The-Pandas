@@ -41,6 +41,9 @@ public class Floor {
         return tiles.values();
     }
 
+    public Collection<Integer> getAllOrangutanIDs() { return orangutans.keySet();}
+    public Collection<Orangutan> getAllOrangutans() { return orangutans.values();}
+
 
     public void changePandaCount( int i)
     {
