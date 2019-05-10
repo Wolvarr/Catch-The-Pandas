@@ -11,12 +11,10 @@ public class Command {
     private Tile target;
     private Orangutan orangutan;
     private Floor floor;
-    OutputWriter output;
 
-    public Command(CommandType ct, Floor ff, OutputWriter o){
+    public Command(CommandType ct, Floor ff){
         type = ct;
         floor = ff;
-        output = o;
     }
 
     public void setTarget(Tile tt){
@@ -39,50 +37,6 @@ public class Command {
 
             case release:
                 orangutan.releasePanda();
-                break;
-
-            case display:
-                output.write("display tiles around orangutan: " + orangutan.getID());
-                for(Tile t: orangutan.getLocation().getNeighbours()){
-                    output.write("TileID: " + t.getID());
-                    if (t.getOnObject()!=null)
-                        output.write("   " + t.getOnObject().toString());
-                }
-                output.write("::::::::::::::::::::::");
-                break;
-
-            case displayAll:
-                output.write("displayAll");
-                for (Tile t: floor.getAllTiles()){
-                    output.write("TileID: " + t.getID());
-                    if (t.getOnObject()!=null)
-                        output.write("   " + t.getOnObject().toString());
-                    else output.write("   empty");
-                    String neighbours = "   Neighbours: ";
-                    for(Tile tt: t.getNeighbours()){
-                        neighbours+= "ID::" + tt.getID() + " ";
-                    }
-                    output.write(neighbours);
-                }
-                output.write("::::::::::::::::::::::");
-                break;
-
-            case displayLine:
-                output.write("displayLine on orangutan: " + orangutan.getID());
-                if (orangutan.getGrabbed() == null)
-                    output.write("This orangutan does not lead a line");
-                else {
-                    Panda tempp = orangutan.getGrabbed();
-                    while (tempp != null) {
-
-                        output.write("TileID: " +
-                                tempp.getLocation().getID());
-                        output.write("   " + tempp.toString());
-                        tempp = tempp.getNextPanda();
-                    }
-                    output.write("::::::::::::::::::::::");
-
-                }
                 break;
 
             case eachTurn:

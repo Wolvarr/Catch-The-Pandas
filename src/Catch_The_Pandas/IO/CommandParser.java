@@ -32,7 +32,7 @@ public class CommandParser {
                 case "move":
 
                     //ez egy move tipusu parancs lesz
-                    tempc = new Command(CommandType.move, floor, output);
+                    tempc = new Command(CommandType.move, floor);
                     tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
                     tempc.setTarget(floor.getTile(Integer.parseInt(splittedLine[2])));
                     temp.add(tempc);
@@ -40,30 +40,30 @@ public class CommandParser {
                     break;
                 case "release":
                     //ez egy release tipusu parancs lesz
-                    tempc = new Command(CommandType.release, floor, output);
+                    tempc = new Command(CommandType.release, floor);
                     tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
                     temp.add(tempc);
                     break;
 
                 case "display":
-                    tempc = new Command(CommandType.display, floor, output);
+                    tempc = new Command(CommandType.display, floor);
                     tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
                     temp.add(tempc);
                     break;
 
                 case "displayLine":
-                    tempc = new Command(CommandType.displayLine, floor, output);
+                    tempc = new Command(CommandType.displayLine, floor);
                     tempc.setOrangutan(floor.getOrangutan(Integer.parseInt(splittedLine[1])));
                     temp.add(tempc);
                     break;
 
                 case "displayAll":
-                    tempc = new Command(CommandType.displayAll, floor, output);
+                    tempc = new Command(CommandType.displayAll, floor);
                     temp.add(tempc);
                     break;
 
                 case "eachTurn":
-                    tempc = new Command(CommandType.eachTurn, floor, output);
+                    tempc = new Command(CommandType.eachTurn, floor);
                     temp.add(tempc);
                     break;
 

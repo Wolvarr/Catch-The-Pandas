@@ -38,7 +38,11 @@ public class Floor {
     }
 
     public Collection<Tile> getAllTiles(){
-        return tiles.values();
+        ArrayList<Tile> res = new ArrayList<>();
+        for(int i = 0; i< tiles.size(); i++){
+            res.add(tiles.get(i));
+        }
+        return res;
     }
 
     public Collection<Integer> getAllOrangutanIDs() { return orangutans.keySet();}

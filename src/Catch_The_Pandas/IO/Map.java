@@ -4,6 +4,7 @@ import Catch_The_Pandas.Resources.GameElements.Floor;
 import Catch_The_Pandas.Resources.GameElements.OnTileObject;
 import Catch_The_Pandas.Resources.GameElements.Tile;
 import Catch_The_Pandas.Resources.GameElements.Wardrobe;
+import javafx.geometry.Point2D;
 
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Map {
     java.util.Map<Integer, Tile> tiles = new HashMap<Integer, Tile>();
     ArrayList<TileConnection> connections = new ArrayList<TileConnection>();
     HashMap<Integer, OnTileObject> objects = new HashMap<Integer, OnTileObject>();
+    public  ArrayList<Point2D> graphics = new ArrayList<>();
 
     //konstrukot, amely beállítja a szcenáriót tartalmazó mappát
     public Map(String sourcefolder){
@@ -53,6 +55,12 @@ public class Map {
         //a csempék közti kapcsolatok listájának betöltése
         try {
             connections = (ArrayList<TileConnection>) eparser.parse(InputType.connections);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            graphics = (ArrayList<Point2D>) eparser.parse(InputType.graphics);
         } catch (Exception e) {
             e.printStackTrace();
         }

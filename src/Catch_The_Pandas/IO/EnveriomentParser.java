@@ -2,6 +2,7 @@ package Catch_The_Pandas.IO;
 
 import Catch_The_Pandas.Resources.GameElements.*;
 import Catch_The_Pandas.Resources.GameElements.*;
+import javafx.geometry.Point2D;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -34,6 +35,9 @@ public class EnveriomentParser {
                     break;
                 case connections:
                     res = parseConnections(path + "connections.txt");
+                    break;
+                case graphics:
+                    res = parseGraphics(path + "graphics.txt");
                     break;
 
             }
@@ -145,6 +149,16 @@ public class EnveriomentParser {
                     break;
 
             }
+        }
+        return res;
+    }
+
+    private ArrayList<javafx.geometry.Point2D> parseGraphics(String fullname){
+        ArrayList<javafx.geometry.Point2D> res = new ArrayList<>();
+        List<String> temp = readLines(fullname);
+        for(String tempstring: temp) {
+            String[] splittedline = tempstring.split("::");
+            res.add(new Point2D(Integer.parseInt(splittedline[0]), Integer.parseInt(splittedline[1])));
         }
         return res;
     }
