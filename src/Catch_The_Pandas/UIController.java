@@ -166,8 +166,8 @@ public class UIController {
     public void drawSomeShit(ActionEvent actionEvent) throws FileNotFoundException {
 
         for(Point2D p : nodes.keySet()) {
-            mainGameCanvas.getGraphicsContext2D().strokeOval(p.getX()-50, p.getY()-50,70,70);
-            mainGameCanvas.getGraphicsContext2D().drawImage(scaredPandaImage, p.getX() - 50, p.getY() - 50, 70, 70);
+            mainGameCanvas.getGraphicsContext2D().strokeOval(p.getX()-35, p.getY()-35,70,70);
+            mainGameCanvas.getGraphicsContext2D().drawImage(scaredPandaImage, p.getX() - 35, p.getY() - 35, 70, 70);
         }
     }
 
