@@ -11,10 +11,10 @@ public class TileView {
     public HashMap<TileState, Image> images = new HashMap<>();
     public Point2D location;
     public Tile tile;
+    public OnTileObjectView objectView;
     public TileView(Image ok, Image broken){
         images.put(TileState.ok, ok);
         images.put(TileState.broken,  broken);
-
     }
     public TileView(Image ok){
         images.put(TileState.ok, ok);

@@ -9,7 +9,6 @@ import java.util.HashMap;
 public class OnTileObjectView {
     public Colour colour;
     public HashMap<Colour, Image> images = new HashMap<>();
-    public OnTileObject oto;
     public TileView tileView;
     public OnTileObjectView(Image none, Image red, Image blue, Image yellow, Image green){
         images.put(Colour.none, none);
@@ -22,6 +21,11 @@ public class OnTileObjectView {
     public OnTileObjectView(Image none){
         images.put(Colour.none, none);
         colour = Colour.none;
+    }
+
+    public OnTileObjectView(OnTileObjectView ov){
+
+        images.putAll(ov.images);
     }
 
 }

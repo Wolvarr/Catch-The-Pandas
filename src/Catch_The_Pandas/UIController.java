@@ -9,6 +9,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 
+import javax.swing.text.html.ObjectView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class UIController {
 
 
 
-
+        ImageContainer testic = new ImageContainer();
         String basePath = null;
         File currentDir = new File (".");
         try {
@@ -70,7 +71,7 @@ public class UIController {
 
         //testing purposes, pls remove before release
         mainGameCanvas.setOnMouseMoved(event -> {
-            System.out.println(event.getX() + "   " + event.getY());
+            //System.out.println(event.getX() + "   " + event.getY());
         });
 
         mainGameCanvas.setOnMouseClicked(event -> {
@@ -100,12 +101,23 @@ public class UIController {
 
 
 
+
             if (game.floor.getOrangutan(orangutanOnTurn) != null && selectedTile != null) {
                 currentCommand = new Command(CommandType.move, game.floor);
                 currentCommand.setTarget(selectedTile);
                 currentCommand.setOrangutan(game.floor.getOrangutan(orangutanOnTurn));
                 if(currentCommand.execute()){
+                    System.out.println("orangutan should move pls move you fat monkey");
+                    TileView oldTileView;
+                    for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
+                        if (entry.getValue().equals(game.floor.getOrangutan(orangutanOnTurn).getLocation())) {
+                            if (entry.getKey().objectView == null)
+                            System.out.println("shits null, shit hit the fan, shit should not be null");
 
+                            selectedTileView.objectView = new OnTileObjectView(testic.wardrobeImage);
+                            entry.getKey().objectView = null;
+                        }
+                    }
 
                 }
                 currentCommand = null;
@@ -116,7 +128,6 @@ public class UIController {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            System.out.println("THE USER HAS CLICKED ON SOME SERIOUS SHIT");
         });
 
     }
@@ -144,10 +155,13 @@ public class UIController {
     //testing purposes, pls remove before release
     @FXML
     public void drawSomeShit(ActionEvent actionEvent) throws FileNotFoundException {
-
+        mainGameCanvas.getGraphicsContext2D().clearRect(0, 0, 2000, 2000);;
         for(TileView p : tileNodes.keySet()) {
             //mainGameCanvas.getGraphicsContext2D().strokeOval(p.location.getX()-35, p.location.getY()-35,70,70);
             mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2*radius, 2*radius);
+            if(p.objectView != null)
+            mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(Colour.none), p.location.getX() - radius, p.location.getY()-radius, 2*radius, 2*radius);
+            else System.out.println("objectview null");
         }
     }
 
