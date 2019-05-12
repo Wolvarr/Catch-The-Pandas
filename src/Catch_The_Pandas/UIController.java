@@ -101,35 +101,30 @@ public class UIController {
 
 
 
-
+            TileView oldTileView = null;
             if (game.floor.getOrangutan(orangutanOnTurn) != null && selectedTile != null) {
                 currentCommand = new Command(CommandType.move, game.floor);
                 currentCommand.setTarget(selectedTile);
                 currentCommand.setOrangutan(game.floor.getOrangutan(orangutanOnTurn));
-                if(currentCommand.execute()){
-                    System.out.println("orangutan should move pls move you fat monkey");
-                    TileView oldTileView;
-                    for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
-                        if (entry.getValue().equals(game.floor.getOrangutan(orangutanOnTurn).getLocation())) {
-                            if (entry.getKey().objectView == null)
-                                ///EZ MIÉRT NULL GECI
-                                System.out.println("shits null, shit hit the fan, shit should not be null");
-                                ///FERI EZ MI A RÁK
-                            selectedTileView.objectView = entry.getKey().objectView;
-                            entry.getKey().objectView = null;
-                        }
-                    }
+                for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
+                    if (entry.getValue().equals(game.floor.getOrangutan(orangutanOnTurn).getLocation()))
+                        oldTileView = entry.getKey();
+                }
 
+                if (currentCommand.execute()) {
+                    System.out.println("orangutan should move pls move you fat monkey");
+                    selectedTileView.objectView = oldTileView.objectView;
+                    oldTileView.objectView = null;
                 }
                 currentCommand = null;
 
-            }
-            try {
-                drawSomeShit(new ActionEvent());
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        });
+                }
+                try {
+                    drawSomeShit(new ActionEvent());
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
 
     }
 
