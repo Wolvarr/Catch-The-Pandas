@@ -1,8 +1,7 @@
 package Catch_The_Pandas;
 
 import Catch_The_Pandas.IO.*;
-import Catch_The_Pandas.Resources.GameElements.Floor;
-import Catch_The_Pandas.Resources.GameElements.Tile;
+import Catch_The_Pandas.Resources.GameElements.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
@@ -13,6 +12,7 @@ import javax.swing.text.html.ObjectView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -36,7 +36,7 @@ public class UIController {
 
     //represents the command currently being assembled
     Command currentCommand = null;
-
+    ImageContainer testic = new ImageContainer();
     public UIController() throws FileNotFoundException {
     }
 
@@ -45,7 +45,7 @@ public class UIController {
 
 
 
-        ImageContainer testic = new ImageContainer();
+
         String basePath = null;
         File currentDir = new File (".");
         try {
@@ -113,13 +113,20 @@ public class UIController {
 
                 if (currentCommand.execute()) {
                     System.out.println("orangutan should move pls move you fat monkey");
-                    selectedTileView.objectView = oldTileView.objectView;
-                    oldTileView.objectView = null;
+                    /*for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
+                        if (entry.getValue().equals(game.floor.getOrangutan(orangutanOnTurn).getLocation()))
+                            if(!oldTileView.equals(entry.getKey())){
+                                selectedTileView.objectView = oldTileView.objectView;
+                                oldTileView.objectView = null;
+                            }
+                    }*/
+
                 }
                 currentCommand = null;
 
                 }
                 try {
+                    refreshViews();
                     drawSomeShit(new ActionEvent());
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -159,6 +166,23 @@ public class UIController {
             mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(Colour.none), p.location.getX() - radius, p.location.getY()-radius, 2*radius, 2*radius);
             else System.out.println("objectview null");
         }
+    }
+
+    private void refreshViews(){
+        for (Tile tile : game.floor.getAllTiles()){
+            for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
+                if (tile.equals(entry.getKey().tile))
+                    new OnTileObjectView(testic.sofaImage);
+
+            }
+        }
+        ArrayList<OnTileObject> tesztgeci = new ArrayList<>();
+        tesztgeci.add(new Orangutan());
+        tesztgeci.add(new JumpyPanda());
+
+        OnTileObjectView abc = new OnTileObjectView(testic.sofaImage);
+        abc.teszt(tesztgeci.get(0));
+        abc.teszt(tesztgeci.get(1));
     }
 
 

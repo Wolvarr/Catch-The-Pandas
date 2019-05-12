@@ -131,12 +131,12 @@ public class EnveriomentParser {
                     //tempo.setView(new OnTileObjectView(Colour.none, ));
                     res.put(Integer.parseInt(splittedline[0]), tempo);
                     floor.addOrangutan(tempo.getID(), tempo);
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
                             new OnTileObjectView(imageContainer.orangutanImage,
                                     imageContainer.orangutanImage1,
                                     imageContainer.orangutanImage2,
                                     imageContainer.orangutanImage3,
-                                    imageContainer.orangutanImage4);
+                                    imageContainer.orangutanImage4);*/
 
                     break;
                 case "CP":
