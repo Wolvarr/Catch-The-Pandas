@@ -4,7 +4,6 @@ import Catch_The_Pandas.Resources.GameElements.Floor;
 import Catch_The_Pandas.Resources.GameElements.OnTileObject;
 import Catch_The_Pandas.Resources.GameElements.Tile;
 import Catch_The_Pandas.Resources.GameElements.Wardrobe;
-import javafx.geometry.Point2D;
 
 
 import java.util.ArrayList;
@@ -16,7 +15,8 @@ public class Map {
     java.util.Map<Integer, Tile> tiles = new HashMap<Integer, Tile>();
     ArrayList<TileConnection> connections = new ArrayList<TileConnection>();
     HashMap<Integer, OnTileObject> objects = new HashMap<Integer, OnTileObject>();
-    public  ArrayList<Point2D> graphics = new ArrayList<>();
+    public  ArrayList<OnTileObjectView> objectGraphics = new ArrayList<>();
+    public ArrayList<TileView> tileGraphics = new ArrayList<>();
 
     //konstrukot, amely beállítja a szcenáriót tartalmazó mappát
     public Map(String sourcefolder){
@@ -60,7 +60,7 @@ public class Map {
         }
 
         try {
-            graphics = (ArrayList<Point2D>) eparser.parse(InputType.graphics);
+            tileGraphics = (ArrayList<TileView>) eparser.parse(InputType.graphics);
         } catch (Exception e) {
             e.printStackTrace();
         }

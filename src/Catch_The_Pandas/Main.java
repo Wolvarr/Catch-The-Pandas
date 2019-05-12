@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("MinGame.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainGame.fxml"));
         primaryStage.setTitle("Panda Pláza 9000 ÉLETED VÉGÉIG EZT A FOST FOGOD JÁTSZANI");
 
         primaryStage.setScene(new Scene(root));

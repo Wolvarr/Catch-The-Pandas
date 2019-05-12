@@ -1,6 +1,9 @@
 package Catch_The_Pandas.Resources.GameElements;
 
+import Catch_The_Pandas.IO.OnTileObjectView;
+
 public abstract class OnTileObject {
+
 
     protected Tile location;
 
@@ -28,6 +31,7 @@ public abstract class OnTileObject {
         //System.out.println(toString() + "Called function OnTileObject.getLocation()");
         return location;
     }
+
 
     @Override
     public String toString(){

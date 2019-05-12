@@ -2,46 +2,27 @@ package Catch_The_Pandas;
 
 import Catch_The_Pandas.IO.*;
 import Catch_The_Pandas.Resources.GameElements.Floor;
-import Catch_The_Pandas.Resources.GameElements.Orangutan;
 import Catch_The_Pandas.Resources.GameElements.Tile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class UIController {
 
-    Image orangutanImage1;
-    Image orangutanImage2;
-    Image orangutanImage3;
-    Image orangutanImage4;
 
-    Image exitImage;
-    Image entranceImage;
-
-    Image jumpyPandaImage;
-    Image sleepyPandaImage;
-    Image scaredPandaImage;
-    Image arcadeImage;
-    Image candyVendingImage;
-    Image sofaImage;
-    Image wardrobeImage;
-
-
-    Integer radius = 50;
+    Integer radius = 35;
     //stores the tiles mapped to 2d points on the plane of the canvas
-    private Map<Point2D, Tile> nodes = new HashMap<>();
+    private Map<OnTileObjectView, Tile> objectNodes = new HashMap<>();
+    private Map<TileView, Tile> tileNodes = new HashMap<>();
 
     //contains the floor and the scores for each orangutan
     private Game game;
@@ -60,25 +41,9 @@ public class UIController {
 
     @FXML
     void initialize()  {
-        String imgbase = "GraphicsResources";
 
-        try {
-            orangutanImage1 = new Image(new FileInputStream("Orangutan.png"));
-            orangutanImage2 = new Image(new FileInputStream("Orangutan.png"));
-            orangutanImage3 = new Image(new FileInputStream("Orangutan.png"));
-            orangutanImage4 = new Image(new FileInputStream("Orangutan.png"));
 
-            exitImage = new Image(new FileInputStream("Exit.png"));
-            entranceImage = new Image(new FileInputStream("Entrance.png"));
 
-            jumpyPandaImage = new Image(new FileInputStream("JumpyPanda.png"));
-            sleepyPandaImage = new Image(new FileInputStream("SleepyPanda.png"));
-            scaredPandaImage = new Image(new FileInputStream("ScaredPanda.png"));
-            arcadeImage = new Image(new FileInputStream("Arcade.png"));
-            candyVendingImage = new Image(new FileInputStream("CandyVending.png"));
-            sofaImage = new Image(new FileInputStream("Sofa.png"));
-            wardrobeImage = new Image(new FileInputStream("Wardrobe.png"));
-        } catch (Exception e) {e.printStackTrace();}
 
         String basePath = null;
         File currentDir = new File (".");
@@ -90,8 +55,13 @@ public class UIController {
         System.out.println("This is the prototype main class");
         Catch_The_Pandas.IO.Map testmap = new Catch_The_Pandas.IO.Map(basePath + "/testmap0/");
         Floor testfloor = testmap.build();
-        for(int i= 0; i< testfloor.getAllTiles().size(); i++){
-            nodes.put( testmap.graphics.get(i) , testfloor.getTile(i));
+        try{
+            System.out.println("Size of objectGraphics: " + testmap.objectGraphics.size() + "  Size of testfloor tiles: " + testfloor.getAllTiles().size());
+            for(int i = 0; i< testmap.tileGraphics.size(); i++){
+            tileNodes.put( testmap.tileGraphics.get(i) , testfloor.getTile(i));
+
+        }} catch (Exception e){
+            e.printStackTrace();
         }
 
 
@@ -112,24 +82,34 @@ public class UIController {
             //(the window is definitely not 9999 pixels across)
             double smallestDistance = 9999;
             Tile selectedTile = null;
+            TileView selectedTileView = null;
             //finds the closest point resembling a node
-            for (Point2D p : nodes.keySet()) {
+
+            for (TileView p : tileNodes.keySet()) {
                 //if the distance is the closest yet, we choose the corresponding tile as the closest
-                if (clickedPoint.distance(p) < radius) {
-                    selectedTile = nodes.get(p);
+                if(p.location == null)
+                    System.out.println("object Location is null");
+                if (clickedPoint.distance(p.location) < radius) {
+                    selectedTile = tileNodes.get(p);
+                    selectedTileView = p;
+                    System.out.println("BINGO");
                     break;
                 }
-                ;
             }
+
+
 
 
             if (game.floor.getOrangutan(orangutanOnTurn) != null && selectedTile != null) {
                 currentCommand = new Command(CommandType.move, game.floor);
                 currentCommand.setTarget(selectedTile);
                 currentCommand.setOrangutan(game.floor.getOrangutan(orangutanOnTurn));
-                currentCommand.execute();
+                if(currentCommand.execute()){
+
+
+                }
                 currentCommand = null;
-                System.out.println("BINGO");
+
             }
             try {
                 drawSomeShit(new ActionEvent());
@@ -165,10 +145,12 @@ public class UIController {
     @FXML
     public void drawSomeShit(ActionEvent actionEvent) throws FileNotFoundException {
 
-        for(Point2D p : nodes.keySet()) {
-            mainGameCanvas.getGraphicsContext2D().strokeOval(p.getX()-35, p.getY()-35,70,70);
-            mainGameCanvas.getGraphicsContext2D().drawImage(scaredPandaImage, p.getX() - 35, p.getY() - 35, 70, 70);
+        for(TileView p : tileNodes.keySet()) {
+            //mainGameCanvas.getGraphicsContext2D().strokeOval(p.location.getX()-35, p.location.getY()-35,70,70);
+            mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2*radius, 2*radius);
         }
     }
+
+
 
 }

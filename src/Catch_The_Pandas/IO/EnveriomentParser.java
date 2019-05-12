@@ -1,6 +1,6 @@
 package Catch_The_Pandas.IO;
 
-import Catch_The_Pandas.Resources.GameElements.*;
+import Catch_The_Pandas.ImageContainer;
 import Catch_The_Pandas.Resources.GameElements.*;
 import javafx.geometry.Point2D;
 
@@ -17,6 +17,10 @@ import java.util.stream.Stream;
 public class EnveriomentParser {
     private String path = null;
     private Floor floor;
+    private ImageContainer imageContainer = new ImageContainer();
+    private ArrayList<TileView> tileViews = new ArrayList<>();
+    private ArrayList<OnTileObjectView> objectViews = new ArrayList<>();
+
 
     public EnveriomentParser(Floor f, String filepath){
         path = filepath;
@@ -37,7 +41,7 @@ public class EnveriomentParser {
                     res = parseConnections(path + "connections.txt");
                     break;
                 case graphics:
-                    res = parseGraphics(path + "graphics.txt");
+                    res = parseGraphics(path + "tileGraphics.txt");
                     break;
 
             }
@@ -68,17 +72,21 @@ public class EnveriomentParser {
                     //ha a sor t-vel kezdődik, sima tile-t gyártunk
                     //hozzáadjuk a listához
                     res.put(Integer.parseInt(splittedline[0]),new Tile(floor, Integer.parseInt(splittedline[0])));
+                    tileViews.add(new TileView(imageContainer.normalTileImage));
                     break;
                 case "ft":
                     //ha a sor ft-vel kezdődik, törékeny csempét hozunk létre
                     //hozzáadjuk a listához
                     res.put(Integer.parseInt(splittedline[0]), new FragileTile(floor,
                             Integer.parseInt(splittedline[0]),Integer.parseInt(splittedline[2])));
+                    tileViews.add(new TileView(imageContainer.crackedTileImage));
                     break;
                 case "ex":
                     res.put(Integer.parseInt(splittedline[0]),new Exit(floor, Integer.parseInt(splittedline[0])));
+                    tileViews.add(new TileView(imageContainer.exitImage));
                 case "en":
                     res.put(Integer.parseInt(splittedline[0]),new Entrance(floor, Integer.parseInt(splittedline[0])));
+                    tileViews.add(new TileView(imageContainer.entranceImage));
                     //kommentet // jelölés után írhatunk a fájlba
                 default:
                     break;
@@ -120,30 +128,58 @@ public class EnveriomentParser {
             switch(splittedline[1]){
                 case "O":
                     Orangutan tempo = new Orangutan(Integer.parseInt(splittedline[2]));
+                    //tempo.setView(new OnTileObjectView(Colour.none, ));
                     res.put(Integer.parseInt(splittedline[0]), tempo);
                     floor.addOrangutan(tempo.getID(), tempo);
+                    objectViews.add(new OnTileObjectView(imageContainer.orangutanImage,
+                            imageContainer.orangutanImage1,
+                            imageContainer.orangutanImage2,
+                            imageContainer.orangutanImage3,
+                            imageContainer.orangutanImage4));
 
                     break;
                 case "CP":
                     res.put(Integer.parseInt(splittedline[0]),new CowardPanda());
+                    objectViews.add(new OnTileObjectView(imageContainer.scaredPandaImage,
+                            imageContainer.scaredPandaImage1,
+                            imageContainer.scaredPandaImage2,
+                            imageContainer.scaredPandaImage3,
+                            imageContainer.scaredPandaImage4));
                     break;
                 case "JP":
                     res.put(Integer.parseInt(splittedline[0]),new JumpyPanda());
+                    if(imageContainer.jumpyPandaImage == null);
+                        System.out.println();
+                    objectViews.add(new OnTileObjectView(imageContainer.jumpyPandaImage,
+                            imageContainer.jumpyPandaImage1,
+                            imageContainer.jumpyPandaImage2,
+                            imageContainer.jumpyPandaImage3,
+                            imageContainer.jumpyPandaImage4));
                     break;
                 case "LP":
                     res.put(Integer.parseInt(splittedline[0]),new LazyPanda());
+                    res.put(Integer.parseInt(splittedline[0]),new JumpyPanda());
+                    objectViews.add(new OnTileObjectView(imageContainer.sleepyPandaImage,
+                            imageContainer.sleepyPandaImage1,
+                            imageContainer.sleepyPandaImage2,
+                            imageContainer.sleepyPandaImage3,
+                            imageContainer.sleepyPandaImage4));
                     break;
                 case "ARC":
                     res.put(Integer.parseInt(splittedline[0]),new Arcade());
+                    objectViews.add(new OnTileObjectView(imageContainer.arcadeImage));
                     break;
                 case "ARM":
                     res.put(Integer.parseInt(splittedline[0]),new Armchair());
+                    objectViews.add(new OnTileObjectView(imageContainer.sofaImage));
                     break;
                 case "CV":
                     res.put(Integer.parseInt(splittedline[0]),new CandyVending());
+                    objectViews.add(new OnTileObjectView(imageContainer.candyVendingImage));
                     break;
                 case "W":
                     res.put(Integer.parseInt(splittedline[0]),new Wardrobe());
+                    objectViews.add(new OnTileObjectView(imageContainer.wardrobeImage));
                     break;
                 default:
                     break;
@@ -153,14 +189,15 @@ public class EnveriomentParser {
         return res;
     }
 
-    private ArrayList<javafx.geometry.Point2D> parseGraphics(String fullname){
-        ArrayList<javafx.geometry.Point2D> res = new ArrayList<>();
+    private ArrayList<TileView> parseGraphics(String fullname){
         List<String> temp = readLines(fullname);
-        for(String tempstring: temp) {
+        for(int i=0; i<temp.size(); i++) {
+            System.out.println("read position #" + i);
+            String tempstring = temp.get(i);
             String[] splittedline = tempstring.split("::");
-            res.add(new Point2D(Integer.parseInt(splittedline[0]), Integer.parseInt(splittedline[1])));
+            tileViews.get(i).location = new Point2D(Integer.parseInt(splittedline[0]), Integer.parseInt(splittedline[1]));
         }
-        return res;
+        return tileViews;
     }
 
     //reads lines into a list

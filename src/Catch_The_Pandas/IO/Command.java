@@ -29,22 +29,25 @@ public class Command {
         }
     }
 
-    public void execute(){
+    public boolean execute(){
         switch(type){
             case move:
-                orangutan.move(target);
-                break;
+                return orangutan.move(target);
+
 
             case release:
                 orangutan.releasePanda();
-                break;
+                return true;
+
 
             case eachTurn:
                 break;
 
             default:
                 break;
+
         }
+        return false;
     }
 
 }
