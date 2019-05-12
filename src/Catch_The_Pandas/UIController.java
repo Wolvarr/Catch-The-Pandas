@@ -112,9 +112,10 @@ public class UIController {
                     for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
                         if (entry.getValue().equals(game.floor.getOrangutan(orangutanOnTurn).getLocation())) {
                             if (entry.getKey().objectView == null)
-                            System.out.println("shits null, shit hit the fan, shit should not be null");
-
-                            selectedTileView.objectView = new OnTileObjectView(testic.wardrobeImage);
+                                ///EZ MIÉRT NULL GECI
+                                System.out.println("shits null, shit hit the fan, shit should not be null");
+                                ///FERI EZ MI A RÁK
+                            selectedTileView.objectView = entry.getKey().objectView;
                             entry.getKey().objectView = null;
                         }
                     }
