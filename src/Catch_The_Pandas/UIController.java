@@ -121,9 +121,23 @@ public class UIController {
             }
         });
 
+        releaseButton.setOnMouseClicked(event -> {
+            currentCommand = new Command(CommandType.release, game.floor);
+            currentCommand.setOrangutan(game.floor.getOrangutan(orangutanOnTurn));
+            if(currentCommand.execute()){
+                orangutanOnTurn+=1;
+                if(orangutanOnTurn == game.floor.getAllOrangutans().size())
+                    orangutanOnTurn = 0;
+            }
+
+        });
+
     }
 
     //the canvas where the main game area is being drawn
+    @FXML
+    Button releaseButton;
+
     @FXML
     public Canvas mainGameCanvas;
 

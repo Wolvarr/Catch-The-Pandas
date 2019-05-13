@@ -38,7 +38,7 @@
               </menus>
             </MenuBar>
             <ListView fx:id="orangutanList" GridPane.rowIndex="1" />
-            <Button layoutX="100.0" layoutY="100.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="1110.0" text="Release" GridPane.columnIndex="1" />
+            <Button fx:id="releaseButton" layoutX="100.0" layoutY="100.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="1110.0" text="Release" GridPane.columnIndex="1" />
             <Canvas fx:id="mainGameCanvas" height="763.0" width="1109.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />

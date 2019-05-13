@@ -109,6 +109,7 @@ public class Panda extends Animal {
 		if (o.getGrabbed() == null) {
 			//this.setPreviousAnimal(o);
 			o.grab(this);
+			return true;
 		}
 
 		//helycsere
@@ -120,12 +121,13 @@ public class Panda extends Animal {
 			this.grab(o.getGrabbed());
 
 			o.grab(this);
+			return true;
 
 			//this.setPreviousAnimal(o);
 
 		}
 
-		return false;
+		//return false;
 	}
 
 	//Domian
