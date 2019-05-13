@@ -4,7 +4,9 @@ public class Panda extends Animal {
 
 	protected Panda nextPanda = null;
 	protected Animal previousAnimal = null;
+	private boolean Isteleported=false;
 
+	public void setIsteleported(){this.Isteleported=true;}
 
 	public void setPreviousAnimal(Animal a)
 	{
@@ -17,6 +19,7 @@ public class Panda extends Animal {
 		//Megn�zi hogy �rv�nyes helyre l�p�nk-e
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
+
 				location.movedFrom();
 
 				// ha van kovetkezo panda akkor rekurzivan vegig megy
@@ -40,39 +43,11 @@ public class Panda extends Animal {
 	// Hova kell teleport�lni
 	// Orangut�nt is kap aj�nd�kba
 
-	public boolean moveTeleported(Tile tileTo, Tile teleportloc, Orangutan o) {
+	public void moveTeleported(Tile tileTo, Tile teleportloc, Orangutan o) {
 
-		// ha v�gig fut sz�pen a rekurzi� �s a k�vi panda null
-		// akkor m�r nem teleport�lgat
-		if(this.nextPanda==null){
-			o.setTeleported(false);
-		}
-		// ha nulla a helyzet teleport �s visszat�r
-		if(this.location==null){
-			location=teleportloc;
-			teleportloc.setOnTileObject(this);
-			return  true;
-		}
-		else if (location.getNeighbours().contains(tileTo)) {
-			if (tileTo.getOnObject() == null) {
-				location.movedFrom();
+		teleportloc.setOnTileObject(this);
+		o.setTeleported(false);
 
-				// ha van kovetkezo panda akkor rekurzivan vegig megy
-
-				if (this.nextPanda != null && this.location!=null) {
-					this.nextPanda.moveTeleported(location, teleportloc,o);
-				}
-				// minden hasonl� mint a sima mozg�sn�l
-				tileTo.receive(this);
-
-				return true;
-			}
-
-			else
-				return tileTo.getOnObject().steppedOn(this);
-		}
-
-		return false;
 	}
 
 	public void grab(Panda p) {
@@ -187,10 +162,13 @@ public class Panda extends Animal {
 
 	//Wardobe-ba l�p�s eser�n el kell t�ntetni a pand�kat
 	public void disappearPandas(){
-		while(this.nextPanda != null){
-			this.location.movedFrom();
-			this.location = null;
+		this.location.movedFrom();
+		this.location=null;
+		if(this.nextPanda!=null){
 			this.nextPanda.disappearPandas();
+		}
+		else{
+			return;
 		}
 	}
 

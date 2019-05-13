@@ -11,19 +11,31 @@ public class Orangutan extends Animal {
 	//True ha wardrobeból lép ki
 	private boolean teleported = false;
 	// ahova ment
-	Tile teleportedto;
+	private Tile teleportedto;
+	//protected ArrayList<Panda> teleportedPandas= new ArrayList<>();
+	private Panda leader=null;
+	private Panda pointer;
+	private Panda pointer2;
+	private int firstmove=0;
+
+
 
 	public void setID(int id){ID = id;}
 
 	public int getID(){return ID;}
+
 	public  void setteleportedto(Tile t){teleportedto=t;}
 
-	//public Wardrobe getWardrobe(){return  teleportedto;}
+	public Tile getTeleported(){return teleportedto; }
+	public void SetLeader(Panda p){ this.leader=p;}
+
+	public void setFirstmove(int firstmove) {
+		this.firstmove = firstmove;
+	}
 
 	public Orangutan (int id){
 		ID = id;
 	}
-
 
 	public Orangutan(){
 		ID = 0;
@@ -32,21 +44,52 @@ public class Orangutan extends Animal {
 	public void setTeleported(boolean teleported){
 		this.teleported = teleported;
 	}
+	public void setPandacounter(){pandacounter=0;}
+
 
 	@Override
 	public boolean move(Tile tileTo) {
+
 		//System.out.println("Called function " + this.hashCode() + ".move()");
 		if (location.getNeighbours().contains(tileTo)) {
 			if (tileTo.getOnObject() == null) {
 				location.movedFrom();
 				//Ha sorban vannak mogotte a pandak akkor meghivodik az o move-juk is
 				//ha épp teleportált akkor más
-				if (this.grabbedPanda != null) {
-					if(teleported) {
-						this.grabbedPanda.moveTeleported(location,teleportedto,this);
+
+				if(teleported) {
+					firstmove=firstmove+1;
+					if(leader.nextPanda==null){
+						teleportedto.setOnTileObject(leader);
+						this.grab(leader);
+						teleported=false;
 					}
 					else{
-						this.grabbedPanda.move(location);}
+						if(firstmove==1){
+							pointer=leader;
+						}
+						if(pointer!=null) {
+							teleportedto.setOnTileObject(pointer);
+							if(pointer.nextPanda!=null){
+								Panda temporary=pointer;
+								pointer=pointer.nextPanda;
+								// IT VAN VMI HATALMAS BASZÁS
+								//temporary.releaseNextPanda();
+								//this.grab(temporary);
+							}
+							else{
+								teleported=false;
+							}
+						}
+
+
+					}
+
+				}
+				if (this.grabbedPanda != null) {
+
+					this.grabbedPanda.move(location);
+
 				}
 				tileTo.receive(this);
 				if(counter>0){
@@ -60,10 +103,16 @@ public class Orangutan extends Animal {
 	}
 
 	public void grab(Panda p) {
-		pandacounter++;
-		if (counter >0) return;
-		this.grabbedPanda = p;
-		p.setPreviousAnimal(this);
+		//if(p.nextPanda==null && p.previousAnimal==null){
+			//pandacounter++;
+			if (counter >0) return;
+			this.grabbedPanda = p;
+			p.setPreviousAnimal(this);
+			//teleportedPandas.add(p);
+		//}
+		//else {
+		//	return;
+		//}
 		//System.out.println("Called function " + this.hashCode() + ".grab(Panda)");
 	}
 

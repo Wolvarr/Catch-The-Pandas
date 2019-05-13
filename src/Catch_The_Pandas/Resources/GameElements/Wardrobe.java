@@ -27,21 +27,42 @@ public class Wardrobe extends Item {
 
     @Override
     public boolean steppedOn(Orangutan o){
+        Tile from=o.location;
         //System.out.println(toString()+"Called function wardrobe.steppedOn");
-        o.setTeleported(true);
+
         //creating a new Random for more enjoyable gameplay resulting from randomly warpin' around the hood
         Random r = new Random();
         //Wardroba lépés esetén eltűnik
-        if(o.getGrabbed()!=null)
+        if(o.getGrabbed()!=null){
             o.getGrabbed().disappearPandas();
-        if(!deterministic)
+            o.SetLeader(o.getGrabbed());
+            // ITT IS EL KELL ENGEDNI KÜLÖNBEN BEHAL
+            o.releaseNextPanda();
+            o.setTeleported(true);
+            o.setFirstmove(0);
+            //o.setPandacounter();
+
+        }
+
+        if(!deterministic){
             newlocation = otherWardrobes.get(r.nextInt(otherWardrobes.size())).getLocation();
-        else newlocation = otherWardrobes.get(0).getLocation();
-        o.setteleportedto(newlocation.getNeighbours().get(0));
+        }
+        else{
+            newlocation = otherWardrobes.get(0).getLocation();
+        }
+        //o.setteleportedto(newlocation.getNeighbours().get(0));
         //making the warp, setting up connection between the animal and it's new tile
         //Mi van ha a mellette lévő mező csapda?!
-        o.setLocation(newlocation.getNeighbours().get(0)); // Ez nem biztos hogy kell mivel a setontileobject is beállítja a locationt
-        newlocation.getNeighbours().get(0).setOnTileObject(o);
+        //o.setLocation(newlocation.getNeighbours().get(0)); // Ez nem biztos hogy kell mivel a setontileobject is beállítja a locationt
+        from.movedFrom();
+        for(Tile tile : newlocation.getNeighbours()) {
+            if(tile.getOnObject() == null){
+               tile.setOnTileObject(o);
+                o.setteleportedto(tile);
+               break;
+            }
+        }
+       // newlocation.getNeighbours().get(0).setOnTileObject(o);
         return true;
     }
 
