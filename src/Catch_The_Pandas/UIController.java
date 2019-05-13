@@ -173,13 +173,30 @@ public class UIController {
         for (TileView p : tileNodes.keySet()) {
             mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
             if (p.objectView != null)
-                mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(Colour.none), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
-            else System.out.println("objectview null");
-        for(Orangutan o: game.floor.getAllOrangutans()){
-            if(o.getGrabbed()!=null){
-                
+                mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(p.objectView.colour), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
+            //else System.out.println("objectview null");
             }
-        }
+            for(Orangutan o: game.floor.getAllOrangutans()){
+            TileView orangutanLocation = null;
+            for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
+                if (entry.getValue().equals(o.getLocation()))
+                    orangutanLocation = entry.getKey();
+            }
+
+            if(o.getGrabbed()!=null){
+                Panda tempp = o.getGrabbed();
+                while(tempp!=null){
+                    for (Map.Entry<TileView, Tile> e : tileNodes.entrySet()) {
+                        System.out.println(tempp.getLocation());
+                        System.out.println(e.getValue());
+                        if (tempp.getLocation().equals(e.getValue())){
+                            e.getKey().objectView.colour = orangutanLocation.objectView.colour;
+                        }
+                    }
+                    System.out.println("another panda boi");
+                    tempp=tempp.getNextPanda();
+                }
+            }
         }
     }
 
@@ -190,7 +207,9 @@ public class UIController {
                     if(tile.getOnObject() != null)
                     switch (tile.getOnObject().getClass().getSimpleName()){
                         case "Orangutan":
+                            Orangutan tempo = (Orangutan)tile.getOnObject();
                             entry.getKey().objectView = new OnTileObjectView((Orangutan)tile.getOnObject(), testic);
+                            entry.getKey().objectView.setColour(tempo.getID());
                             break;
                         case "CowardPanda":
                             entry.getKey().objectView = new OnTileObjectView((CowardPanda)tile.getOnObject(), testic);

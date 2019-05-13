@@ -10,6 +10,7 @@ import java.util.HashMap;
 public class OnTileObjectView {
     public HashMap<Colour, Image> images = new HashMap<>();
     public TileView tileView;
+    public Colour colour = Colour.none;
     public OnTileObjectView(Image none, Image red, Image blue, Image yellow, Image green){
         images.put(Colour.none, none);
         images.put(Colour.red, red);
@@ -21,6 +22,14 @@ public class OnTileObjectView {
         images.put(Colour.none, none);
     }
 
+    public void setColour(Integer i){
+        switch (i){
+            case 0: colour = Colour.red;
+            case 1: colour = Colour.blue;
+            case 2: colour = Colour.yellow;
+            case 3: colour = Colour.green;
+        }
+    }
 
     public OnTileObjectView(Orangutan onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.orangutanImage);
