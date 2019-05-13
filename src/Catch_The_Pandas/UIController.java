@@ -20,7 +20,7 @@ import java.util.Objects;
 public class UIController {
 
 
-    Integer radius = 35;
+    Integer radius = 40;
     //stores the tiles mapped to 2d points on the plane of the canvas
     private Map<OnTileObjectView, Tile> objectNodes = new HashMap<>();
     private Map<TileView, Tile> tileNodes = new HashMap<>();
@@ -158,26 +158,66 @@ public class UIController {
     //testing purposes, pls remove before release
     @FXML
     public void drawSomeShit(ActionEvent actionEvent) throws FileNotFoundException {
-        mainGameCanvas.getGraphicsContext2D().clearRect(0, 0, 2000, 2000);;
-        for(TileView p : tileNodes.keySet()) {
-            //mainGameCanvas.getGraphicsContext2D().strokeOval(p.location.getX()-35, p.location.getY()-35,70,70);
-            mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2*radius, 2*radius);
-            if(p.objectView != null)
-            mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(Colour.none), p.location.getX() - radius, p.location.getY()-radius, 2*radius, 2*radius);
+        refreshViews();
+        mainGameCanvas.getGraphicsContext2D().clearRect(0, 0, 2000, 2000);
+        for(TileView p: tileNodes.keySet()){
+            for (Tile tile : tileNodes.get(p).getNeighbours()) {
+                for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
+                    if (tile.equals(entry.getValue())) {
+                        mainGameCanvas.getGraphicsContext2D().strokeLine(p.location.getX(), p.location.getY(),
+                                entry.getKey().location.getX(), entry.getKey().location.getY());
+                    }
+                }
+            }
+        }
+        for (TileView p : tileNodes.keySet()) {
+            mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
+            if (p.objectView != null)
+                mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(Colour.none), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
             else System.out.println("objectview null");
+        for(Orangutan o: game.floor.getAllOrangutans()){
+            if(o.getGrabbed()!=null){
+                
+            }
+        }
         }
     }
 
     private void refreshViews(){
         for (Tile tile : game.floor.getAllTiles()){
             for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
-                //if (tile.equals(entry.getKey().tile))
-                //System.out.println(tile.getOnObject().getClass().toString());
-                    entry.getKey().objectView = new OnTileObjectView(tile.getOnObject(), testic);
-
-
-
+                if (tile.equals(entry.getValue())){
+                    if(tile.getOnObject() != null)
+                    switch (tile.getOnObject().getClass().getSimpleName()){
+                        case "Orangutan":
+                            entry.getKey().objectView = new OnTileObjectView((Orangutan)tile.getOnObject(), testic);
+                            break;
+                        case "CowardPanda":
+                            entry.getKey().objectView = new OnTileObjectView((CowardPanda)tile.getOnObject(), testic);
+                            break;
+                        case "JumpyPanda":
+                            entry.getKey().objectView = new OnTileObjectView((JumpyPanda)tile.getOnObject(), testic);
+                            break;
+                        case "LazyPanda":
+                            entry.getKey().objectView = new OnTileObjectView((LazyPanda)tile.getOnObject(), testic);
+                            break;
+                        case "Arcade":
+                            entry.getKey().objectView = new OnTileObjectView((Arcade)tile.getOnObject(), testic);
+                            break;
+                        case "Armchair":
+                            entry.getKey().objectView = new OnTileObjectView((Armchair)tile.getOnObject(), testic);
+                            break;
+                        case "CandyVending":
+                            entry.getKey().objectView = new OnTileObjectView((CandyVending)tile.getOnObject(), testic);
+                            break;
+                        case "Wardrobe":
+                            entry.getKey().objectView = new OnTileObjectView((Wardrobe)tile.getOnObject(), testic);
+                            break;
+                        default: System.out.println("defualt case :((");
+                    } else entry.getKey().objectView = null;
+                } else System.out.println("tile did not match");
             }
+
         }
     }
 

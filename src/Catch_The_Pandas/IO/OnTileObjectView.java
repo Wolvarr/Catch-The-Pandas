@@ -22,10 +22,6 @@ public class OnTileObjectView {
     }
 
 
-    /*public  OnTileObjectView(Object onTileObject, ImageContainer imageContainer){
-        System.out.println("geci");
-
-    }*/
     public OnTileObjectView(Orangutan onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.orangutanImage);
         images.put(Colour.red, imageContainer.orangutanImage1);
@@ -42,6 +38,7 @@ public class OnTileObjectView {
         images.put(Colour.blue, imageContainer.sleepyPandaImage2);
         images.put(Colour.yellow, imageContainer.sleepyPandaImage3);
         images.put(Colour.green, imageContainer.sleepyPandaImage4);
+        System.out.println("lazypanda");
     }
     public OnTileObjectView(JumpyPanda onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.jumpyPandaImage);
@@ -49,6 +46,7 @@ public class OnTileObjectView {
         images.put(Colour.blue, imageContainer.jumpyPandaImage2);
         images.put(Colour.yellow, imageContainer.jumpyPandaImage3);
         images.put(Colour.green, imageContainer.jumpyPandaImage4);
+        System.out.println("jumpypanda");
     }
     public OnTileObjectView(CowardPanda onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.scaredPandaImage);
@@ -56,18 +54,23 @@ public class OnTileObjectView {
         images.put(Colour.blue, imageContainer.scaredPandaImage2);
         images.put(Colour.yellow, imageContainer.scaredPandaImage3);
         images.put(Colour.green, imageContainer.scaredPandaImage4);
+        System.out.println("cowardpanda");
     }
     public OnTileObjectView(Arcade onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.arcadeImage);
+        System.out.println("arcade");
     }
     public OnTileObjectView(CandyVending onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.candyVendingImage);
+        System.out.println("candy");
     }
     public OnTileObjectView(Wardrobe onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.wardrobeImage);
+        System.out.println("wardrobe");
     }
     public OnTileObjectView(Armchair onTileObject, ImageContainer imageContainer){
         images.put(Colour.none, imageContainer.sofaImage);
+        System.out.println("armchair");
     }
 
 }

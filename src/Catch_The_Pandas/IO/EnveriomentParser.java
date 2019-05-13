@@ -141,51 +141,50 @@ public class EnveriomentParser {
                     break;
                 case "CP":
                     res.put(Integer.parseInt(splittedline[0]),new CowardPanda());
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
                             new OnTileObjectView(imageContainer.scaredPandaImage,
                                     imageContainer.scaredPandaImage1,
                                     imageContainer.scaredPandaImage2,
                                     imageContainer.scaredPandaImage3,
-                                    imageContainer.scaredPandaImage4);
+                                    imageContainer.scaredPandaImage4);*/
                     break;
                 case "JP":
                     res.put(Integer.parseInt(splittedline[0]),new JumpyPanda());
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
                             new OnTileObjectView(imageContainer.jumpyPandaImage,
                                     imageContainer.jumpyPandaImage1,
                                     imageContainer.jumpyPandaImage2,
                                     imageContainer.jumpyPandaImage3,
-                                    imageContainer.jumpyPandaImage4);
+                                    imageContainer.jumpyPandaImage4);*/
                     break;
                 case "LP":
                     res.put(Integer.parseInt(splittedline[0]),new LazyPanda());
-                    res.put(Integer.parseInt(splittedline[0]),new JumpyPanda());
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
                             new OnTileObjectView(imageContainer.sleepyPandaImage,
                                     imageContainer.sleepyPandaImage1,
                                     imageContainer.sleepyPandaImage2,
                                     imageContainer.sleepyPandaImage3,
-                                    imageContainer.sleepyPandaImage4);
+                                    imageContainer.sleepyPandaImage4);*/
                     break;
                 case "ARC":
                     res.put(Integer.parseInt(splittedline[0]),new Arcade());
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
-                            new OnTileObjectView(imageContainer.arcadeImage);
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                            new OnTileObjectView(imageContainer.arcadeImage);*/
                     break;
                 case "ARM":
                     res.put(Integer.parseInt(splittedline[0]),new Armchair());
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
-                            new OnTileObjectView(imageContainer.sofaImage);
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                            new OnTileObjectView(imageContainer.sofaImage);*/
                     break;
                 case "CV":
                     res.put(Integer.parseInt(splittedline[0]),new CandyVending());
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
-                            new OnTileObjectView(imageContainer.candyVendingImage);
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                            new OnTileObjectView(imageContainer.candyVendingImage);*/
                     break;
                 case "W":
                     res.put(Integer.parseInt(splittedline[0]),new Wardrobe());
-                    tileViews.get(Integer.parseInt(splittedline[0])).objectView =
-                            new OnTileObjectView(imageContainer.wardrobeImage);
+                    /*tileViews.get(Integer.parseInt(splittedline[0])).objectView =
+                            new OnTileObjectView(imageContainer.wardrobeImage);*/
                     break;
                 default:
                     break;
