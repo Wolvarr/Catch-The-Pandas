@@ -98,7 +98,11 @@ public class Panda extends Animal {
 
 	// DOMIAN
 	public boolean steppedOn(Orangutan o) {
-
+		Panda tempp;
+		tempp = o.getGrabbed();
+		while(tempp!= null){
+			if(tempp == o.getGrabbed()) return false;
+		}
 		//System.out.println(toString() + "Called function panda.steppedOn(oranguan)");
 
 		// teszeli hogy o.grabbed==NULL
