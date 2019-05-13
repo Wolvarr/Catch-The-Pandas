@@ -237,9 +237,11 @@ public class UIController {
                         switch (tile.getOnObject().getClass().getSimpleName()) {
                             case "Orangutan":
                                 Orangutan tempo = (Orangutan) tile.getOnObject();
-                                entry.getKey().objectView = new OnTileObjectView(tempo, testic);
-                                entry.getKey().objectView.setColour(3);
-                                System.out.println(entry.getKey().objectView.colour);
+                                tileNodes.remove(entry.getKey());
+                                TileView temptv = entry.getKey();
+                                temptv.objectView = new OnTileObjectView((Orangutan) tile.getOnObject(), testic);
+                                temptv.objectView.setColour(tempo.getID());
+                                tileNodes.put(temptv, entry.getValue());
                                 break;
                             case "CowardPanda":
                                 entry.getKey().objectView = new OnTileObjectView((CowardPanda) tile.getOnObject(), testic);
