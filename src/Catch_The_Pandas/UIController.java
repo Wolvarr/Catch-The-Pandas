@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class UIController {
 
@@ -23,7 +24,7 @@ public class UIController {
     Integer radius = 40;
     //stores the tiles mapped to 2d points on the plane of the canvas
     private Map<OnTileObjectView, Tile> objectNodes = new HashMap<>();
-    private Map<TileView, Tile> tileNodes = new HashMap<>();
+    private Map<TileView, Tile> tileNodes = new ConcurrentHashMap<>();
 
     //contains the floor and the scores for each orangutan
     private Game game;
@@ -37,17 +38,16 @@ public class UIController {
     //represents the command currently being assembled
     Command currentCommand = null;
     ImageContainer testic = new ImageContainer();
+
     public UIController() throws FileNotFoundException {
     }
 
     @FXML
-    void initialize()  {
-
-
+    void initialize() {
 
 
         String basePath = null;
-        File currentDir = new File (".");
+        File currentDir = new File(".");
         try {
             basePath = currentDir.getCanonicalPath();
         } catch (IOException e) {
@@ -56,15 +56,14 @@ public class UIController {
         System.out.println("This is the prototype main class");
         Catch_The_Pandas.IO.Map testmap = new Catch_The_Pandas.IO.Map(basePath + "/testmap0/");
         Floor testfloor = testmap.build();
-        try{
-            System.out.println("Size of objectGraphics: " + testmap.objectGraphics.size() + "  Size of testfloor tiles: " + testfloor.getAllTiles().size());
-            for(int i = 0; i< testmap.tileGraphics.size(); i++){
-            tileNodes.put( testmap.tileGraphics.get(i) , testfloor.getTile(i));
+        try {
+            for (int i = 0; i < testmap.tileGraphics.size(); i++) {
+                tileNodes.put(testmap.tileGraphics.get(i), testfloor.getTile(i));
 
-        }} catch (Exception e){
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
 
 
         game = new Game(testfloor);
@@ -88,50 +87,33 @@ public class UIController {
 
             for (TileView p : tileNodes.keySet()) {
                 //if the distance is the closest yet, we choose the corresponding tile as the closest
-                if(p.location == null)
+                if (p.location == null)
                     System.out.println("object Location is null");
                 if (clickedPoint.distance(p.location) < radius) {
                     selectedTile = tileNodes.get(p);
-                    selectedTileView = p;
                     System.out.println("BINGO");
                     break;
                 }
             }
 
 
-
-
-            TileView oldTileView = null;
             if (game.floor.getOrangutan(orangutanOnTurn) != null && selectedTile != null) {
                 currentCommand = new Command(CommandType.move, game.floor);
                 currentCommand.setTarget(selectedTile);
                 currentCommand.setOrangutan(game.floor.getOrangutan(orangutanOnTurn));
-                for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
-                    if (entry.getValue().equals(game.floor.getOrangutan(orangutanOnTurn).getLocation()))
-                        oldTileView = entry.getKey();
-                }
 
                 if (currentCommand.execute()) {
                     System.out.println("orangutan should move pls move you fat monkey");
-                    /*for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
-                        if (entry.getValue().equals(game.floor.getOrangutan(orangutanOnTurn).getLocation()))
-                            if(!oldTileView.equals(entry.getKey())){
-                                selectedTileView.objectView = oldTileView.objectView;
-                                oldTileView.objectView = null;
-                            }
-                    }*/
-
                 }
                 currentCommand = null;
+            }
 
-                }
-                try {
-                    refreshViews();
-                    drawSomeShit(new ActionEvent());
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-            });
+            try {
+                drawSomeShit(new ActionEvent());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
 
     }
 
@@ -157,89 +139,118 @@ public class UIController {
 
     //testing purposes, pls remove before release
     @FXML
-    public void drawSomeShit(ActionEvent actionEvent) throws FileNotFoundException {
+    public synchronized void drawSomeShit(ActionEvent actionEvent) throws FileNotFoundException {
         refreshViews();
+        /**
+         letörli a kijelzőt és kirajzolja a vonalakat a node-ok pozíciói közé
+         */
         mainGameCanvas.getGraphicsContext2D().clearRect(0, 0, 2000, 2000);
-        for(TileView p: tileNodes.keySet()){
+        for (TileView p : tileNodes.keySet()) {
             for (Tile tile : tileNodes.get(p).getNeighbours()) {
                 for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
                     if (tile.equals(entry.getValue())) {
+                        //itt rajzolja a vonalat
+                        //nem hatékony, de működik
                         mainGameCanvas.getGraphicsContext2D().strokeLine(p.location.getX(), p.location.getY(),
                                 entry.getKey().location.getX(), entry.getKey().location.getY());
                     }
                 }
             }
-        }
-        for (TileView p : tileNodes.keySet()) {
-            mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
-            if (p.objectView != null)
-                mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(p.objectView.colour), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
-            //else System.out.println("objectview null");
-            }
-            for(Orangutan o: game.floor.getAllOrangutans()){
-            TileView orangutanLocation = null;
-            for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
-                if (entry.getValue().equals(o.getLocation()))
-                    orangutanLocation = entry.getKey();
-            }
+//        }
+            /**
+             átszínezi az orángutánhoz tartozó sort
+             */
+            for (Orangutan o : game.floor.getAllOrangutans()) {
+                TileView orangutanLocation = null;
 
-            if(o.getGrabbed()!=null){
-                Panda tempp = o.getGrabbed();
-                while(tempp!=null){
-                    for (Map.Entry<TileView, Tile> e : tileNodes.entrySet()) {
-                        System.out.println(tempp.getLocation());
-                        System.out.println(e.getValue());
-                        if (tempp.getLocation().equals(e.getValue())){
-                            e.getKey().objectView.colour = orangutanLocation.objectView.colour;
+                //ez a ciklus keresi meg az adott orángután pillanatnyi helyzetét
+                for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
+                    if (entry.getValue().equals(o.getLocation()))
+                        //és menti ebbe a lokális változóba
+                        orangutanLocation = entry.getKey();
+                }
+
+                if (o.getGrabbed() != null) {
+                    System.out.println("orangutan has a line");
+                    Panda tempp = o.getGrabbed();
+                    //végigmegy a pandasoron
+                    while (tempp != null) {
+                        //megkeresi az éppen vizsgált panda helyét a grafikus felületen
+                        for (Map.Entry<TileView, Tile> e : tileNodes.entrySet()) {
+                            if (tempp.getLocation().equals(e.getValue())) {
+                                //assert orangutanLocation != null;
+                                tileNodes.remove(e.getKey());
+                                e.getKey().objectView.colour = orangutanLocation.objectView.colour;
+                                tileNodes.put(e.getKey(), e.getValue());
+                                System.out.println(e.getKey().objectView.colour);
+                                System.out.println("panda should be coloured");
+                            }
                         }
+                        //lépteti a pandasor következő elemére
+//                    System.out.println("another panda boi");
+                        tempp = tempp.getNextPanda();
                     }
-                    System.out.println("another panda boi");
-                    tempp=tempp.getNextPanda();
                 }
             }
+
+            /**
+             kirajzolja a a csempéket és rájuk a rajtuk álló játékelemeket
+             */
+//        for (TileView p : tileNodes.keySet()) {
+            //a csempe rajzolása
+            mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
+            //ha létezik, a csempén álló játékelem rajzolása
+            if (p.objectView != null) {
+                System.out.println("gecisfasz: " + p.objectView.colour);
+                mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(p.objectView.colour), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
+            }
         }
+
+
     }
 
-    private void refreshViews(){
-        for (Tile tile : game.floor.getAllTiles()){
+    private void refreshViews() {
+        for (Tile tile : game.floor.getAllTiles()) {
             for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
-                if (tile.equals(entry.getValue())){
-                    if(tile.getOnObject() != null)
-                    switch (tile.getOnObject().getClass().getSimpleName()){
-                        case "Orangutan":
-                            Orangutan tempo = (Orangutan)tile.getOnObject();
-                            entry.getKey().objectView = new OnTileObjectView((Orangutan)tile.getOnObject(), testic);
-                            entry.getKey().objectView.setColour(tempo.getID());
-                            break;
-                        case "CowardPanda":
-                            entry.getKey().objectView = new OnTileObjectView((CowardPanda)tile.getOnObject(), testic);
-                            break;
-                        case "JumpyPanda":
-                            entry.getKey().objectView = new OnTileObjectView((JumpyPanda)tile.getOnObject(), testic);
-                            break;
-                        case "LazyPanda":
-                            entry.getKey().objectView = new OnTileObjectView((LazyPanda)tile.getOnObject(), testic);
-                            break;
-                        case "Arcade":
-                            entry.getKey().objectView = new OnTileObjectView((Arcade)tile.getOnObject(), testic);
-                            break;
-                        case "Armchair":
-                            entry.getKey().objectView = new OnTileObjectView((Armchair)tile.getOnObject(), testic);
-                            break;
-                        case "CandyVending":
-                            entry.getKey().objectView = new OnTileObjectView((CandyVending)tile.getOnObject(), testic);
-                            break;
-                        case "Wardrobe":
-                            entry.getKey().objectView = new OnTileObjectView((Wardrobe)tile.getOnObject(), testic);
-                            break;
-                        default: System.out.println("defualt case :((");
-                    } else entry.getKey().objectView = null;
-                } else System.out.println("tile did not match");
+                if (tile.equals(entry.getValue())) {
+                    if (tile.getOnObject() != null)
+                        switch (tile.getOnObject().getClass().getSimpleName()) {
+                            case "Orangutan":
+                                Orangutan tempo = (Orangutan) tile.getOnObject();
+                                entry.getKey().objectView = new OnTileObjectView(tempo, testic);
+                                entry.getKey().objectView.setColour(3);
+                                System.out.println(entry.getKey().objectView.colour);
+                                break;
+                            case "CowardPanda":
+                                entry.getKey().objectView = new OnTileObjectView((CowardPanda) tile.getOnObject(), testic);
+                                break;
+                            case "JumpyPanda":
+                                entry.getKey().objectView = new OnTileObjectView((JumpyPanda) tile.getOnObject(), testic);
+                                break;
+                            case "LazyPanda":
+                                entry.getKey().objectView = new OnTileObjectView((LazyPanda) tile.getOnObject(), testic);
+                                break;
+                            case "Arcade":
+                                entry.getKey().objectView = new OnTileObjectView((Arcade) tile.getOnObject(), testic);
+                                break;
+                            case "Armchair":
+                                entry.getKey().objectView = new OnTileObjectView((Armchair) tile.getOnObject(), testic);
+                                break;
+                            case "CandyVending":
+                                entry.getKey().objectView = new OnTileObjectView((CandyVending) tile.getOnObject(), testic);
+                                break;
+                            case "Wardrobe":
+                                entry.getKey().objectView = new OnTileObjectView((Wardrobe) tile.getOnObject(), testic);
+                                break;
+                            default:
+                                System.out.println("defualt case :((");
+                        }
+                    else entry.getKey().objectView = null;
+                }
             }
 
         }
     }
-
 
 
 }

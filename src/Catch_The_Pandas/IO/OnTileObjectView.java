@@ -23,11 +23,12 @@ public class OnTileObjectView {
     }
 
     public void setColour(Integer i){
-        switch (i){
-            case 0: colour = Colour.red;
-            case 1: colour = Colour.blue;
-            case 2: colour = Colour.yellow;
-            case 3: colour = Colour.green;
+        switch (i+1){
+            case 0: colour= Colour.none;
+            case 1: colour = Colour.red;
+            case 2: colour = Colour.blue;
+            case 3: colour = Colour.yellow;
+            case 4: colour = Colour.green;
         }
     }
 

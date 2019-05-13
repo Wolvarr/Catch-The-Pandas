@@ -15,7 +15,6 @@ public class Map {
     java.util.Map<Integer, Tile> tiles = new HashMap<Integer, Tile>();
     ArrayList<TileConnection> connections = new ArrayList<TileConnection>();
     HashMap<Integer, OnTileObject> objects = new HashMap<Integer, OnTileObject>();
-    public  ArrayList<OnTileObjectView> objectGraphics = new ArrayList<>();
     public ArrayList<TileView> tileGraphics = new ArrayList<>();
 
     //konstrukot, amely beállítja a szcenáriót tartalmazó mappát
@@ -58,7 +57,7 @@ public class Map {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        //beolvassuk a csempék koordinátáit a grafikus felülethez
         try {
             tileGraphics = (ArrayList<TileView>) eparser.parse(InputType.graphics);
         } catch (Exception e) {

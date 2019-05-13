@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5579ec3-95b7-449b-89f4-00f95a25ce54" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Colour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/ImageContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphicsResources/ArmChari.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphicsResources/JumpyPanda3png.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Catch-The-Pandas/Catch_The_Pandas/MinGame.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/OnTileObjectView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/OnTileObjectView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/MinGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/MainGame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/OnTileObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/OnTileObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testmap0/connections.txt" beforeDir="false" afterPath="$PROJECT_DIR$/testmap0/connections.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testmap0/graphics.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/testmap0/objects.txt" beforeDir="false" afterPath="$PROJECT_DIR$/testmap0/objects.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testmap0/tileGraphics.txt" beforeDir="false" afterPath="$PROJECT_DIR$/testmap0/tileGraphics.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testmap0/tiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/testmap0/tiles.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,8 +29,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="959">
-              <caret line="204" column="74" lean-forward="true" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
+            <state relative-caret-position="184">
+              <caret line="180" column="34" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
+              <folding>
+                <element signature="e#4568#4569#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,28 +51,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Colour.java">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/ImageContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2516">
-              <caret line="160" column="79" selection-start-line="160" selection-start-column="79" selection-end-line="160" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="714">
+              <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,22 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/OnTileObjectView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#670#671#0" expanded="true" />
-                <element signature="e#715#716#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Exit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="119">
+              <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -117,6 +88,14 @@
       <find>fin</find>
       <find>object</find>
       <find>objectgra</find>
+      <find>green</find>
+      <find>colo</find>
+      <find>szín1</find>
+      <find>draw</find>
+      <find>drawsomes</find>
+      <find>szín</find>
+      <find>drawsome</find>
+      <find>drawsome0</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,11 +121,11 @@
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Main.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Command.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileState.java" />
-        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/ImageContainer.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileView.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/OrangutanView.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java" />
+        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/OnTileObjectView.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java" />
       </list>
@@ -163,8 +142,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,39 +160,19 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Catch_The_Pandas" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Catch-The-Pandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Catch-The-Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Catch_The_Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="IO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Catch-The-Pandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Catch-The-Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Catch_The_Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Catch-The-Pandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Catch-The-Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Catch_The_Pandas" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="GameElements" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557684208257" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557749310550" />
     <property name="last_opened_file_path" value="C:/Program Files/SceneBuilder/SceneBuilder.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -275,16 +232,18 @@
       <workItem from="1557697892748" duration="6096000" />
       <workItem from="1557705024294" duration="6312000" />
       <workItem from="1557727468411" duration="2536000" />
+      <workItem from="1557734295833" duration="7750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67021000" />
+    <option name="totallyTimeSpent" value="74771000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49865228" visible="true" weight="0.21278317" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49865228" visible="true" weight="0.21481876" />
       <window_info id="Structure" order="1" sideWeight="0.5013477" side_tool="true" weight="0.13539445" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -293,7 +252,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5013477" side_tool="true" weight="0.13539445" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22234891" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2383532" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -303,7 +262,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32839224" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -386,12 +345,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/MainGame.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Game.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -460,16 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="73" column="72" selection-start-line="73" selection-start-column="72" selection-end-line="73" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/OrangutanView.java" />
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Animal.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -492,37 +441,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/ImageContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="55" column="89" selection-start-line="55" selection-start-column="89" selection-end-line="55" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="160" column="79" selection-start-line="160" selection-start-column="79" selection-end-line="160" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -533,13 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Exit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Colour.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -547,24 +462,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/OnTileObjectView.java">
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Exit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="129" column="87" lean-forward="true" selection-start-line="129" selection-start-column="87" selection-end-line="129" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
+            <element signature="e#596#619#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/Orangutan1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/Orangutan.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/ScaredPanda3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/ScaredPanda.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/ScaredPanda1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/ScaredPanda2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/Orangutan3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphicsResources/Orangutan2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/ImageContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/OnTileObjectView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="359" column="25" selection-start-line="359" selection-start-column="25" selection-end-line="359" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="959">
-          <caret line="204" column="74" lean-forward="true" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
+        <state relative-caret-position="184">
+          <caret line="180" column="34" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#4568#4569#0" expanded="true" />
           </folding>
         </state>
       </provider>
