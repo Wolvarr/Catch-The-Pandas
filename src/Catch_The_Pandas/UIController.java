@@ -2,6 +2,8 @@ package Catch_The_Pandas;
 
 import Catch_The_Pandas.IO.*;
 import Catch_The_Pandas.Resources.GameElements.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
@@ -34,10 +36,11 @@ public class UIController {
     //the second chooses the tile where the user chooses to move to
     private boolean firstclick = true;
     private Integer orangutanOnTurn = 0;
-
+    Catch_The_Pandas.IO.Map testmap ;
     //represents the command currently being assembled
     Command currentCommand = null;
     ImageContainer testic = new ImageContainer();
+    ObservableList<String> observableOrangutanList;
 
     public UIController() throws FileNotFoundException {
     }
@@ -54,7 +57,7 @@ public class UIController {
             e.printStackTrace();
         }
         System.out.println("This is the prototype main class");
-        Catch_The_Pandas.IO.Map testmap = new Catch_The_Pandas.IO.Map(basePath + "/testmap0/");
+        testmap = new Catch_The_Pandas.IO.Map(basePath + "/testmap0/");
         Floor testfloor = testmap.build();
         try {
             for (int i = 0; i < testmap.tileGraphics.size(); i++) {
@@ -103,6 +106,9 @@ public class UIController {
                 currentCommand.setOrangutan(game.floor.getOrangutan(orangutanOnTurn));
 
                 if (currentCommand.execute()) {
+                    orangutanOnTurn += 1;
+                    if(orangutanOnTurn == game.floor.getAllOrangutans().size())
+                        orangutanOnTurn = 0;
                     System.out.println("orangutan should move pls move you fat monkey");
                 }
                 currentCommand = null;
@@ -248,8 +254,15 @@ public class UIController {
                     else entry.getKey().objectView = null;
                 }
             }
+            observableOrangutanList = FXCollections.<String>observableArrayList("Orangutan1", "Orangutan2", "Orangutan3", "Orangutan4");
+            orangutanList.getItems().clear();
+            orangutanList.setMouseTransparent(true);
+            orangutanList.setFocusTraversable(false);
+            orangutanList.getItems().addAll(observableOrangutanList);
+            orangutanList.getSelectionModel().select(orangutanOnTurn+1-1);
 
         }
+
     }
 
 

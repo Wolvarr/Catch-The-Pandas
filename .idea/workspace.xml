@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5579ec3-95b7-449b-89f4-00f95a25ce54" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,20 +19,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="217" column="45" lean-forward="true" selection-start-line="217" selection-start-column="45" selection-end-line="218" selection-end-column="81" />
+            <state relative-caret-position="389">
+              <caret line="259" column="51" selection-start-line="259" selection-start-column="51" selection-end-line="259" selection-end-column="51" />
               <folding>
                 <element signature="e#4538#4539#0" expanded="true" />
                 <element signature="e#4568#4569#0" expanded="true" />
+                <element signature="e#10776#10784#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/MainGame.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
@@ -104,6 +114,8 @@
       <find>szín</find>
       <find>drawsome</find>
       <find>drawsome0</find>
+      <find>grab</find>
+      <find>command</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,8 +147,8 @@
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/EnveriomentParser.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/Map.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/IO/OnTileObjectView.java" />
-        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java" />
         <option value="$PROJECT_DIR$/src/Catch_The_Pandas/Resources/GameElements/Panda.java" />
+        <option value="$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java" />
       </list>
     </option>
   </component>
@@ -258,18 +270,18 @@
       <workItem from="1557727468411" duration="2536000" />
       <workItem from="1557734295833" duration="9073000" />
       <workItem from="1557775334253" duration="99000" />
-      <workItem from="1557777301068" duration="293000" />
+      <workItem from="1557777301068" duration="1668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76486000" />
+    <option name="totallyTimeSpent" value="77861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865228" visible="true" weight="0.21908316" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49865228" visible="true" weight="0.21908316" />
       <window_info id="Structure" order="1" sideWeight="0.5013477" side_tool="true" weight="0.13539445" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -278,7 +290,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5013477" side_tool="true" weight="0.13539445" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2383532" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2383532" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -369,14 +381,6 @@
           <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/MainGame.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/Game.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -544,17 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="217" column="45" lean-forward="true" selection-start-line="217" selection-start-column="45" selection-end-line="218" selection-end-column="81" />
-          <folding>
-            <element signature="e#4538#4539#0" expanded="true" />
-            <element signature="e#4568#4569#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/IO/TileView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -589,6 +582,26 @@
           <folding>
             <element signature="e#3481#3482#0" expanded="true" />
             <element signature="e#3502#3503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/MainGame.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catch_The_Pandas/UIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="259" column="51" selection-start-line="259" selection-start-column="51" selection-end-line="259" selection-end-column="51" />
+          <folding>
+            <element signature="e#4538#4539#0" expanded="true" />
+            <element signature="e#4568#4569#0" expanded="true" />
+            <element signature="e#10776#10784#0" expanded="true" />
           </folding>
         </state>
       </provider>
