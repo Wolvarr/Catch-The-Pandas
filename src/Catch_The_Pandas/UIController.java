@@ -171,18 +171,14 @@ public class UIController {
     private void refreshViews(){
         for (Tile tile : game.floor.getAllTiles()){
             for (Map.Entry<TileView, Tile> entry : tileNodes.entrySet()) {
-                if (tile.equals(entry.getKey().tile))
-                    new OnTileObjectView(testic.sofaImage);
+                //if (tile.equals(entry.getKey().tile))
+                //System.out.println(tile.getOnObject().getClass().toString());
+                    entry.getKey().objectView = new OnTileObjectView(tile.getOnObject(), testic);
+
+
 
             }
         }
-        ArrayList<OnTileObject> tesztgeci = new ArrayList<>();
-        tesztgeci.add(new Orangutan());
-        tesztgeci.add(new JumpyPanda());
-
-        OnTileObjectView abc = new OnTileObjectView(testic.sofaImage);
-        abc.teszt(tesztgeci.get(0));
-        abc.teszt(tesztgeci.get(1));
     }
 
 

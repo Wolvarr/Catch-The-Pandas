@@ -21,19 +21,19 @@ public class OnTileObjectView {
         images.put(Colour.none, none);
     }
 
-    public void teszt(OnTileObject o) {
 
+    /*public  OnTileObjectView(Object onTileObject, ImageContainer imageContainer){
+        System.out.println("geci");
+
+    }*/
+    public OnTileObjectView(Orangutan onTileObject, ImageContainer imageContainer){
+        images.put(Colour.none, imageContainer.orangutanImage);
+        images.put(Colour.red, imageContainer.orangutanImage1);
+        images.put(Colour.blue, imageContainer.orangutanImage2);
+        images.put(Colour.yellow, imageContainer.orangutanImage3);
+        images.put(Colour.green, imageContainer.orangutanImage4);
+        System.out.println("orangutan");
     }
-
-    public void teszt(Orangutan o) {
-        System.out.println("orángután");
-    }
-
-    public  OnTileObjectView(OnTileObject onTileObject, ImageContainer imageContainer){
-
-
-    }
-
 
 
     public OnTileObjectView(LazyPanda onTileObject, ImageContainer imageContainer){
