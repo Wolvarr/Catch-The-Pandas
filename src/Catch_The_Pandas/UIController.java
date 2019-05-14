@@ -10,15 +10,13 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 
-import javax.swing.text.html.ObjectView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class UIController {
 
@@ -70,6 +68,7 @@ public class UIController {
 
 
         game = new Game(testfloor);
+        AtomicBoolean succesfulTurn = new AtomicBoolean(false);
 
         //testing purposes, pls remove before release
         mainGameCanvas.setOnMouseMoved(event -> {
@@ -87,7 +86,7 @@ public class UIController {
             Tile selectedTile = null;
             TileView selectedTileView = null;
             //finds the closest point resembling a node
-
+            succesfulTurn.set(false);
             for (TileView p : tileNodes.keySet()) {
                 //if the distance is the closest yet, we choose the corresponding tile as the closest
                 if (p.location == null)
@@ -110,6 +109,7 @@ public class UIController {
                     if(orangutanOnTurn == game.floor.getAllOrangutans().size())
                         orangutanOnTurn = 0;
                     System.out.println("orangutan should move pls move you fat monkey");
+                    succesfulTurn.set(true);
                 }
                 currentCommand = null;
             }
@@ -125,6 +125,7 @@ public class UIController {
             currentCommand = new Command(CommandType.release, game.floor);
             currentCommand.setOrangutan(game.floor.getOrangutan(orangutanOnTurn));
             if(currentCommand.execute()){
+                succesfulTurn.set(true);
                 orangutanOnTurn+=1;
                 if(orangutanOnTurn == game.floor.getAllOrangutans().size())
                     orangutanOnTurn = 0;
@@ -222,7 +223,7 @@ public class UIController {
             //ha létezik, a csempén álló játékelem rajzolása
             if (p.objectView != null) {
                 tileNodes.get(p).getOnObject().eachTurn();
-                System.out.println("gecisfasz: " + p.objectView.colour);
+                System.out.println(p.objectView.colour);
                 mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(p.objectView.colour), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
             }
         }
