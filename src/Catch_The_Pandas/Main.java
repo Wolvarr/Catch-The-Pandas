@@ -13,7 +13,7 @@ public class Main extends Application {
 
 
         Parent root = FXMLLoader.load(getClass().getResource("MainGame.fxml"));
-        primaryStage.setTitle("Panda Pláza 9000 ÉLETED VÉGÉIG EZT A FOST FOGOD JÁTSZANI");
+        primaryStage.setTitle("Panda Pláza 9000  legjobb játék.java.jar.class.jpg");
 
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);

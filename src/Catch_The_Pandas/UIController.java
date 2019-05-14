@@ -221,6 +221,7 @@ public class UIController {
             mainGameCanvas.getGraphicsContext2D().drawImage(p.images.get(TileState.ok), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
             //ha létezik, a csempén álló játékelem rajzolása
             if (p.objectView != null) {
+                tileNodes.get(p).getOnObject().eachTurn();
                 System.out.println("gecisfasz: " + p.objectView.colour);
                 mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(p.objectView.colour), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
             }

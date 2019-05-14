@@ -172,7 +172,8 @@ public class Orangutan extends Animal {
 		for(Tile t : neighbours){
 			if (t.getOnObject()!=null)
 				//amennyiben bármelyik is igazzal tér vissza, az orángután nincs beszorulva
-				freetomove = freetomove || t.getOnObject().steppedOn(this);
+				//freetomove = freetomove || t.getOnObject().steppedOn(this);
+				freetomove = true;
 		}
 
 		//itt majd a game controller játék vége funkcióját hívjuk

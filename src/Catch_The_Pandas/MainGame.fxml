@@ -11,6 +11,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Catch_The_Pandas.UIController">
    <children>
@@ -33,12 +35,22 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Exit">
                      <items>
-                        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#exit" text="anyád" />
+                        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#exit" text="exit this dreadful game pls" />
                      </items></Menu>
               </menus>
             </MenuBar>
             <ListView fx:id="orangutanList" GridPane.rowIndex="1" />
-            <Button fx:id="releaseButton" layoutX="100.0" layoutY="100.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="1110.0" text="Release" GridPane.columnIndex="1" />
+            <Button fx:id="releaseButton" layoutX="100.0" layoutY="100.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="1110.0" text="Release" GridPane.columnIndex="1">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#5a6f00" offset="0.007662835249042145" />
+                        <Stop color="#030000" offset="0.45977011494252873" />
+                        <Stop color="#a4004d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill></Button>
             <Canvas fx:id="mainGameCanvas" height="763.0" width="1109.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
