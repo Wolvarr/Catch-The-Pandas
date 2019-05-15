@@ -25,7 +25,7 @@ public class UIController {
     //stores the tiles mapped to 2d points on the plane of the canvas
     private Map<OnTileObjectView, Tile> objectNodes = new HashMap<>();
     private Map<TileView, Tile> tileNodes = new ConcurrentHashMap<>();
-
+    boolean succesfulTurn;
     //contains the floor and the scores for each orangutan
     private Game game;
 
@@ -83,6 +83,7 @@ public class UIController {
             //starting from a large enough distance that every distance is going to be closer
             //(the window is definitely not 9999 pixels across)
             double smallestDistance = 9999;
+
             Tile selectedTile = null;
             TileView selectedTileView = null;
             //finds the closest point resembling a node
@@ -132,6 +133,12 @@ public class UIController {
             }
 
         });
+        refreshViews();
+        try {
+            drawSomeShit(new ActionEvent());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -223,10 +230,12 @@ public class UIController {
             //ha létezik, a csempén álló játékelem rajzolása
             if (p.objectView != null) {
                 tileNodes.get(p).getOnObject().eachTurn();
+                if(succesfulTurn)
                 System.out.println(p.objectView.colour);
                 mainGameCanvas.getGraphicsContext2D().drawImage(p.objectView.images.get(p.objectView.colour), p.location.getX() - radius, p.location.getY() - radius, 2 * radius, 2 * radius);
             }
         }
+
 
 
     }
